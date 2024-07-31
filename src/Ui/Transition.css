@@ -1,0 +1,11 @@
+.Transition {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--accent);
+  transform-origin: top;
+  z-index: 100000000;
+  pointer-events: none;
+}

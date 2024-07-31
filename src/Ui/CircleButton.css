@@ -1,0 +1,10 @@
+.CircleButton {
+  cursor: pointer;
+  display: flex;
+  position: relative;
+  border: solid 2px var(--white);
+}
+
+.CircleButton:hover {
+  border-color: var(--accent);
+}

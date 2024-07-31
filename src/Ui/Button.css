@@ -1,0 +1,29 @@
+button {
+  text-transform: uppercase;
+}
+
+button.lg {
+  padding: 20px 30px;
+  color: var(--dark);
+  background-color: var(--accent);
+  border-radius: 32px;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  line-height: 24px;
+  word-wrap: break-word;
+}
+
+button.secondary {
+  color: var(--white) !important;
+  border: solid 2px var(--white);
+  background-color: rgba(var(--dark-rgb), 0.4) !important;
+}
+
+@media (max-width: 640px) {
+  button.lg {
+    font-size: 14px !important;
+    /* line-height: 75px !important; */
+    padding: 10px 15px;
+  }
+}

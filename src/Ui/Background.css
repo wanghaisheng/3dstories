@@ -1,0 +1,25 @@
+.Background {
+  position: fixed;
+  display: block;
+  right: 0;
+  top: 0;
+  transform: translateX(50%) translateY(80%);
+  height: 600px;
+  width: 600px;
+  background-color: var(--bg);
+  filter: blur(400px);
+  z-index: -1;
+}
+
+.Background ~ .filled {
+  position: fixed;
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--dark);
+  z-index: -2;
+}
