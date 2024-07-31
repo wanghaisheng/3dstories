@@ -9,10 +9,11 @@ const Feature = ({ title, description, ref, i, lastItem, contents }) => {
     setShowFullscreenMode(true)
   }
 
-  const scrollDown = () => {
-    // setButtonClickCounter(0.5)
-    // console.log('Vertical scroll position:', scroll.offset)
-    // scroll.offset + 0.5
+  const scrollToInnerHeight = () => {
+    window.scrollTo({
+      top: window.innerHeight,
+      behavior: 'smooth', // Optional: for smooth scrolling
+    })
   }
 
   function findThisItem() {
@@ -30,7 +31,7 @@ const Feature = ({ title, description, ref, i, lastItem, contents }) => {
       {i === 0 ? (
         <>
           <Button
-            onClick={scrollDown}
+            onClick={scrollToInnerHeight}
             className='mt-5 w-full md:w-auto sm:mr-0 md:mr-3 xl2:mr-3 pointer-events-auto'
             value="Read model's story"
           />
@@ -50,7 +51,7 @@ const Feature = ({ title, description, ref, i, lastItem, contents }) => {
             value="Read model's story"
           />
           <Button
-            onClick={findThisItem}
+            onClick={flashionPlatform}
             type='secondary'
             className='mt-5 w-full md:w-auto sm:mr-0 md:mr-3 xl2:mr-3 pointer-events-auto'
             value='Find this item'
