@@ -2,8 +2,6 @@ import { Canvas, useFrame } from '@react-three/fiber'
 import { Environment, ScrollControls, useScroll } from '@react-three/drei'
 import { getProject, val } from '@theatre/core'
 import { editable as e, SheetProvider, PerspectiveCamera, useCurrentSheet } from '@theatre/r3f'
-import ScrollPageContainer from '../Ui/ScrollPageContainer'
-import ContentContainer from '../Ui/ContentContainer'
 import SpotLightWithHelper from '../SpotLightWithHelper'
 import { useAtom } from 'jotai'
 import { currentPageAtom, currentSceneAtom, watchLoadedAtom } from '../GlobalState'
@@ -44,63 +42,13 @@ const BlousonPage = () => {
   const sheet = getProject('Model Animation', { state: knightAni }).sheet('Scene')
 
   return (
-    <>
-      {watchLoaded && (
-        <>
-          <ScrollPageContainer>
-            <ContentContainer
-              fistBlock
-              cusromClassName={`${shouldAnimateScene1 ? 'tilt-in-top-1' : 'tilt-in-bottom-1'}`}
-            >
-              <h1 className='mb-5'>Blouson</h1>
-              <p>
-                Gravida arcu ac tortor dignissim convallis aenean. Nunc sed augue lacus viverra vitae congue eu
-                consequat ac. Accumsan tortor posuere ac ut consequat.
-              </p>
-              <Button className='mt-10 pointer-events-auto' value='SCROLL DOWN TO EXPLORE' />
-            </ContentContainer>
-          </ScrollPageContainer>
-          <ScrollPageContainer>
-            <ContentContainer
-              cusromClassName={`${hiddenState} ${shouldAnimateScene2 ? 'tilt-in-top-1' : 'tilt-in-bottom-1'}`}
-            >
-              <Feature
-                title='Title goes here 2'
-                description='Here is some description that I will get from Sabina, Here is some description that I will get from Sabina ...'
-              />
-            </ContentContainer>
-          </ScrollPageContainer>
-          <ScrollPageContainer>
-            <ContentContainer
-              cusromClassName={`${hiddenState} ${shouldAnimateScene3 ? 'tilt-in-top-1' : 'tilt-in-bottom-1'}`}
-            >
-              <Feature
-                title='Title goes here 3'
-                description='Here is some description that I will get from Sabina, Here is some description that I will get from Sabina ...'
-              />
-            </ContentContainer>
-          </ScrollPageContainer>
-          <ScrollPageContainer>
-            <ContentContainer
-              cusromClassName={`${hiddenState} ${shouldAnimateScene4 ? 'tilt-in-top-1' : 'tilt-in-bottom-1'}`}
-            >
-              <Feature
-                title='Title goes here 4'
-                description='Here is some description that I will get from Sabina, Here is some description that I will get from Sabina ...'
-              />
-            </ContentContainer>
-          </ScrollPageContainer>
-        </>
-      )}
-
-      <Canvas gl={{ physicallyCorrectLights: true, preserveDrawingBuffer: true }}>
-        <ScrollControls pages={3} distance={3} maxSpeed={1} damping={1}>
-          <SheetProvider sheet={sheet}>
-            <Scene />
-          </SheetProvider>
-        </ScrollControls>
-      </Canvas>
-    </>
+    <Canvas gl={{ physicallyCorrectLights: true, preserveDrawingBuffer: true }}>
+      <ScrollControls pages={3} distance={3} maxSpeed={1} damping={1}>
+        <SheetProvider sheet={sheet}>
+          <Scene />
+        </SheetProvider>
+      </ScrollControls>
+    </Canvas>
   )
 }
 
