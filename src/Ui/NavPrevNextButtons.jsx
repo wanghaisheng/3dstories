@@ -7,7 +7,7 @@ import { useSpring, a } from 'react-spring'
 
 const routes = ['/', '/knight', '/riegelhauber']
 
-const NavPrevNextButtons = ({ threshold = 0, thresholdGoUp = 1 }) => {
+const NavPrevNextButtons = ({ threshold = 0, thresholdGoUp = 1, scrollToTop }) => {
   const isVisible = useRef(true)
   const isVisibleScrollUp = useRef(true)
   const initiallScrollRatioRef = useRef(useScrollStore.getState().scrollRatio)
@@ -26,13 +26,6 @@ const NavPrevNextButtons = ({ threshold = 0, thresholdGoUp = 1 }) => {
     if (currentIndex > 0) {
       navigate(routes[currentIndex - 1])
     }
-  }
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: window.top,
-      behavior: 'smooth', // Optional: for smooth scrolling
-    })
   }
 
   const [styles, api] = useSpring(() => ({
