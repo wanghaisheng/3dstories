@@ -46,7 +46,6 @@ const Features = () => {
   return (
     <>
       <a.div style={styles} className='Features fixed'>
-        {location.pathname}
         {contents.sections.map((d, i, arr) => (
           <div
             className={`Features h-screen flex ${
