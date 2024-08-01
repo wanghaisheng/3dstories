@@ -110,7 +110,7 @@ const Scene = ({ buttonClickCounter }) => {
       {/* <SpotLightWithHelper theatreKey='Spot Light 1' position={[0, 0, 0]} intensity={1} showHelper={false} />
       <SpotLightWithHelper theatreKey='Spot Light 2' position={[0, 0, 0]} intensity={1} showHelper={false} /> */}
 
-      <group ref={robeRef} position={[isBigScreen ? 2 : 0, 0, 0]}>
+      <group ref={robeRef} position={isBigScreen ? [2, 0, 0] : [1, 0, 0]} scale={isBigScreen ? 1 : 0.7}>
         <Robe position={[0, 0, 0]} rotation={0} />
       </group>
     </>

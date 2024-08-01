@@ -2,11 +2,12 @@ import LogoFhp from '../Svg/LogoFhp'
 import LogoUcl from '../Svg/LogoUcl'
 import LogoUni from '../Svg/LogoUni'
 import { useMediaQuery } from 'react-responsive'
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import { useScrollStore } from '../components/ScrollManager'
 import { useSpring, a } from 'react-spring'
 
 const Footer = ({ thresholdFooter = 1 }) => {
+  const [footerLinks, setFooterLinks] = useState(false)
   const initiallScrollRatioRef = useRef(useScrollStore.getState().scrollRatio)
   const isVisibleFooter = useRef(true)
   const isBigScreen = useMediaQuery({ query: '(min-width: 640px)' })
@@ -18,6 +19,13 @@ const Footer = ({ thresholdFooter = 1 }) => {
   useEffect(
     () =>
       useScrollStore.subscribe((state) => {
+        initiallScrollRatioRef.current = state.scrollRatio
+        if (isVisibleFooter.current === true) {
+          setFooterLinks(true)
+        } else {
+          setFooterLinks(false)
+        }
+        console.log('footerLinks', footerLinks, initiallScrollRatioRef.current)
         if (state.scrollRatio < thresholdFooter && isVisibleFooter.current) {
           isVisibleFooter.current = false
           apiScrollUp.start({
@@ -38,7 +46,9 @@ const Footer = ({ thresholdFooter = 1 }) => {
   return (
     <a.footer
       style={stylesScrollUp}
-      className='w-screen pointer-events-auto fixed w-screen bottom-0 left-0 flex flex-wrap p-5 sm:p-10 items-center'
+      className={`w-screen ${
+        footerLinks === false ? 'pointer-events-none' : 'pointer-events-auto'
+      } fixed w-screen bottom-0 left-0 flex flex-wrap p-5 sm:p-10 items-center`}
     >
       <div className='flex z-40 flex-wrap w-screen justify-between '>
         <div className='footer-left justify-between md:justify-start flex-wrap flex flex-row items-center flex-grow'>
