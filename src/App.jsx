@@ -17,13 +17,21 @@ import { useRef } from 'react'
 function App() {
   const pageRef = useRef(useScrollStore.getState().page)
   const [fullscreenMode] = useAtom(showFullscreenMode)
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: window.top,
+      behavior: 'smooth', // Optional: for smooth scrolling
+    })
+  }
+
   console.log('fullscreenMode', fullscreenMode)
 
   console.log('PAGE-REF', pageRef)
   return (
     <>
-      <Header />
-      <NavPrevNextButtons />
+      <Header scrollToTop={scrollToTop} />
+      <NavPrevNextButtons scrollToTop={scrollToTop} />
       {/* <AnimatePresence> */}
       {fullscreenMode === true ? <FullscreenModelPage /> : null}
       <Routes location={location} key={location.pathname}>
@@ -38,7 +46,7 @@ function App() {
       </Routes>
       <ContentManager />
       {/* </AnimatePresence> */}
-      <Footer /> :
+      <Footer />
       <Background />
     </>
   )
