@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import { currentPage, scrollOffset } from '../GlobalState'
 import { useSetAtom } from 'jotai'
 import { create } from 'zustand'
+import { useMediaQuery } from 'react-responsive'
 
 export const useScrollStore = create((set) => ({
   scrollRatio: 0,
@@ -17,6 +18,7 @@ export const useScrollStore = create((set) => ({
 }))
 
 const ScrollManager = ({ pages = [] }) => {
+  const isBigScreen = useMediaQuery({ query: '(min-width: 440px)' })
   const windowHeight = useRef(window.innerHeight)
   const setScrollOffset = useSetAtom(scrollOffset)
   const setCurrentPage = useSetAtom(currentPage)
@@ -62,7 +64,10 @@ const ScrollManager = ({ pages = [] }) => {
           className='page-content'
           key={'i' + i}
           style={{
-            height: i === arr.length - 1 ? window.innerHeight + window.innerHeight / 4 : window.innerHeight,
+            height:
+              i === arr.length - 1
+                ? window.innerHeight + window.innerHeight / (isBigScreen ? 4 : 3)
+                : window.innerHeight,
             // border: '1px solid blue',
           }}
         ></div>
