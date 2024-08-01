@@ -57,12 +57,12 @@ const ScrollManager = ({ pages = [] }) => {
         height: pages.length * window.innerHeight,
       }}
     >
-      {pages.map((d, i) => (
+      {pages.map((d, i, arr) => (
         <div
           className='page-content'
           key={'i' + i}
           style={{
-            height: window.innerHeight,
+            height: i === arr.length - 1 ? window.innerHeight + window.innerHeight / 4 : window.innerHeight,
             // border: '1px solid blue',
           }}
         ></div>
