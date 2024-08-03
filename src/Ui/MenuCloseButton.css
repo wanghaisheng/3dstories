@@ -1,0 +1,48 @@
+.MenuCloseButton {
+  display: flex;
+  flex-direction: column;
+  height: 32px;
+  width: 32px;
+  align-items: center;
+  justify-content: space-around;
+  cursor: pointer;
+  overflow: hidden;
+  transform-origin: center;
+}
+
+.MenuCloseButton .menu-bar {
+  display: flex;
+  height: 32px;
+  width: 32px;
+  align-items: center;
+  justify-content: space-around;
+  height: 2px;
+  background-color: var(--white);
+  transform-origin: center;
+  transition: all 0.5s ease-in-out;
+}
+
+.MenuCloseButton .menu-bar.one {
+  width: 100%;
+  transform: translateY(2px);
+}
+
+.MenuCloseButton .menu-bar.three {
+  width: 100%;
+  transform: translateY(-2px);
+}
+
+.MenuCloseButton .menu-bar.two {
+  width: 70%;
+}
+
+.MenuCloseButton.cross-icon .menu-bar {
+  width: 50%;
+}
+
+.MenuCloseButton.cross-icon .menu-bar.one {
+  transform: translateY(10.5px);
+}
+.MenuCloseButton.cross-icon .menu-bar.three {
+  transform: translateY(-10.5px);
+}

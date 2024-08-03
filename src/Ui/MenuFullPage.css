@@ -1,0 +1,23 @@
+.MenuFullPage {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  z-index: var(--z-fullscreen-menu);
+  position: fixed;
+  top: 0;
+  left: 0;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(var(--dark-rgb), 0.95);
+  font-family: 'stardom';
+  font-size: 2rem;
+  text-align: center;
+  padding: 2rem;
+}
+
+@media (max-width: 640px) {
+  .MenuFullPage {
+    font-size: 1.4rem;
+    padding: 1rem;
+  }
+}

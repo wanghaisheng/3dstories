@@ -13,8 +13,11 @@ import ContentManager from './components/ContentManager'
 import { useScrollStore } from './components/ScrollManager'
 import NavPrevNextButtons from './Ui/NavPrevNextButtons'
 import { useRef } from 'react'
+import MenuFullPage from './Ui/MenuFullPage'
+import useStore from './GlobalState'
 
 function App() {
+  const isMenuOpen = useStore((state) => state.isMenuOpen)
   const pageRef = useRef(useScrollStore.getState().page)
   const [fullscreenMode] = useAtom(showFullscreenMode)
 
@@ -31,6 +34,7 @@ function App() {
   return (
     <>
       <Header scrollToTop={scrollToTop} />
+      <MenuFullPage isMenuOpen={isMenuOpen} />
       <NavPrevNextButtons scrollToTop={scrollToTop} />
       {/* <AnimatePresence> */}
       {fullscreenMode === true ? <FullscreenModelPage /> : null}
