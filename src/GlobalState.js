@@ -13,9 +13,11 @@ export const buttonClickCounterAtom = atom(0)
 export const scrollOffset = atom(0)
 export const currentPage = atom(0)
 
-const useStore = create((set) => ({
+const useStore = create(set => ({
   isMenuOpen: false,
-  toggleMenu: () => set((state) => ({ isMenuOpen: !state.isMenuOpen })),
+  toggleMenu: () => set(state => ({ isMenuOpen: !state.isMenuOpen })),
+  showFullscreenMode: false,
+  toggleShowFullscreenMode: () => set(state => ({ showFullscreenMode: !state.showFullscreenMode }))
 }))
 
 export default useStore

@@ -13,7 +13,7 @@
   --bg-rgb: 203, 144, 165;
 
   /* z-index */
-  --z-header: 101;
+  --z-header: 2;
   --z-fullscreen-menu: 100;
 }
 

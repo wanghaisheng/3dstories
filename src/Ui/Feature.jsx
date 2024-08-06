@@ -1,18 +1,21 @@
-import { useSetAtom } from 'jotai'
-import { showFullscreenMode } from '../GlobalState'
+import useStore from '../GlobalState'
 import Button from './Button'
 
 const Feature = ({ title, description, ref, i, lastItem, contents }) => {
-  const setShowFullscreenMode = useSetAtom(showFullscreenMode)
+  const showFullscreenMode = useStore(state => state.showFullscreenMode)
 
   const fullscreenMode = () => {
-    setShowFullscreenMode(true)
+    if (showFullscreenMode === false) {
+      useStore.setState({ showFullscreenMode: true })
+    } else {
+      useStore.setState({ showFullscreenMode: false })
+    }
   }
 
   const scrollToInnerHeight = () => {
     window.scrollTo({
       top: window.innerHeight,
-      behavior: 'smooth', // Optional: for smooth scrolling
+      behavior: 'smooth' // Optional: for smooth scrolling
     })
   }
 
@@ -27,19 +30,19 @@ const Feature = ({ title, description, ref, i, lastItem, contents }) => {
   return (
     <div className={`Feature ${i === 0 ? null : `bg-black/50`} text-left py-8 px-10`}>
       {i === 0 ? <h1 ref={ref}>{title}</h1> : <h2 ref={ref}>{title}</h2>}
-      <p className='my-5' dangerouslySetInnerHTML={{ __html: description }}></p>
+      <p className="my-5" dangerouslySetInnerHTML={{ __html: description }}></p>
       {i === 0 ? (
         <>
           <Button
             onClick={scrollToInnerHeight}
-            className='mt-5 w-full md:w-auto sm:mr-0 md:mr-3 xl2:mr-3 pointer-events-auto'
+            className="mt-5 w-full md:w-auto sm:mr-0 md:mr-3 xl2:mr-3 pointer-events-auto"
             value="Read model's story"
           />
           <Button
             onClick={fullscreenMode}
-            type='secondary'
-            className='mt-5 mb-5 pointer-events-auto w-full md:w-auto'
-            value='Explore model'
+            type="secondary"
+            className="mt-5 mb-5 pointer-events-auto w-full md:w-auto"
+            value="Explore model"
           />
         </>
       ) : null}
@@ -47,14 +50,14 @@ const Feature = ({ title, description, ref, i, lastItem, contents }) => {
         <>
           <Button
             onClick={findThisItem}
-            className='mt-5 w-full md:w-auto sm:mr-0 md:mr-3 xl2:mr-3 pointer-events-auto'
+            className="mt-5 w-full md:w-auto sm:mr-0 md:mr-3 xl2:mr-3 pointer-events-auto"
             value="Read model's story"
           />
           <Button
             onClick={flashionPlatform}
-            type='secondary'
-            className='mt-5 w-full md:w-auto sm:mr-0 md:mr-3 xl2:mr-3 pointer-events-auto'
-            value='Find this item'
+            type="secondary"
+            className="mt-5 w-full md:w-auto sm:mr-0 md:mr-3 xl2:mr-3 pointer-events-auto"
+            value="Find this item"
           />
         </>
       ) : null}

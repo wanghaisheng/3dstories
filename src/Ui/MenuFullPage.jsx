@@ -2,8 +2,11 @@ import './MenuFullPage.css'
 import { NavLink } from 'react-router-dom'
 import { useSpring, a, config } from '@react-spring/web'
 import { useEffect } from 'react'
+import useStore from '../GlobalState'
 
-const MenuFullPage = ({ isMenuOpen }) => {
+const MenuFullPage = () => {
+  const isMenuOpen = useStore((state) => state.isMenuOpen)
+
   const [styles, api] = useSpring(() => ({
     transform: 'translateX(-100%)',
     config: config.slow,
@@ -32,7 +35,7 @@ const MenuFullPage = ({ isMenuOpen }) => {
           </li>
           <hr />
           <li>
-            <NavLink to='/'>About Project</NavLink>
+            <NavLink to='/about'>About Project</NavLink>
           </li>
         </ul>
       </menu>

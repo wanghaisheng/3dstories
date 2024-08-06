@@ -1,12 +1,9 @@
-import RiegelhaubePage from './Pages/RiegelhaubePage'
-import KnightPage from './Pages/KnightPage'
-import BlousonPage from './Pages/BlousonPage'
-import RobePage from './Pages/RobePage'
+// import RobePage from './Pages/RobePageewes'
 import Background from './Ui/Background'
 import Header from './Ui/Header'
 import { Route, Routes } from 'react-router-dom'
 import Footer from './Ui/Footer'
-import { currentSceneAtom, showFullscreenMode } from './GlobalState'
+import { showFullscreenMode } from './GlobalState'
 import { useAtom } from 'jotai'
 import FullscreenModelPage from './Pages/FullscreenModelPage'
 import ContentManager from './components/ContentManager'
@@ -15,16 +12,17 @@ import NavPrevNextButtons from './Ui/NavPrevNextButtons'
 import { useRef } from 'react'
 import MenuFullPage from './Ui/MenuFullPage'
 import useStore from './GlobalState'
+import GenericPage from './Pages/GenericPage'
+import Scene from './components/Scene'
 
 function App() {
-  const isMenuOpen = useStore((state) => state.isMenuOpen)
   const pageRef = useRef(useScrollStore.getState().page)
   const [fullscreenMode] = useAtom(showFullscreenMode)
 
   const scrollToTop = () => {
     window.scrollTo({
       top: window.top,
-      behavior: 'smooth', // Optional: for smooth scrolling
+      behavior: 'smooth' // Optional: for smooth scrolling
     })
   }
 
@@ -34,20 +32,13 @@ function App() {
   return (
     <>
       <Header scrollToTop={scrollToTop} />
-      <MenuFullPage isMenuOpen={isMenuOpen} />
+      <MenuFullPage />
       <NavPrevNextButtons scrollToTop={scrollToTop} />
-      {/* <AnimatePresence> */}
-      {fullscreenMode === true ? <FullscreenModelPage /> : null}
-      <Routes location={location} key={location.pathname}>
-        {fullscreenMode === false ? (
-          <>
-            <Route path='/' element={<RobePage />}></Route>
-            <Route path='/knight' element={<KnightPage />}></Route>
-            <Route path='/riegelhauber' element={<RiegelhaubePage />}></Route>
-            <Route path='/blouson' element={<BlousonPage />}></Route>{' '}
-          </>
-        ) : null}
+      <FullscreenModelPage />
+      <Routes>
+        <Route path="/about" element={<GenericPage />}></Route>
       </Routes>
+      <Scene />
       <ContentManager />
       {/* </AnimatePresence> */}
       <Footer />

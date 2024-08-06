@@ -1,4 +1,5 @@
-import RobeFeaturesContent from '../Data/contents.json'
+import RobeFeaturesContent from '../Data/robe.json'
+import AboutContent from '../Data/about.json'
 import { useLocation } from 'react-router-dom'
 import ScrollManager, { useScrollStore } from './ScrollManager'
 import Feature from '../Ui/Feature'
@@ -7,19 +8,19 @@ import { useSpring, a, config } from 'react-spring'
 import { useMediaQuery } from 'react-responsive'
 
 const IndexRoute = '/'
+const AboutRoute = '/about'
 
 const AvailableContents = {
-  IndexRoute: RobeFeaturesContent,
+  [IndexRoute]: RobeFeaturesContent,
+  // [AboutRoute]: AboutContent,
 }
-const Features = () => {
+const ContentManager = () => {
   const isBigScreen = useMediaQuery({ query: '(min-width: 440px)' })
   // Fetch initial state
   const ratioRef = useRef(useScrollStore.getState().scrollRatio)
   const pageRef = useRef(useScrollStore.getState().page)
   const location = useLocation()
-  const contents = AvailableContents[location.pathname] ?? AvailableContents.IndexRoute
-
-  console.info('[Features] rendering...', contents.sections.length)
+  const contents = AvailableContents[location.pathname]
 
   const [styles, api] = useSpring(() => ({
     y: 0,
@@ -34,21 +35,24 @@ const Features = () => {
         // api.start({
         //   y: -window.innerHeight * pageRef.current,
         // })
-        console.info('[Features] page changed', pageRef.current)
+        console.info('[ContentManager] page changed', pageRef.current)
       }
       api.start({
         y: -window.innerHeight * ratioRef.current,
       })
-      // console.info('[Features] scrolling', ratioRef.current)
+      // console.info('[ContentManager] scrolling', ratioRef.current)
     })
   }, [])
 
+  if (!contents) {
+    return null
+  }
   return (
     <>
-      <a.div style={styles} className='Features fixed'>
+      <a.div style={styles} className='ContentManager fixed'>
         {contents.sections.map((d, i, arr) => (
           <div
-            className={`Features h-screen flex ${
+            className={`ContentManager h-screen flex ${
               i === 0
                 ? `sm:translate-x-[0rem] md:translate-x-[1rem] lg:translate-x-[4rem] xl:translate-x-[14rem] lg:max-w-[50%] ${
                     isBigScreen ? 'items-center' : 'items-end'
@@ -72,4 +76,4 @@ const Features = () => {
   )
 }
 
-export default Features
+export default ContentManager
