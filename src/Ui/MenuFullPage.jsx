@@ -5,37 +5,37 @@ import { useEffect } from 'react'
 import useStore from '../GlobalState'
 
 const MenuFullPage = () => {
-  const isMenuOpen = useStore((state) => state.isMenuOpen)
+  const isMenuOpen = useStore(state => state.isMenuOpen)
 
   const [styles, api] = useSpring(() => ({
     transform: 'translateX(-100%)',
-    config: config.slow,
+    config: config.slow
   }))
 
   useEffect(() => {
     console.log('API', api.start)
     api.start({
       transform: isMenuOpen ? 'translateX(0%)' : 'translateX(-100%)',
-      opacity: isMenuOpen ? 1 : 0,
+      opacity: isMenuOpen ? 1 : 0
     })
   }, [isMenuOpen])
 
   return (
-    <a.section style={styles} className='MenuFullPage z-100'>
-      <menu className='flex flex'>
-        <ul className='flex flex-col items-center'>
+    <a.section style={styles} className="MenuFullPage z-100">
+      <menu className="flex flex">
+        <ul className="flex flex-col items-center">
           <li>
-            <NavLink to='/'>A luxurious Robe à la francaise</NavLink>
+            <NavLink to="/">A luxurious Robe à la francaise</NavLink>
           </li>
-          <li>
+          {/* <li>
             <NavLink to='/knight'>Knight</NavLink>
           </li>
           <li>
             <NavLink to='/riegelhauber'>Riegelhaube</NavLink>
-          </li>
+          </li> */}
           <hr />
           <li>
-            <NavLink to='/about'>About Project</NavLink>
+            <NavLink to="/about">About Project</NavLink>
           </li>
         </ul>
       </menu>
