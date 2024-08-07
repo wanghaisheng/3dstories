@@ -1,11 +1,10 @@
 import './Background.css'
 
-const Background = ({ transpartent }) => {
+const Background = () => {
   return (
-    <>
-      <div className='Background'></div>
-      {transpartent ? null : <div className='filled '></div>}
-    </>
+    <div className="Background">
+      <div className="filled "></div>
+    </div>
   )
 }
 
