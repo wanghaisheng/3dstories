@@ -13,10 +13,12 @@ const NavPrevNextButtons = ({ threshold = 0, thresholdGoUp = 1, scrollToTop }) =
   const isBigScreen = useMediaQuery({ query: '(min-width: 1280px)' })
   const navigate = useNavigate()
   const location = useLocation()
+  const pathname = location.pathname
 
   const currentRouteIndex = RoutesUsingButtons.findIndex(route => route.pathname === location.pathname)
 
-  const disableNextButton = currentRouteIndex === -1 || currentRouteIndex === RoutesUsingButtons.length - 1
+  // const disableNextButton = currentRouteIndex === -1 || currentRouteIndex === RoutesUsingButtons.length - 1
+  const disableNextButton = currentRouteIndex === 0
   const disablePreviousButton = currentRouteIndex < 1
 
   const handleNext = () => {
@@ -42,7 +44,7 @@ const NavPrevNextButtons = ({ threshold = 0, thresholdGoUp = 1, scrollToTop }) =
   }))
 
   const [{ x }, apiDisableButtons] = useSpring(() => {
-    x: 0
+    0
   })
 
   useEffect(() => {
@@ -87,17 +89,19 @@ const NavPrevNextButtons = ({ threshold = 0, thresholdGoUp = 1, scrollToTop }) =
   console.info('[NavPrevNextButtons] currentRouteIndex:', currentRouteIndex, RoutesUsingButtons, location.pathname)
 
   return (
-    <a.div style={{ x }} className="NavPrevNextButtons fixed top-0 bottom-0">
-      <div className="fixed z-10 w-screen" style={{ top: isBigScreen ? 'calc(50% - 130px)' : '15%' }}>
-        <a.div style={styles} className="absolute  flex xl:flex-col md:flex-row left-[1rem] lg:left-[5rem] ">
-          <a onClick={handlePrevious} disabled={disablePreviousButton}>
-            <CircleButton size={isBigScreen ? 120 : 80} rotate={180} />
-          </a>
-          <a className="relative" onClick={handleNext} disabled={disableNextButton}>
-            <CircleButton size={isBigScreen ? 120 : 80} className="xl:mt-5 xl:ml-0 ml-5" />
-          </a>
-        </a.div>
-      </div>
+    <a.div style={{ x }} className="NavPrevNextButtons z-[3] fixed top-0 bottom-0">
+      {pathname !== '/about' ? (
+        <div className="fixed w-screen" style={{ top: isBigScreen ? 'calc(50% - 130px)' : '15%' }}>
+          <a.div style={styles} className="absolute  flex xl:flex-col md:flex-row left-[1rem] lg:left-[5rem] ">
+            <a onClick={handlePrevious} disabled={disablePreviousButton}>
+              <CircleButton size={isBigScreen ? 120 : 80} rotate={180} />
+            </a>
+            <a className="relative" onClick={handleNext} disabled={disableNextButton}>
+              <CircleButton size={isBigScreen ? 120 : 80} className="xl:mt-5 xl:ml-0 ml-5" />
+            </a>
+          </a.div>
+        </div>
+      ) : null}
       <div
         className="go-to-top z-20 fixed flex flex-col"
         style={{ bottom: 'calc(15% + 50px)', left: isBigScreen ? '5rem' : 'calc(50% - 40px)' }}
