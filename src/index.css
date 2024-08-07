@@ -13,8 +13,9 @@
   --bg-rgb: 203, 144, 165;
 
   /* z-index */
-  --z-header: 2;
-  --z-fullscreen-menu: 100;
+  --z-header: 3;
+  --z-fullscreen-menu: 2;
+  --canvas: 0;
 }
 
 html,
@@ -31,6 +32,10 @@ body,
 
 body {
   background-color: var(--dark);
+}
+
+.Scene {
+  z-index: var(--canvas);
 }
 
 @font-face {
