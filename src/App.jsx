@@ -11,7 +11,6 @@ import { useScrollStore } from './components/ScrollManager'
 import NavPrevNextButtons from './Ui/NavPrevNextButtons'
 import { useRef } from 'react'
 import MenuFullPage from './Ui/MenuFullPage'
-import useStore from './GlobalState'
 import GenericPage from './Pages/GenericPage'
 import Scene from './components/Scene'
 

@@ -1,19 +1,19 @@
 export const IndexRoute = {
   pathname: '/',
-  isSmoothScrollActive: true,
+  isSmoothScrollActive: true
 }
 export const AboutRoute = {
   pathname: '/about',
-  isSmoothScrollActive: false,
+  isSmoothScrollActive: false
 }
-export const KnightsRoute = {
+export const KnightRoute = {
   pathname: '/knight',
-  isSmoothScrollActive: true,
+  isSmoothScrollActive: true
 }
 
 export const RiegelHauberRoute = {
   pathname: '/riegelhauber',
-  isSmoothScrollActive: true,
+  isSmoothScrollActive: true
 }
 
-export const RoutesUsingButtons = [IndexRoute, KnightsRoute, RiegelHauberRoute]
+export const RoutesUsingButtons = [IndexRoute, KnightRoute, RiegelHauberRoute]

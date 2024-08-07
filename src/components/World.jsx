@@ -5,11 +5,10 @@ import { useCurrentSheet, PerspectiveCamera } from '@theatre/r3f'
 import { useScrollStore } from './ScrollManager'
 import { val } from '@theatre/core'
 import { useMediaQuery } from 'react-responsive'
-import useStore from '../GlobalState'
-
 import Robe from '../modelComps/Robe'
+import { editable as e } from '@theatre/r3f'
 
-const World = () => {
+const World = ({ pathname = '/' }) => {
   const robeRef = useRef(null)
   const ratioRef = useRef(useScrollStore.getState().scrollRatio)
   const pageRef = useRef(useScrollStore.getState().page)
@@ -18,6 +17,8 @@ const World = () => {
 
   const sheet = useCurrentSheet()
   const sequenceLength = val(sheet.sequence.pointer.length)
+
+  console.info('[World] sequenceLength', sequenceLength, sheet.address.sheetId)
 
   const [, apiTheatre] = useSpring(() => ({
     position: 0,
@@ -41,6 +42,7 @@ const World = () => {
   }))
 
   useEffect(() => {
+    console.debug('[World] useEffect ', sheet.address.sheetId)
     return useScrollStore.subscribe(state => {
       ratioRef.current = state.scrollRatio
       apiTheatre.start({
@@ -53,27 +55,54 @@ const World = () => {
         console.info('[World] page changed', pageRef.current)
 
         // robe animation logic
-        apiRobe.start({
-          rotationY: pageRef.current === 6 || pageRef.current === 7 || pageRef.current === 8 ? 3 : 0
-        })
+        // apiRobe.start({
+        //   rotationY: pageRef.current === 6 || pageRef.current === 7 || pageRef.current === 8 ? 3 : 0
+        // })
       }
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [sequenceLength])
+  }, [sequenceLength, sheet.address.sheetId])
+
+  const changeOpacity = () => {
+    let modelOpacity = 1
+    if (pathname === '/about') {
+      modelOpacity = 0
+      console.info('modelOpacity', modelOpacity)
+    } else {
+      modelOpacity = 1
+      console.info('modelOpacityOne', modelOpacity)
+    }
+    return modelOpacity
+  }
+
+  // const [, apiOpacity] = useSpring(() => ({
+  //   opacity: 0,
+  //   config: config.slow,
+  //   onChange: ({ value }) => {
+  //     console.info('opacity', value.opacity)
+  //     if (robeRef.current) {
+  //       robeRef.current.opacity = value.opacity
+  //     }
+  //   }
+  // }))
 
   useLayoutEffect(() => {
-    robeRef.position = isBigScreen ? [2, 0, 0] : [1, 0, 0]
-  }, [isBigScreen])
-
+    console.info('[World] pathname changed to:', pathname)
+    // apiOpacity.start({
+    //   opacity: pathname === '/about' ? 0.1 : 1
+    // })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pathname])
   console.debug('[World] rendering')
 
   return (
     <>
       <Environment preset="studio" environmentIntensity={0.5} environmentRotation={[1, 1, 0]} />
       <PerspectiveCamera theatreKey="Camera" makeDefault position={[0, 0.2, 8]} fov={45} near={0.1} far={70} />
-      <group ref={robeRef} scale={isBigScreen ? 1 : 0.7}>
-        <Robe position={[0, 0, 0]} rotation={0} />
-        <Robe position={[10, 0, 0]} rotation={0} />
+      <group position={isBigScreen ? [0, 0, 0] : [-1, 0, 0]} scale={isBigScreen ? 1 : 0.7}>
+        <e.group theatreKey="Robe">
+          <Robe ref={robeRef} opacity={changeOpacity()} position={[0, 0, 0]} rotation={0} />
+        </e.group>
       </group>
     </>
   )

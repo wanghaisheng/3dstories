@@ -1,8 +1,12 @@
+import { useLocation } from 'react-router-dom'
 import useStore from '../GlobalState'
 import Button from './Button'
 
 const Feature = ({ title, description, ref, i, lastItem, contents }) => {
   const showFullscreenMode = useStore(state => state.showFullscreenMode)
+
+  const location = useLocation()
+  const pathname = location.pathname
 
   const fullscreenMode = () => {
     if (showFullscreenMode === false) {
@@ -31,8 +35,8 @@ const Feature = ({ title, description, ref, i, lastItem, contents }) => {
     <div className={`Feature ${i === 0 ? null : `bg-black/50`} text-left py-8 px-10`}>
       {i === 0 ? <h1 ref={ref}>{title}</h1> : <h2 ref={ref}>{title}</h2>}
       <p className="my-5" dangerouslySetInnerHTML={{ __html: description }}></p>
-      {i === 0 ? (
-        <>
+      {i === 0 && pathname !== '/about' ? (
+        <div className="intro-buttons">
           <Button
             onClick={scrollToInnerHeight}
             className="mt-5 w-full md:w-auto sm:mr-0 md:mr-3 xl2:mr-3 pointer-events-auto"
@@ -44,20 +48,20 @@ const Feature = ({ title, description, ref, i, lastItem, contents }) => {
             className="mt-5 mb-5 pointer-events-auto w-full md:w-auto"
             value="Explore model"
           />
-        </>
+        </div>
       ) : null}
       {lastItem ? (
         <>
           <Button
             onClick={findThisItem}
             className="mt-5 w-full md:w-auto sm:mr-0 md:mr-3 xl2:mr-3 pointer-events-auto"
-            value="Read model's story"
+            value="Database"
           />
           <Button
             onClick={flashionPlatform}
             type="secondary"
             className="mt-5 w-full md:w-auto sm:mr-0 md:mr-3 xl2:mr-3 pointer-events-auto"
-            value="Find this item"
+            value="Data visualization"
           />
         </>
       ) : null}
