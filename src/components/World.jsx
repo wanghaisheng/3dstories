@@ -99,7 +99,7 @@ const World = ({ pathname = '/' }) => {
     <>
       <Environment preset="studio" environmentIntensity={0.5} environmentRotation={[1, 1, 0]} />
       <PerspectiveCamera theatreKey="Camera" makeDefault position={[0, 0.2, 8]} fov={45} near={0.1} far={70} />
-      <group position={isBigScreen ? [0, 0, 0] : [-1, 0, 0]} scale={isBigScreen ? 1 : 0.7}>
+      <group position={isBigScreen ? [0, 0, 0] : [-1, 0, 0]} scale={isBigScreen ? 1 : 1}>
         <e.group theatreKey="Robe">
           <Robe ref={robeRef} opacity={changeOpacity()} position={[0, 0, 0]} rotation={0} />
         </e.group>
