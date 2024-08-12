@@ -3,6 +3,7 @@ import { currentPage, scrollOffset } from '../GlobalState'
 import { useSetAtom } from 'jotai'
 import { create } from 'zustand'
 import { useMediaQuery } from 'react-responsive'
+import { useViewportStore } from './ViewportManager'
 
 export const useScrollStore = create(set => ({
   scrollRatio: 0,
@@ -19,7 +20,8 @@ export const useScrollStore = create(set => ({
 
 const ScrollManager = ({ pages = [], pathname = '/' }) => {
   const isBigScreen = useMediaQuery({ query: '(min-width: 440px)' })
-  const windowHeight = useRef(window.innerHeight)
+  const windowHeight = useViewportStore(state => state.availableHeight)
+
   const setScrollOffset = useSetAtom(scrollOffset)
   const setCurrentPage = useSetAtom(currentPage)
   const setScrollRatio = useScrollStore(state => state.setScrollRatio)
@@ -31,8 +33,8 @@ const ScrollManager = ({ pages = [], pathname = '/' }) => {
     console.debug('[ScrollManager] @useEffect', '\n - pathname:', pathname, '\n - pathname:', pages.length)
     window.scrollTo(0, 0)
     const scrollme = () => {
-      const ratio = window.scrollY / (windowHeight.current * (pages.length - 1))
-      const currentPage = Math.round(window.scrollY / windowHeight.current)
+      const ratio = window.scrollY / (windowHeight * (pages.length - 1))
+      const currentPage = Math.round(window.scrollY / windowHeight)
       setScrollOffset(ratio)
       setScrollRatio(ratio)
       setCurrentPage(currentPage)
@@ -43,7 +45,7 @@ const ScrollManager = ({ pages = [], pathname = '/' }) => {
     return () => {
       window.removeEventListener('scroll', scrollme)
     }
-  }, [pages, pathname])
+  }, [pages, pathname, windowHeight])
 
   return (
     <div
