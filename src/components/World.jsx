@@ -49,7 +49,6 @@ const World = ({ pathname = '/' }) => {
     opacity: 0,
     config: config.slow,
     onChange: ({ value }) => {
-      console.info('opacity', value.opacity)
       if (robeRef.current) {
         robeRef.current.material.opacity = value.opacity
       }
