@@ -1,4 +1,5 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
+import { UAParser } from 'ua-parser-js'
 import { create } from 'zustand'
 
 export const useViewportStore = create(set => ({
@@ -23,14 +24,37 @@ export const useViewportStore = create(set => ({
 }))
 
 const ViewportManager = () => {
-  console.info('[ViewportManager] navigator.userAgent', navigator.userAgent)
-  const updateAvailableDimensions = useViewportStore(state => state.updateAvailableDimensions)
+  const parser = new UAParser()
+  const device = parser.getDevice()
+
+  console.info('[ViewportManager] \n - navigator.userAgent', navigator.userAgent, '\n - device:', device)
+  const isPortrait = useRef(window.innerHeight > window.innerWidth)
+
+  const [updateOrientation, updateAvailableDimensions] = useViewportStore(state => [
+    state.updateOrientation,
+    state.updateAvailableDimensions
+  ])
+
   useEffect(() => {
-    console.info('[ViewportManager] @useEffect')
     const resize = () => {
       // windowHeight.current = window.innerHeight
-      updateAvailableDimensions()
-      console.info('resize', window.innerHeight)
+      if (device.type === 'mobile') {
+        // detect if the device CHANGED from portrait to landscape mode
+        if (!isPortrait.current && window.innerHeight > window.innerWidth) {
+          console.info('[ViewportManager] @useEffect MOBILE resize dimensions...')
+          isPortrait.current = true
+          updateAvailableDimensions()
+          updateOrientation()
+        } else if (isPortrait.current && window.innerHeight < window.innerWidth) {
+          console.info('[ViewportManager] @useEffect MOBILE resize dimensions...')
+          isPortrait.current = false
+          updateOrientation()
+          updateAvailableDimensions()
+        }
+      } else {
+        console.info('[ViewportManager] @useEffect resize dimensions...')
+        updateAvailableDimensions()
+      }
     }
     window.addEventListener('resize', resize)
     return () => {
