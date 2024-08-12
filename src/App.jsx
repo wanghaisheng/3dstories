@@ -7,6 +7,7 @@ import { showFullscreenMode } from './GlobalState'
 import { useAtom } from 'jotai'
 import FullscreenModelPage from './Pages/FullscreenModelPage'
 import ContentManager from './components/ContentManager'
+import ViewportManager from './components/ViewportManager'
 import { useScrollStore } from './components/ScrollManager'
 import NavPrevNextButtons from './Ui/NavPrevNextButtons'
 import { useRef } from 'react'
@@ -39,6 +40,7 @@ function App() {
       </Routes>
       <Scene />
       <ContentManager />
+      <ViewportManager />
       {/* </AnimatePresence> */}
       <Footer />
       <Background />

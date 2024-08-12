@@ -3,7 +3,7 @@ import CircleButton from './CircleButton'
 import { useRef, useEffect } from 'react'
 import { useMediaQuery } from 'react-responsive'
 import { useScrollStore } from '../components/ScrollManager'
-import { useSpring, a } from 'react-spring'
+import { useSpring, a } from '@react-spring/web'
 import { RoutesUsingButtons } from '../constants'
 
 const NavPrevNextButtons = ({ threshold = 0, thresholdGoUp = 1, scrollToTop }) => {

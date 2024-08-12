@@ -24,8 +24,8 @@
     "react-dom": "^18.3.1",
     "react-responsive": "^10.0.0",
     "react-router-dom": "^6.24.1",
-    "react-spring": "^9.7.4",
     "three": "^0.166.1",
+    "ua-parser-js": "^1.0.38",
     "zustand": "^4.5.4"
   },
   "devDependencies": {
@@ -44,5 +44,8 @@
     "prettier": "^3.3.3",
     "tailwindcss": "^3.4.4",
     "vite": "^5.3.1"
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "4.20.0"
   }
 }

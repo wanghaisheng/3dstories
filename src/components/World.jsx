@@ -28,19 +28,6 @@ const World = ({ pathname = '/' }) => {
     }
   }))
 
-  const [, apiRobe] = useSpring(() => ({
-    rotationY: 0,
-    config: {
-      easing: easings.easeInOutQuad,
-      duration: 2500
-    }, // { mass: 1, tension: 170, friction: 26 },
-    onChange: ({ value }) => {
-      if (robeRef.current) {
-        robeRef.current.rotation.y = value.rotationY
-      }
-    }
-  }))
-
   useEffect(() => {
     console.debug('[World] useEffect ', sheet.address.sheetId)
     return useScrollStore.subscribe(state => {
@@ -52,45 +39,27 @@ const World = ({ pathname = '/' }) => {
       // page change logic
       if (pageRef.current !== state.page) {
         pageRef.current = state.page
-        console.info('[World] page changed', pageRef.current)
-
-        // robe animation logic
-        // apiRobe.start({
-        //   rotationY: pageRef.current === 6 || pageRef.current === 7 || pageRef.current === 8 ? 3 : 0
-        // })
+        console.info('[World] no render - page changed', pageRef.current)
       }
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sequenceLength, sheet.address.sheetId])
 
-  const changeOpacity = () => {
-    let modelOpacity = 1
-    if (pathname === '/about') {
-      modelOpacity = 0
-      console.info('modelOpacity', modelOpacity)
-    } else {
-      modelOpacity = 1
-      console.info('modelOpacityOne', modelOpacity)
+  const [, apiOpacity] = useSpring(() => ({
+    opacity: 0,
+    config: config.slow,
+    onChange: ({ value }) => {
+      if (robeRef.current) {
+        robeRef.current.material.opacity = value.opacity
+      }
     }
-    return modelOpacity
-  }
-
-  // const [, apiOpacity] = useSpring(() => ({
-  //   opacity: 0,
-  //   config: config.slow,
-  //   onChange: ({ value }) => {
-  //     console.info('opacity', value.opacity)
-  //     if (robeRef.current) {
-  //       robeRef.current.opacity = value.opacity
-  //     }
-  //   }
-  // }))
+  }))
 
   useLayoutEffect(() => {
     console.info('[World] pathname changed to:', pathname)
-    // apiOpacity.start({
-    //   opacity: pathname === '/about' ? 0.1 : 1
-    // })
+    apiOpacity.start({
+      opacity: pathname === '/about' ? 0.1 : 1
+    })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname])
   console.debug('[World] rendering')
@@ -101,7 +70,7 @@ const World = ({ pathname = '/' }) => {
       <PerspectiveCamera theatreKey="Camera" makeDefault position={[0, 0.2, 8]} fov={45} near={0.1} far={70} />
       <group position={isBigScreen ? [0, 0, 0] : [-1, 0, 0]} scale={isBigScreen ? 1 : 1}>
         <e.group theatreKey="Robe">
-          <Robe ref={robeRef} opacity={changeOpacity()} position={[0, 0, 0]} rotation={0} />
+          <Robe ref={robeRef} position={[0, 0, 0]} rotation={0} />
         </e.group>
       </group>
     </>
