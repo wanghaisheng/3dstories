@@ -4,7 +4,7 @@ import LogoUni from '../Svg/LogoUni'
 import { useMediaQuery } from 'react-responsive'
 import { useRef, useEffect, useState } from 'react'
 import { useScrollStore } from '../components/ScrollManager'
-import { useSpring, a } from 'react-spring'
+import { useSpring, a } from '@react-spring/web'
 
 const Footer = ({ thresholdFooter = 1 }) => {
   const [footerLinks, setFooterLinks] = useState(false)

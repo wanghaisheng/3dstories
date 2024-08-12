@@ -5,7 +5,7 @@ import { useLocation } from 'react-router-dom'
 import ScrollManager, { useScrollStore } from './ScrollManager'
 import Feature from '../Ui/Feature'
 import { useEffect, useRef } from 'react'
-import { useSpring, a, config } from 'react-spring'
+import { useSpring, a, config } from '@react-spring/web'
 import { useMediaQuery } from 'react-responsive'
 // import { RoutesUsingButtons } from '../constants'
 
