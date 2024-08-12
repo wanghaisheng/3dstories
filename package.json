@@ -26,6 +26,7 @@
     "react-router-dom": "^6.24.1",
     "react-spring": "^9.7.4",
     "three": "^0.166.1",
+    "ua-parser-js": "^1.0.38",
     "zustand": "^4.5.4"
   },
   "devDependencies": {
