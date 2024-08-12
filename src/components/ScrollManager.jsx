@@ -5,10 +5,8 @@ import { create } from 'zustand'
 import { useMediaQuery } from 'react-responsive'
 
 export const useScrollStore = create(set => ({
-  windowHeight: window.innerHeight,
   scrollRatio: 0,
   page: 0,
-  setWindowHeight: windowHeight => set({ windowHeight }),
   setScrollRatio: scrollRatio =>
     set({
       scrollRatio
@@ -40,15 +38,10 @@ const ScrollManager = ({ pages = [], pathname = '/' }) => {
       setCurrentPage(currentPage)
       setPage(currentPage)
     }
-    const resize = () => {
-      // windowHeight.current = window.innerHeight
-      console.info('resize', window.innerHeight)
-    }
+
     window.addEventListener('scroll', scrollme)
-    window.addEventListener('resize', resize)
     return () => {
       window.removeEventListener('scroll', scrollme)
-      window.removeEventListener('resize', resize)
     }
   }, [pages, pathname])
 
