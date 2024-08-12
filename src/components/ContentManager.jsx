@@ -23,8 +23,11 @@ const ContentManager = () => {
   // Fetch initial state
   const ratioRef = useRef(useScrollStore.getState().scrollRatio)
   const pageRef = useRef(useScrollStore.getState().page)
-  const location = useLocation()
-  const contents = AvailableContents[location.pathname]
+  const totalPagesRef = useRef(0)
+
+  const { pathname } = useLocation()
+
+  const contents = AvailableContents[pathname]
 
   const [styles, api] = useSpring(() => ({
     y: 0,
@@ -32,8 +35,13 @@ const ContentManager = () => {
   }))
 
   useEffect(() => {
+    console.info('[ContentManager] @useEffect pathname', pathname)
+    totalPagesRef.current = contents.sections.length
+  }, [pathname])
+
+  useEffect(() => {
     return useScrollStore.subscribe(state => {
-      ratioRef.current = state.scrollRatio * (contents.sections.length - 1)
+      ratioRef.current = state.scrollRatio * (totalPagesRef.current - 1)
       if (pageRef.current !== state.page) {
         pageRef.current = state.page
         // api.start({
@@ -48,9 +56,6 @@ const ContentManager = () => {
     })
   }, [])
 
-  if (!contents) {
-    return null
-  }
   return (
     <>
       <a.div style={styles} className="ContentManager fixed">
@@ -63,7 +68,7 @@ const ContentManager = () => {
                   }`
                 : `sm:translate-x-[0rem] lg:translate-x-[4rem] md:max-w-[60%] lg:max-w-[50%] 2xl:max-w-[40%] items-center`
             }`}
-            key={d.path}
+            key={d.path ?? i}
           >
             <Feature
               contents={contents}
@@ -75,7 +80,7 @@ const ContentManager = () => {
           </div>
         ))}
       </a.div>
-      <ScrollManager pages={contents.sections} />
+      <ScrollManager pages={contents.sections} pathname={pathname} />
     </>
   )
 }
