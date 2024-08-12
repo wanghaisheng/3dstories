@@ -7,6 +7,7 @@ import Feature from '../Ui/Feature'
 import { useEffect, useRef } from 'react'
 import { useSpring, a, config } from '@react-spring/web'
 import { useMediaQuery } from 'react-responsive'
+import { useViewportStore } from './ViewportManager'
 // import { RoutesUsingButtons } from '../constants'
 
 const IndexRoute = '/'
@@ -20,6 +21,7 @@ const AvailableContents = {
 }
 const ContentManager = () => {
   const isBigScreen = useMediaQuery({ query: '(min-width: 440px)' })
+  const availableHeight = useViewportStore(state => state.availableHeight)
   // Fetch initial state
   const ratioRef = useRef(useScrollStore.getState().scrollRatio)
   const pageRef = useRef(useScrollStore.getState().page)
@@ -61,7 +63,8 @@ const ContentManager = () => {
       <a.div style={styles} className="ContentManager fixed">
         {contents.sections.map((d, i, arr) => (
           <div
-            className={`ContentManager h-screen flex ${
+            style={{ height: availableHeight }}
+            className={`ContentManager flex ${
               i === 0
                 ? `sm:translate-x-[0rem] md:translate-x-[1rem] lg:translate-x-[4rem] xl:translate-x-[14rem] lg:max-w-[50%] ${
                     isBigScreen ? 'items-center' : 'items-end'
