@@ -4,30 +4,34 @@ import { useSetAtom } from 'jotai'
 import { create } from 'zustand'
 import { useMediaQuery } from 'react-responsive'
 
-export const useScrollStore = create((set) => ({
+export const useScrollStore = create(set => ({
+  windowHeight: window.innerHeight,
   scrollRatio: 0,
   page: 0,
-  setScrollRatio: (scrollRatio) =>
+  setWindowHeight: windowHeight => set({ windowHeight }),
+  setScrollRatio: scrollRatio =>
     set({
-      scrollRatio,
+      scrollRatio
     }),
-  setPage: (page) =>
+  setPage: page =>
     set({
-      page,
-    }),
+      page
+    })
 }))
 
-const ScrollManager = ({ pages = [] }) => {
+const ScrollManager = ({ pages = [], pathname = '/' }) => {
   const isBigScreen = useMediaQuery({ query: '(min-width: 440px)' })
   const windowHeight = useRef(window.innerHeight)
   const setScrollOffset = useSetAtom(scrollOffset)
   const setCurrentPage = useSetAtom(currentPage)
-  const setScrollRatio = useScrollStore((state) => state.setScrollRatio)
-  const setPage = useScrollStore((state) => state.setPage)
+  const setScrollRatio = useScrollStore(state => state.setScrollRatio)
+  const setPage = useScrollStore(state => state.setPage)
 
   console.info('[ScrollManager] rendered', pages)
 
   useEffect(() => {
+    console.debug('[ScrollManager] @useEffect', '\n - pathname:', pathname, '\n - pathname:', pages.length)
+    window.scrollTo(0, 0)
     const scrollme = () => {
       const ratio = window.scrollY / (windowHeight.current * (pages.length - 1))
       const currentPage = Math.round(window.scrollY / windowHeight.current)
@@ -35,10 +39,9 @@ const ScrollManager = ({ pages = [] }) => {
       setScrollRatio(ratio)
       setCurrentPage(currentPage)
       setPage(currentPage)
-      console.info('[ScrollManager] scrolling', pages.length, window.scrollY, ratio, currentPage)
     }
     const resize = () => {
-      windowHeight.current = window.innerHeight
+      // windowHeight.current = window.innerHeight
       console.info('resize', window.innerHeight)
     }
     window.addEventListener('scroll', scrollme)
@@ -47,7 +50,8 @@ const ScrollManager = ({ pages = [] }) => {
       window.removeEventListener('scroll', scrollme)
       window.removeEventListener('resize', resize)
     }
-  }, [pages])
+  }, [pages, pathname])
+
   return (
     <div
       style={{
@@ -56,18 +60,18 @@ const ScrollManager = ({ pages = [] }) => {
         left: 0,
         top: 0,
         width: '100%',
-        height: pages.length * window.innerHeight,
+        height: pages.length * window.innerHeight
       }}
     >
       {pages.map((d, i, arr) => (
         <div
-          className='page-content'
+          className="page-content"
           key={'i' + i}
           style={{
             height:
               i === arr.length - 1
                 ? window.innerHeight + window.innerHeight / (isBigScreen ? 4 : 3)
-                : window.innerHeight,
+                : window.innerHeight
             // border: '1px solid blue',
           }}
         ></div>
