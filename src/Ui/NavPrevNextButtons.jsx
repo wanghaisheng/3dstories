@@ -89,7 +89,7 @@ const NavPrevNextButtons = ({ threshold = 0, thresholdGoUp = 1, scrollToTop }) =
   console.info('[NavPrevNextButtons] currentRouteIndex:', currentRouteIndex, RoutesUsingButtons, location.pathname)
 
   return (
-    <a.div style={{ x }} className="NavPrevNextButtons z-[3] fixed top-0 bottom-0">
+    <a.div style={{ x }} className="NavPrevNextButtons z-[3] absolute top-0 bottom-0">
       {pathname !== '/about' ? (
         <div className="fixed w-screen" style={{ top: isBigScreen ? 'calc(50% - 130px)' : '15%' }}>
           <a.div style={styles} className="absolute  flex xl:flex-col md:flex-row left-[1rem] lg:left-[5rem] ">
