@@ -1,5 +1,5 @@
 import RobeFeaturesContent from '../Data/robe.json'
-import KnightContent from '../Data/knight.json'
+import GreekStyleDressContent from '../Data/greekStyleDress.json'
 import AboutContent from '../Data/about.json'
 import { useLocation } from 'react-router-dom'
 import ScrollManager, { useScrollStore } from './ScrollManager'
@@ -8,16 +8,15 @@ import { useEffect, useRef } from 'react'
 import { useSpring, a, config } from '@react-spring/web'
 import { useMediaQuery } from 'react-responsive'
 import { useViewportStore } from './ViewportManager'
-// import { RoutesUsingButtons } from '../constants'
 
 const IndexRoute = '/'
+const GreekStyleDressRoute = '/greek_style_dress'
 const AboutRoute = '/about'
-const KnightRoute = '/knight'
 
 const AvailableContents = {
   [IndexRoute]: RobeFeaturesContent,
-  [AboutRoute]: AboutContent,
-  [KnightRoute]: KnightContent
+  [GreekStyleDressRoute]: GreekStyleDressContent,
+  [AboutRoute]: AboutContent
 }
 const ContentManager = () => {
   const isBigScreen = useMediaQuery({ query: '(min-width: 440px)' })
