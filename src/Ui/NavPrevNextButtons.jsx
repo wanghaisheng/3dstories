@@ -17,8 +17,8 @@ const NavPrevNextButtons = ({ threshold = 0, thresholdGoUp = 1, scrollToTop }) =
 
   const currentRouteIndex = RoutesUsingButtons.findIndex(route => route.pathname === location.pathname)
 
-  // const disableNextButton = currentRouteIndex === -1 || currentRouteIndex === RoutesUsingButtons.length - 1
-  const disableNextButton = currentRouteIndex === 0
+  const disableNextButton = currentRouteIndex === -1 || currentRouteIndex === RoutesUsingButtons.length - 1
+  // const disableNextButton = currentRouteIndex === 0
   const disablePreviousButton = currentRouteIndex < 1
 
   const handleNext = () => {
@@ -28,7 +28,8 @@ const NavPrevNextButtons = ({ threshold = 0, thresholdGoUp = 1, scrollToTop }) =
   }
 
   const handlePrevious = () => {
-    if (disablePreviousButton) {
+    if (!disablePreviousButton) {
+      console.info('Cannot go back', currentRouteIndex)
       navigate(RoutesUsingButtons[currentRouteIndex - 1].pathname)
     }
   }
@@ -85,7 +86,7 @@ const NavPrevNextButtons = ({ threshold = 0, thresholdGoUp = 1, scrollToTop }) =
       }),
     []
   )
-
+  console.info('Go forward', currentRouteIndex)
   console.info('[NavPrevNextButtons] currentRouteIndex:', currentRouteIndex, RoutesUsingButtons, location.pathname)
 
   return (
