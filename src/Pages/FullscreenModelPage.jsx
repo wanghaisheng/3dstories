@@ -1,12 +1,13 @@
 import './Pages.css'
 import useStore from '../GlobalState'
 import { Canvas } from '@react-three/fiber'
-import { Box, Environment, OrbitControls } from '@react-three/drei'
-
-import Robe from '../modelComps/Robe'
+import { Environment, OrbitControls } from '@react-three/drei'
 import Background from '../Ui/Background'
 
-const FullscreenModelPage = () => {
+import RobeFrancaiseModel from '../modelComps/RobeFrancaiseModel'
+import GreekStyleDressModel from '../modelComps/GreekStyleDressModel'
+
+const FullscreenModelPage = ({ pathname }) => {
   const showFullscreenMode = useStore(state => state.showFullscreenMode)
 
   const fullscreenMode = () => {
@@ -30,8 +31,10 @@ const FullscreenModelPage = () => {
       </button>
       <Canvas gl={{ physicallyCorrectLights: true, preserveDrawingBuffer: true }}>
         <OrbitControls autoRotate={true} />
-        <Environment preset="studio" environmentIntensity={0.5} environmentRotation={[1, 1, 0]} />
-        <Robe position={[0, 0, 0]} rotation={0} />
+        <ambientLight intensity={1} />
+        <Environment preset="studio" environmentIntensity={0.1} environmentRotation={[1, 1, 0]} />
+        {pathname === '/' ? <RobeFrancaiseModel position={[0, 0, 0]} rotation={0} /> : null}
+        {pathname === '/greek_style_dress' ? <GreekStyleDressModel position={[0, -2.2, 0]} rotation={0} /> : null}
       </Canvas>
       {showFullscreenMode ? <Background /> : null}
     </div>
