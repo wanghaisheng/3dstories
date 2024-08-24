@@ -1,4 +1,3 @@
-// import RobePage from './Pages/RobePageewes'
 import Background from './Ui/Background'
 import Header from './Ui/Header'
 import { Route, Routes } from 'react-router-dom'
@@ -13,9 +12,13 @@ import NavPrevNextButtons from './Ui/NavPrevNextButtons'
 import { useRef } from 'react'
 import MenuFullPage from './Ui/MenuFullPage'
 import GenericPage from './Pages/GenericPage'
-import Scene from './components/Scene'
+import RobeFrancaisePage from './Pages/RobeFrancaisePage'
+import GreekStyleDressPage from './Pages/GreekStyleDressPage'
+import { useLocation } from 'react-router-dom'
 
 function App() {
+  const location = useLocation()
+  const pathname = location.pathname
   const pageRef = useRef(useScrollStore.getState().page)
   const [fullscreenMode] = useAtom(showFullscreenMode)
 
@@ -34,11 +37,12 @@ function App() {
       <Header scrollToTop={scrollToTop} />
       <MenuFullPage />
       <NavPrevNextButtons scrollToTop={scrollToTop} />
-      <FullscreenModelPage />
+      <FullscreenModelPage pathname={pathname} />
       <Routes>
+        <Route path="/" element={<RobeFrancaisePage pathname={pathname} />}></Route>
+        <Route path="/greek_style_dress" element={<GreekStyleDressPage pathname={pathname} />}></Route>
         <Route path="/about" element={<GenericPage />}></Route>
       </Routes>
-      <Scene />
       <ContentManager />
       <ViewportManager />
       {/* </AnimatePresence> */}
