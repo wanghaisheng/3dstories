@@ -27,10 +27,10 @@ const MenuFullPage = () => {
           <li>
             <NavLink to="/">A luxurious Robe à la francaise</NavLink>
           </li>
-          {/* <li>
-            <NavLink to='/knight'>Knight</NavLink>
-          </li>
           <li>
+            <NavLink to="/greek_style_dress">Greek Style Dress</NavLink>
+          </li>
+          {/* <li>
             <NavLink to='/riegelhauber'>Riegelhaube</NavLink>
           </li> */}
           <hr />
