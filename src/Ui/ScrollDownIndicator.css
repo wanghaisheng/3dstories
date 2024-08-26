@@ -4,7 +4,6 @@
   border-radius: 15px;
   border: 2px solid var(--white);
   position: fixed;
-  bottom: 50px;
   transform: translateX(calc(50vw - 15px));
   z-index: var(--z-default);
   opacity: 0.4;

@@ -62,15 +62,15 @@ h1 {
 
 @media (max-width: 1280px) {
   h1 {
-    font-size: 80px;
-    line-height: 75px;
+    font-size: 70px;
+    line-height: 65px;
   }
 }
 
 @media (max-width: 640px) {
   h1 {
-    font-size: 60px;
-    line-height: 55px;
+    font-size: 50px;
+    line-height: 45px;
   }
 }
 
@@ -83,6 +83,12 @@ h2 {
 p {
   font-family: 'satoshi';
   font-size: 1.2rem;
+}
+
+@media (max-width: 640px) {
+  p {
+    font-size: 1rem;
+  }
 }
 a {
   text-decoration: underline;

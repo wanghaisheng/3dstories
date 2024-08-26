@@ -109,28 +109,35 @@ const NavPrevNextButtons = ({ threshold = 0, thresholdGoUp = 1, scrollToTop }) =
   return (
     <div className="button-control-group">
       <a.div style={scrollIndicatorStyles}>
-        <ScrollDownIndicator />
+        <ScrollDownIndicator bottom={isBigScreen ? 50 : 15} />
       </a.div>
-      <a.div style={{ x }} className="NavPrevNextButtons z-[3] absolute top-0 bottom-0">
+      <a.div style={{ x }} className="NavPrevNextButtons z-[1] absolute top-0 bottom-0">
         {pathname !== '/about' ? (
-          <div className="fixed w-screen" style={{ top: isBigScreen ? 'calc(50% - 130px)' : '15%' }}>
-            <a.div style={styles} className="absolute  flex xl:flex-col md:flex-row left-[1rem] lg:left-[5rem] ">
+          <div className="fixed w-screen" style={{ top: isBigScreen ? 'calc(50% - 130px)' : '20%' }}>
+            <a.div
+              style={styles}
+              className={`absolute  flex xl:flex-col md:flex-row left-[1rem] md:left-[3rem] lg:left-[5rem]`}
+            >
               <a onClick={handlePrevious} disabled={disablePreviousButton}>
-                <CircleButton size={isBigScreen ? 120 : 80} rotate={180} />
+                <CircleButton size={isBigScreen ? 120 : 60} width={isBigScreen ? 44 : 28} rotate={180} />
               </a>
               <a className="relative" onClick={handleNext} disabled={disableNextButton}>
-                <CircleButton size={isBigScreen ? 120 : 80} className="xl:mt-5 xl:ml-0 ml-5" />
+                <CircleButton
+                  size={isBigScreen ? 120 : 60}
+                  width={isBigScreen ? 44 : 28}
+                  className="xl:mt-5 xl:ml-0 ml-5"
+                />
               </a>
             </a.div>
           </div>
         ) : null}
         <div
           className="go-to-top z-20 fixed flex flex-col"
-          style={{ bottom: 'calc(15% + 50px)', left: isBigScreen ? '5rem' : 'calc(50% - 40px)' }}
+          style={{ bottom: 'calc(15% + 60px)', left: isBigScreen ? '5rem' : 'calc(50% - 40px)' }}
         >
           <a.div style={stylesScrollUp}>
             <a onClick={scrollToTop}>
-              <CircleButton size={isBigScreen ? 120 : 80} rotate={-90} />
+              <CircleButton size={isBigScreen ? 120 : 60} width={isBigScreen ? 44 : 28} rotate={-90} />
             </a>
           </a.div>
         </div>

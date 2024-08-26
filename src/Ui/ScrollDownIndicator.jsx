@@ -1,8 +1,11 @@
 import './ScrollDownIndicator.css'
 
-const ScrollDownIndicator = () => {
+const ScrollDownIndicator = ({ className, bottom }) => {
   return (
-    <div className={`ScrollDownIndicator flex items-center justify-center`}>
+    <div
+      className={`ScrollDownIndicator flex items-center justify-center ${className}`}
+      style={{ bottom: bottom + 'px' }}
+    >
       <span></span>
     </div>
   )
