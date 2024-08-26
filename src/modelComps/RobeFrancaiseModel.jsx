@@ -16,6 +16,7 @@ const RobeFrancaiseModel = forwardRef(({ position, rotation, ...props }, ref) =>
   const { nodes, materials } = useGLTF('/robe.glb')
   materials.material_0.depthWrite = true
   materials.material_0.metalness = 0
+  materials.material_0.transparent = true
 
   return (
     <group {...props} position={position} dispose={null} rotation={[0, 0, rotation]}>
