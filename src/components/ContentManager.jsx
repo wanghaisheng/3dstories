@@ -65,8 +65,8 @@ const ContentManager = () => {
             style={{ height: availableHeight }}
             className={`ContentManager flex ${
               i === 0
-                ? `sm:translate-x-[0rem] md:translate-x-[1rem] lg:translate-x-[4rem] xl:translate-x-[14rem] lg:max-w-[50%] ${
-                    isBigScreen ? 'items-center' : 'items-end'
+                ? `sm:translate-x-[0rem] md:translate-x-[1rem] lg:translate-x-[4rem] xl:translate-x-[14rem] lg:max-w-[50%] items-center ${
+                    isBigScreen ? 'mt-0' : 'mt-[3rem]'
                   }`
                 : `sm:translate-x-[0rem] lg:translate-x-[4rem] md:max-w-[60%] lg:max-w-[50%] 2xl:max-w-[40%] items-center`
             }`}
