@@ -1,7 +1,7 @@
 import { Canvas } from '@react-three/fiber'
 import { SheetProvider } from '@theatre/r3f'
 import { getProject } from '@theatre/core'
-import greekStyleDressAnimation from '../Data/Animation/animation.json'
+import greekStyleDressAnimation from '../Data/Animation/greekStyleDressAnimation.json'
 import { useLayoutEffect, useEffect, useRef } from 'react'
 import { Environment } from '@react-three/drei'
 import { config, useSpring } from '@react-spring/web'
@@ -65,9 +65,11 @@ const GreekStyleDress = ({ pathname }) => {
       <Environment preset="studio" environmentIntensity={0.1} environmentRotation={[1, 1, 0]} />
       <PerspectiveCamera theatreKey="Camera" makeDefault position={[0, 0.2, 8]} fov={45} near={0.1} far={70} />
       <group position={isBigScreen ? [0, 0, 0] : [-1, 0, 0]} scale={isBigScreen ? 1 : 1}>
-        <e.group theatreKey="Robe">
+        <e.group theatreKey="Greek Style Dress Model">
           <GreekStyleDressModel ref={robeRef} position={[0, -2, 0]} rotation={0} />
-          <SpencerJacketModel position={[1, 0, 2]} rotation={-2.5} />
+        </e.group>
+        <e.group theatreKey="Spencer Jacket Model">
+          <SpencerJacketModel ref={robeRef} position={[0, 0, 0]} rotation={-2.5} />
         </e.group>
       </group>
     </>
@@ -90,6 +92,7 @@ const GreekStyleDressPage = ({ pathname }) => {
       <Canvas gl={{ physicallyCorrectLights: true, preserveDrawingBuffer: true }}>
         <SheetProvider sheet={sheet}>
           <GreekStyleDress pathname={pathname} />
+          <SpencerJacketModel pathname={pathname} />
         </SheetProvider>
       </Canvas>
     </div>

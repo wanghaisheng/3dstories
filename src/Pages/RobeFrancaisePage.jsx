@@ -38,7 +38,7 @@ const RobeFrancaise = ({ pathname = '/' }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sequenceLength, sheet.address.sheetId])
 
-  const [, apiOpacity] = useSpring(() => ({
+  const [, apiOpacityTwo] = useSpring(() => ({
     opacity: 0,
     config: config.slow,
     onChange: ({ value }) => {
@@ -50,7 +50,7 @@ const RobeFrancaise = ({ pathname = '/' }) => {
 
   useLayoutEffect(() => {
     console.info('[World] pathname changed to:', pathname)
-    apiOpacity.start({
+    apiOpacityTwo.start({
       opacity: pathname === '/about' ? 0.1 : 1
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps

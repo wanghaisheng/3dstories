@@ -6,6 +6,7 @@ import Background from '../Ui/Background'
 
 import RobeFrancaiseModel from '../modelComps/RobeFrancaiseModel'
 import GreekStyleDressModel from '../modelComps/GreekStyleDressModel'
+import SpencerJacketModel from '../modelComps/SpencerJacketModel'
 
 const FullscreenModelPage = ({ pathname }) => {
   const showFullscreenMode = useStore(state => state.showFullscreenMode)
@@ -34,7 +35,8 @@ const FullscreenModelPage = ({ pathname }) => {
         <ambientLight intensity={1} />
         <Environment preset="studio" environmentIntensity={0.1} environmentRotation={[1, 1, 0]} />
         {pathname === '/' ? <RobeFrancaiseModel position={[0, 0, 0]} rotation={0} /> : null}
-        {pathname === '/greek_style_dress' ? <GreekStyleDressModel position={[0, -2.2, 0]} rotation={0} /> : null}
+        {pathname === '/greek_style_dress' ? <GreekStyleDressModel position={[0, -2.2, 0.5]} rotation={0} /> : null}
+        {pathname === '/greek_style_dress' ? <SpencerJacketModel position={[0, 1, -0.5]} rotation={1.4} /> : null}
       </Canvas>
       {showFullscreenMode ? <Background /> : null}
     </div>
