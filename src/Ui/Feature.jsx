@@ -24,7 +24,20 @@ const Feature = ({ title, description, ref, i, lastItem, contents }) => {
   }
 
   function findThisItem() {
-    window.open(contents.externalUrl, '_blank')
+    if (contents?.links?.[0].externalUrl) {
+      window.open(contents.links[0].externalUrl, '_blank')
+    } else {
+      window.open(contents.externalUrl, '_blank')
+      console.log('externalUrl', contents.externalUrl)
+    }
+  }
+
+  function findThisItemTwo() {
+    if (contents?.links[1].externalUrlTwo) {
+      window.open(contents.links[1].externalUrlTwo, '_blank')
+    } else {
+      null
+    }
   }
 
   function flashionPlatform() {
@@ -52,17 +65,28 @@ const Feature = ({ title, description, ref, i, lastItem, contents }) => {
       ) : null}
       {lastItem ? (
         <>
-          <Button
-            onClick={findThisItem}
-            className="mt-5 w-full md:w-auto sm:mr-0 md:mr-3 xl2:mr-3 pointer-events-auto"
-            value="Database"
-          />
-          <Button
-            onClick={flashionPlatform}
-            type="secondary"
-            className="mt-5 w-full md:w-auto sm:mr-0 md:mr-3 xl2:mr-3 pointer-events-auto"
-            value="Data visualization"
-          />
+          {contents?.links?.[0] ? (
+            <Button
+              onClick={findThisItem}
+              className="mt-5 w-full md:w-auto sm:mr-0 md:mr-3 xl2:mr-3 pointer-events-auto"
+              value={contents?.links?.[0]?.linkValue ? contents.links[0].linkValue : 'Database'}
+            />
+          ) : null}
+          {contents?.links?.[1] ? (
+            <Button
+              onClick={findThisItemTwo}
+              className="mt-5 w-full md:w-auto sm:mr-0 md:mr-3 xl2:mr-3 pointer-events-auto"
+              value={contents?.links?.[1]?.linkValue ? contents.links[1].linkValue : 'Database'}
+            />
+          ) : null}
+          {pathname !== '/about' ? (
+            <Button
+              onClick={flashionPlatform}
+              type="secondary"
+              className="mt-5 w-full md:w-auto sm:mr-0 md:mr-3 xl2:mr-3 pointer-events-auto"
+              value="Data visualization"
+            />
+          ) : null}
         </>
       ) : null}
     </div>
