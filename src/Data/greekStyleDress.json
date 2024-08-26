@@ -1,5 +1,8 @@
 {
-  "externalUrl": "https://uclab.fh-potsdam.de/refa-catalog/s/c/item/19625",
+  "links": [
+    { "externalUrl": "https://uclab.fh-potsdam.de/refa-catalog/s/c/item/19901", "linkValue": "Data Dress in Greek" },
+    { "externalUrlTwo": "https://uclab.fh-potsdam.de/refa-catalog/s/c/item/18742", "linkValue": "Data Spencer Jacket" }
+  ],
   "sections": [
     {
       "title": "A dress in 'greek style'",
@@ -40,6 +43,18 @@
     {
       "title": "A Spencer Jacket",
       "description": "A Chemise might have been worn with an open overdress. Around 15 years later, when chemise dresses were still fashionable a snug fitting jacket, such as the “Spenzer in the old German style”, also preserved at Germanischen Nationalmuseum, would be worn on top."
+    },
+    {
+      "title": "Decorative dress elements & Accessories",
+      "description": "In the Directoire and Empire accessories in women's fashion were sparse but complemented the simple look with accentuating elements. The neckline and décolleté were often framed with frills or lace ruffs or a fichu would be worn round the shoulders and crossing in front over the chest. It was sometimes then tied round the waist in the back. (e.g. a Fichu à la Colorette or a Manteau-Fichu as seen on Pl. 4, Fig 1 and 2 in the German fashion journal Journal des Luxus und der Moden in February 1788 (<a href='http://digital.ub.uni-duesseldorf.de/ihd/periodical/pageview/1910401' target='_blank'>Link</a>)."
+    },
+    {
+      "title": "",
+      "description": "The sleeves could be decorated with frilly drawstrings for a festive touch. The chemise was loose-fitting, with the excess fabric gathered at the neckline and shoulder seams and controlled at the waist by a wide sash, usually of a contrasting color. Additional elements could include colored ribbons, a fan, or decorative items attached to the belt, such as so called berlocken. In winter a pouf, a fur palatine or cashmere shawls and long scarves could be added."
+    },
+    {
+      "title": "",
+      "description": "The headdresses, worn on top of a towering wig, would sometimes consist of bonnets or hats with colored bows and ribbons or turban-like headdresses with towering feathers. (see Pl. 31 <a href='http://digital.ub.uni-duesseldorf.de/ihd/periodical/zoom/1910839 target='_blank'>Link</a> in Journal des Luxus und der Moden, Oktober 1788) FN to Accessoires: More contemporary dress elements: <a href='https://objektkatalog.gnm.de/recherche?search_api_fulltext=T+4002-4070&search_api_fulltext_1=' target='_blank'>Link</a>"
     }
   ]
 }
