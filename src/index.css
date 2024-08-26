@@ -13,9 +13,10 @@
   --bg-rgb: 203, 144, 165;
 
   /* z-index */
-  --z-header: 3;
+  --z-canvas: 0;
+  --z-default: 1;
   --z-fullscreen-menu: 2;
-  --canvas: 0;
+  --z-header: 3;
 }
 
 html,
@@ -35,7 +36,7 @@ body {
 }
 
 .Scene {
-  z-index: var(--canvas);
+  z-index: var(--z-canvas);
 }
 
 @font-face {
@@ -82,6 +83,13 @@ h2 {
 p {
   font-family: 'satoshi';
   font-size: 1.2rem;
+}
+a {
+  text-decoration: underline;
+}
+
+menu a {
+  text-decoration: none;
 }
 
 a:hover,
