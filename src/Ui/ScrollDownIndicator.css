@@ -1,0 +1,36 @@
+.ScrollDownIndicator {
+  width: 30px;
+  height: 52px;
+  border-radius: 15px;
+  border: 2px solid var(--white);
+  position: fixed;
+  bottom: 50px;
+  transform: translateX(calc(50vw - 15px));
+  z-index: var(--z-default);
+  opacity: 0.4;
+}
+
+.ScrollDownIndicator span {
+  display: block;
+  width: 2px;
+  height: 10px;
+  background-color: var(--white);
+  margin: 0 auto;
+  border-radius: 1px;
+  animation: scrollDown 1s infinite ease-in-out;
+}
+
+@keyframes scrollDown {
+  0% {
+    transform: translateY(-10px) scaleY(0.6);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(0px) scaleY(1.6);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(10px) scaleY(0.6);
+    opacity: 0;
+  }
+}
