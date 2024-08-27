@@ -43,11 +43,11 @@ const MenuFullPage = () => {
         </ul>
       </menu>
       <FlourishPattern
-        width={isBigScreen ? 400 : 200}
+        width={isBigScreen ? 400 : 150}
         className={`${isBigScreen ? 'bottom-[3rem] right-[3rem]' : 'bottom-[1rem] right-[1rem]'} `}
       />
       <FlourishPattern
-        width={isBigScreen ? 400 : 200}
+        width={isBigScreen ? 400 : 150}
         className={`${isBigScreen ? 'bottom-[3rem] left-[3rem]' : 'bottom-[1rem] left-[1rem]'} scale-x-[-1]`}
       />
     </a.section>
