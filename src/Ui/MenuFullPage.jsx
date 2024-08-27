@@ -3,9 +3,12 @@ import { NavLink } from 'react-router-dom'
 import { useSpring, a, config } from '@react-spring/web'
 import { useEffect } from 'react'
 import useStore from '../GlobalState'
+import { useMediaQuery } from 'react-responsive'
+import FlourishPattern from '../Svg/FlourishPattern'
 
 const MenuFullPage = () => {
   const isMenuOpen = useStore(state => state.isMenuOpen)
+  const isBigScreen = useMediaQuery({ query: '(min-width: 1024px)' })
 
   const [styles, api] = useSpring(() => ({
     transform: 'translateX(-100%)',
@@ -39,6 +42,14 @@ const MenuFullPage = () => {
           </li>
         </ul>
       </menu>
+      <FlourishPattern
+        width={isBigScreen ? 400 : 200}
+        className={`${isBigScreen ? 'bottom-[3rem] right-[3rem]' : 'bottom-[1rem] right-[1rem]'} `}
+      />
+      <FlourishPattern
+        width={isBigScreen ? 400 : 200}
+        className={`${isBigScreen ? 'bottom-[3rem] left-[3rem]' : 'bottom-[1rem] left-[1rem]'} scale-x-[-1]`}
+      />
     </a.section>
   )
 }

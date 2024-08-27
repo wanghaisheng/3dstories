@@ -1,10 +1,12 @@
 import { useLocation } from 'react-router-dom'
 import useStore from '../GlobalState'
 import Button from './Button'
+import FlourishPattern from '../Svg/FlourishPattern'
+import { useMediaQuery } from 'react-responsive'
 
 const Feature = ({ title, description, ref, i, lastItem, contents }) => {
   const showFullscreenMode = useStore(state => state.showFullscreenMode)
-
+  const isBigScreen = useMediaQuery({ query: '(min-width: 640px)' })
   const location = useLocation()
   const pathname = location.pathname
 
@@ -46,10 +48,17 @@ const Feature = ({ title, description, ref, i, lastItem, contents }) => {
 
   return (
     <div
-      className={`Feature ${i === 0 ? null : `bg-black/50`} text-left py-[1rem] md:py-[2rem] px-[1rem] md:px-[3rem]`}
+      className={`Feature ${i === 0 ? null : `bg-black/50`} relative text-left py-[1rem] md:py-[2rem] px-[1rem] md:px-[4rem]`}
     >
       {i === 0 ? <h1 ref={ref}>{title}</h1> : <h2 ref={ref}>{title}</h2>}
       <p className="my-5" dangerouslySetInnerHTML={{ __html: description }}></p>
+      {i !== 0 ? (
+        <FlourishPattern
+          opacity={0.15}
+          width={isBigScreen ? 160 : 100}
+          className={`${isBigScreen ? 'bottom-[1rem] right-[1rem]' : 'bottom-[0.5rem] right-[0.5rem]'} `}
+        />
+      ) : null}
       {i === 0 && pathname !== '/about' ? (
         <div className="intro-buttons">
           <Button
