@@ -5,7 +5,7 @@
       "description": "The idea of a narration through a 3D model, in this case a historic garment from the textile collection at the Germanisches Nationalmuseum Nuremberg, arose from the desire to create a tool that enables a dynamic and fluid presentation of a 3D model and can also integrate a narration about the object."
     },
     {
-      "description": "The project was implemented in a collaboration between the Luxembourg Centre for Contemporary and Digital History Luxembourg (C²DH) and the Urban Complexity Lab (UCLAB) at Potsdam University of Applied Sciences. As a guest researcher at UCLAB, Kirill Mitsurov (C²DH), together with Marian Dörk and Sabine de Günther (UCLAB), developed an interface for 3D stories that can be experienced by scrolling. A scenography on the object, its parts or perspectives, helps the reader identify relevant details. User-controlled navigation is possible by clicking on the ‘Explore’ button."
+      "description": "The project was implemented in a collaboration between the Luxembourg Centre for Contemporary and Digital History Luxembourg (C²DH) and the Urban Complexity Lab (UCLAB) at Potsdam University of Applied Sciences. As a guest researcher at UCLAB, Kirill Mitsurov (C²DH), together with Marian Dörk and Sabine de Günther (UCLAB), developed an interface for 3D stories that can be experienced by scrolling. A scenographic guide through the object, its parts and perspectives, helps the reader identify relevant details. User-controlled navigation is possible by clicking on the ‘Explore’ button."
     },
     {
       "description": " The resulting codes are reusable under the licence cc by 4.0. Credits: Daniele Guido (C²DH)."
