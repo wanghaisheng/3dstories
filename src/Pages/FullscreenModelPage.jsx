@@ -7,6 +7,7 @@ import Background from '../Ui/Background'
 import RobeFrancaiseModel from '../modelComps/RobeFrancaiseModel'
 import GreekStyleDressModel from '../modelComps/GreekStyleDressModel'
 import SpencerJacketModel from '../modelComps/SpencerJacketModel'
+import * as THREE from 'three'
 
 const FullscreenModelPage = ({ pathname }) => {
   const showFullscreenMode = useStore(state => state.showFullscreenMode)
@@ -30,10 +31,17 @@ const FullscreenModelPage = ({ pathname }) => {
       >
         CLOSE
       </button>
-      <Canvas gl={{ physicallyCorrectLights: true, preserveDrawingBuffer: true }}>
+      <Canvas
+        gl={{
+          physicallyCorrectLights: true,
+          preserveDrawingBuffer: true,
+          antialias: false,
+          toneMapping: THREE.LinearToneMapping
+        }}
+      >
         <OrbitControls autoRotate={true} />
         <ambientLight intensity={1} />
-        <Environment preset="studio" environmentIntensity={0.1} environmentRotation={[1, 1, 0]} />
+        <Environment preset="studio" environmentIntensity={0.2} environmentRotation={[1, 1, 0]} />
         {pathname === '/' ? <RobeFrancaiseModel position={[0, 0, 0]} rotation={0} /> : null}
         {pathname === '/greek_style_dress' ? <GreekStyleDressModel position={[0, -2.2, 0.5]} rotation={0} /> : null}
         {pathname === '/greek_style_dress' ? <SpencerJacketModel position={[0, 1, -0.5]} rotation={1.4} /> : null}

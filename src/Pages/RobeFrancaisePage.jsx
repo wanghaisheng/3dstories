@@ -11,6 +11,7 @@ import { val } from '@theatre/core'
 import { useMediaQuery } from 'react-responsive'
 import RobeFrancaiseModel from '../modelComps/RobeFrancaiseModel'
 import { editable as e } from '@theatre/r3f'
+import * as THREE from 'three'
 
 const RobeFrancaise = ({ pathname = '/' }) => {
   const robeRef = useRef(null)
@@ -61,7 +62,7 @@ const RobeFrancaise = ({ pathname = '/' }) => {
   return (
     <>
       <ambientLight intensity={1} />
-      <Environment preset="studio" environmentIntensity={0.1} environmentRotation={[1, 1, 0]} />
+      <Environment preset="studio" environmentIntensity={0.2} environmentRotation={[1, 1, 0]} />
       <PerspectiveCamera theatreKey="Camera" makeDefault position={[0, 0.2, 8]} fov={45} near={0.1} far={70} />
       <group position={isBigScreen ? [0, 0, 0] : [-1, 0, 0]} scale={isBigScreen ? 1 : 1}>
         <e.group theatreKey="Robe">
@@ -84,7 +85,14 @@ const RobeFrancaisePage = ({ pathname }) => {
 
   return (
     <div className="Scene fixed h-screen w-full fixed top-0">
-      <Canvas gl={{ physicallyCorrectLights: true, preserveDrawingBuffer: true }}>
+      <Canvas
+        gl={{
+          physicallyCorrectLights: true,
+          preserveDrawingBuffer: true,
+          antialias: false,
+          toneMapping: THREE.LinearToneMapping
+        }}
+      >
         <SheetProvider sheet={sheet}>
           <RobeFrancaise pathname={pathname} />
         </SheetProvider>
