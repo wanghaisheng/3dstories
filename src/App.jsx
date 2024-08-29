@@ -15,6 +15,7 @@ import GenericPage from './Pages/GenericPage'
 import RobeFrancaisePage from './Pages/RobeFrancaisePage'
 import GreekStyleDressPage from './Pages/GreekStyleDressPage'
 import { useLocation } from 'react-router-dom'
+import DoubletPage from './Pages/DoubletPage'
 
 function App() {
   const location = useLocation()
@@ -40,6 +41,7 @@ function App() {
       <FullscreenModelPage pathname={pathname} />
       <Routes>
         <Route path="/" element={<RobeFrancaisePage pathname={pathname} />}></Route>
+        <Route path="/doublet" element={<DoubletPage pathname={pathname} />}></Route>
         <Route path="/greek_style_dress" element={<GreekStyleDressPage pathname={pathname} />}></Route>
         <Route path="/about" element={<GenericPage />}></Route>
       </Routes>
