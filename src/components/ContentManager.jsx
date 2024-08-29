@@ -1,5 +1,6 @@
-import RobeFeaturesContent from '../Data/robe.json'
+import RobeFrancaiseContent from '../Data/robeFrancaise.json'
 import GreekStyleDressContent from '../Data/greekStyleDress.json'
+import DoubletContent from '../Data/doublet.json'
 import AboutContent from '../Data/about.json'
 import { useLocation } from 'react-router-dom'
 import ScrollManager, { useScrollStore } from './ScrollManager'
@@ -10,11 +11,13 @@ import { useMediaQuery } from 'react-responsive'
 import { useViewportStore } from './ViewportManager'
 
 const IndexRoute = '/'
+const DoubletRoute = '/doublet'
 const GreekStyleDressRoute = '/greek_style_dress'
 const AboutRoute = '/about'
 
 const AvailableContents = {
-  [IndexRoute]: RobeFeaturesContent,
+  [IndexRoute]: RobeFrancaiseContent,
+  [DoubletRoute]: DoubletContent,
   [GreekStyleDressRoute]: GreekStyleDressContent,
   [AboutRoute]: AboutContent
 }
