@@ -1,7 +1,7 @@
 import { Canvas } from '@react-three/fiber'
 import { SheetProvider } from '@theatre/r3f'
 import { getProject } from '@theatre/core'
-import greekStyleDressAnimation from '../Data/Animation/greekStyleDressAnimation.json'
+import doubletAnimation from '../Data/Animation/doubletAnimation.json'
 import { useLayoutEffect, useEffect, useRef } from 'react'
 import { Environment } from '@react-three/drei'
 import { config, useSpring } from '@react-spring/web'
@@ -9,12 +9,12 @@ import { useCurrentSheet, PerspectiveCamera } from '@theatre/r3f'
 import { useScrollStore } from '../components/ScrollManager'
 import { val } from '@theatre/core'
 import { useMediaQuery } from 'react-responsive'
-import GreekStyleDressModel from '../modelComps/GreekStyleDressModel'
 import { editable as e } from '@theatre/r3f'
-import SpencerJacketModel from '../modelComps/SpencerJacketModel'
 import * as THREE from 'three'
+import InnerDoubletModel from '../modelComps/InnerDoubletModel'
+import OuterDoubletModel from '../modelComps/OuterDoubletModel'
 
-const GreekStyleDress = ({ pathname }) => {
+const InnerDoublet = ({ pathname }) => {
   const robeRef = useRef(null)
   const ratioRef = useRef(useScrollStore.getState().scrollRatio)
   // const pageRef = useRef(useScrollStore.getState().page)
@@ -66,20 +66,20 @@ const GreekStyleDress = ({ pathname }) => {
       <Environment preset="studio" environmentIntensity={0.2} environmentRotation={[1, 1, 0]} />
       <PerspectiveCamera theatreKey="Camera" makeDefault position={[0, 0.2, 8]} fov={45} near={0.1} far={70} />
       <group position={isBigScreen ? [0, 0, 0] : [-1, 0, 0]} scale={isBigScreen ? 1 : 1}>
-        <e.group theatreKey="Greek Style Dress Model">
-          <GreekStyleDressModel ref={robeRef} position={[0, -2, 0]} rotation={0} />
+        <e.group theatreKey="Inner Doublet">
+          <InnerDoubletModel ref={robeRef} position={[0, 0, 0]} rotation={-1.9} />
         </e.group>
-        <e.group theatreKey="Spencer Jacket Model">
-          <SpencerJacketModel ref={robeRef} position={[0, 0, 0]} rotation={-2.5} />
+        <e.group theatreKey="Outer Doublet">
+          <OuterDoubletModel ref={robeRef} position={[0, 0, 0]} rotation={-1} />
         </e.group>
       </group>
     </>
   )
 }
 
-const GreekStyleDressPage = ({ pathname }) => {
-  const project = getProject('Greek Style Dress Animation', {
-    state: greekStyleDressAnimation
+const DoubletPage = ({ pathname }) => {
+  const project = getProject('Doublet Animation', {
+    state: doubletAnimation
   })
   const sheet = project.sheet('Scene')
 
@@ -100,12 +100,11 @@ const GreekStyleDressPage = ({ pathname }) => {
         }}
       >
         <SheetProvider sheet={sheet}>
-          <GreekStyleDress pathname={pathname} />
-          <SpencerJacketModel pathname={pathname} />
+          <InnerDoublet pathname={pathname} />
         </SheetProvider>
       </Canvas>
     </div>
   )
 }
 
-export default GreekStyleDressPage
+export default DoubletPage

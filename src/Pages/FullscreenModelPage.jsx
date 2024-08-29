@@ -8,6 +8,8 @@ import RobeFrancaiseModel from '../modelComps/RobeFrancaiseModel'
 import GreekStyleDressModel from '../modelComps/GreekStyleDressModel'
 import SpencerJacketModel from '../modelComps/SpencerJacketModel'
 import * as THREE from 'three'
+import InnerDoubletModel from '../modelComps/InnerDoubletModel'
+import OuterDoubletModel from '../modelComps/OuterDoubletModel'
 
 const FullscreenModelPage = ({ pathname }) => {
   const showFullscreenMode = useStore(state => state.showFullscreenMode)
@@ -39,12 +41,14 @@ const FullscreenModelPage = ({ pathname }) => {
           toneMapping: THREE.LinearToneMapping
         }}
       >
-        <OrbitControls autoRotate={true} />
+        <OrbitControls autoRotate={true} autoRotateSpeed={0.5} enableDamping={true} />
         <ambientLight intensity={1} />
         <Environment preset="studio" environmentIntensity={0.2} environmentRotation={[1, 1, 0]} />
         {pathname === '/' ? <RobeFrancaiseModel position={[0, 0, 0]} rotation={0} /> : null}
         {pathname === '/greek_style_dress' ? <GreekStyleDressModel position={[0, -2.2, 0.5]} rotation={0} /> : null}
         {pathname === '/greek_style_dress' ? <SpencerJacketModel position={[0, 1, -0.5]} rotation={1.4} /> : null}
+        {pathname === '/doublet' ? <InnerDoubletModel position={[0, -0.5, -1.2]} rotation={1.4} /> : null}
+        {pathname === '/doublet' ? <OuterDoubletModel position={[0, -0.5, 1.2]} rotation={0} /> : null}
       </Canvas>
       {showFullscreenMode ? <Background /> : null}
     </div>

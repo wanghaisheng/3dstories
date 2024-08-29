@@ -74,7 +74,7 @@ const RobeFrancaise = ({ pathname = '/' }) => {
 }
 
 const RobeFrancaisePage = ({ pathname }) => {
-  const project = getProject('Model Animation2', {
+  const project = getProject('Robe Francaise Animation', {
     state: robeAnimation
   })
   const sheet = project.sheet('Scene')
