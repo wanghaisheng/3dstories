@@ -17,6 +17,7 @@
   --z-default: 1;
   --z-fullscreen-menu: 2;
   --z-header: 3;
+  --z-modal: 4;
 }
 
 html,

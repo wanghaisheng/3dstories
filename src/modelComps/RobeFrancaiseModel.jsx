@@ -25,7 +25,7 @@ const RobeFrancaiseModel = forwardRef(({ position, rotation, ...props }, ref) =>
         castShadow
         receiveShadow
         ref={ref}
-        geometry={nodes['T8503_Artec-scan_edited'].geometry}
+        geometry={nodes['robe-francaise'].geometry}
         material={materials.material_0}
         rotation={[Math.PI / 2, 0, 0]}
       />
