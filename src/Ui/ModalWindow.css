@@ -1,0 +1,23 @@
+.ModalWindow {
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(var(--dark-rgb), 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: var(--z-modal);
+}
+
+.ModalWindow .ModalWindow-content {
+  background-color: var(--dark);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  max-width: 90%;
+  max-height: 90%;
+  overflow: auto;
+}

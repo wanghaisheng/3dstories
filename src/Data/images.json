@@ -1,0 +1,16 @@
+{
+  "images": [
+    {
+      "id": 0,
+      "title": "Chodowiecki",
+      "url": "/img/chodowiecki_a-42696.jpg",
+      "description": "Chodowiecki description"
+    },
+    {
+      "id": 1,
+      "title": "Manteau-Fichu",
+      "url": "/img/Manteau-Fichu.jpg",
+      "description": "Manteau-Fichu description"
+    }
+  ]
+}
