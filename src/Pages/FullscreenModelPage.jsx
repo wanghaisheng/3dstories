@@ -44,7 +44,7 @@ const FullscreenModelPage = ({ pathname }) => {
         <OrbitControls autoRotate={true} autoRotateSpeed={0.5} enableDamping={true} />
         <ambientLight intensity={1} />
         <Environment preset="studio" environmentIntensity={0.2} environmentRotation={[1, 1, 0]} />
-        {pathname === '/' ? <RobeFrancaiseModel position={[0, 0, 0]} rotation={0} /> : null}
+        {pathname === '/' ? <RobeFrancaiseModel position={[0, -2, 0]} rotation={0} /> : null}
         {pathname === '/greek_style_dress' ? <GreekStyleDressModel position={[0, -2.2, 0.5]} rotation={0} /> : null}
         {pathname === '/greek_style_dress' ? <SpencerJacketModel position={[0, 1, -0.5]} rotation={1.4} /> : null}
         {pathname === '/doublet' ? <InnerDoubletModel position={[0, -0.5, -1.2]} rotation={1.4} /> : null}
