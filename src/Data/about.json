@@ -2,7 +2,7 @@
   "sections": [
     {
       "title": "About 3D stories",
-      "description": "The idea for an interface for 3D stories arose from the desire to create a tool that enables a dynamic and fluid presentation of a 3D model while integrating information on the object. Hence we developed an interface for 3D stories, in this case of historic garments from the textile collection at the Germanisches Nationalmuseum Nuremberg, that can be experienced by scrolling."
+      "description": "The idea for '3D stories' arose from the desire to create a tool that enables a dynamic and fluid presentation of a 3D model while integrating information on the object. Hence we developed an interface for 3D stories, in this case of historic garments from the textile collection at the Germanisches Nationalmuseum Nuremberg, that can be experienced by scrolling."
     },
     {
       "description": "Two different modes are available: The first approach (Read Story) has a narrative that comments on the 3D object implemented. The reader is guided in identifying the relevant details by the scenographic animation of the 3D objects. The second option allows for free navigation of the 3D model: the user-controlled mode is made available when clicking the ‘Explore’ button."
