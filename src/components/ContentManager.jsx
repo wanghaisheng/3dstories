@@ -60,6 +60,16 @@ const ContentManager = () => {
     })
   }, [])
 
+  // function processDescription(description) {
+  //   let newdescription = description.split(' ')
+  //   return <div>
+  //     {newdescription.map((d, i) => (
+  //       if(d.includes('<word')) {
+  //         <OpenModal text="new var"/>}
+  //     ))}
+  //   </div>
+  // }
+
   return (
     <>
       <a.div style={styles} className="ContentManager fixed">
