@@ -54,6 +54,9 @@ function App() {
   const closeModal = () => {
     // setModalVisible(prev => !prev) // Toggle the boolean value
     setModalVisible(false)
+    setTimeout(() => {
+      setModalImage(null)
+    }, 500)
   }
 
   console.log('PAGE-REF', pageRef)
