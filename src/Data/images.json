@@ -11,6 +11,12 @@
       "title": "Manteau-Fichu",
       "url": "/img/Manteau-Fichu.jpg",
       "description": "Fichu as depicted in Journal des Luxus und der Moden, (Feb)1788, Vol 3"
+    },
+    {
+      "id": 2,
+      "title": "Journal des Luxus und der Moden",
+      "url": "/img/ Journal_des_Luxus.png",
+      "description": "Journal des Luxus und der Moden"
     }
   ]
 }
