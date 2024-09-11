@@ -45,13 +45,20 @@ const Feature = ({ title, description, ref, i, lastItem, contents }) => {
   function flashionPlatform() {
     window.open('https://refareader.fh-potsdam.de', '_blank')
   }
+  function onClickHandler(e) {
+    if (e.target.hasAttribute('data-href')) {
+      const href = e.target.getAttribute('data-href')
+      console.log('@click href:', href)
+    }
+    return false
+  }
 
   return (
     <div
       className={`Feature ${i === 0 ? null : `bg-black/50`} relative text-left py-[1rem] md:py-[2rem] px-[1rem] md:px-[4rem]`}
     >
       {i === 0 ? <h1 ref={ref}>{title}</h1> : <h2 ref={ref}>{title}</h2>}
-      <p className="my-5" dangerouslySetInnerHTML={{ __html: description }}></p>
+      <p className="my-5" dangerouslySetInnerHTML={{ __html: description }} onClick={onClickHandler}></p>
       {i !== 0 ? (
         <FlourishPattern
           opacity={0.15}
