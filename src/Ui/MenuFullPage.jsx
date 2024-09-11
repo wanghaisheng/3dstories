@@ -31,6 +31,9 @@ const MenuFullPage = () => {
             <NavLink to="/">A luxurious Robe à la francaise</NavLink>
           </li>
           <li>
+            <NavLink to="/doublet">The Doublet in the 17th century</NavLink>
+          </li>
+          <li>
             <NavLink to="/greek_style_dress">Greek Style Dress</NavLink>
           </li>
           {/* <li>
