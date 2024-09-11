@@ -56,22 +56,22 @@ body {
 
 h1 {
   font-family: 'stardom';
-  font-size: 100px;
-  line-height: 90px;
+  font-size: 6.25rem;
+  line-height: 5.625rem;
   text-shadow: 2px 2px 10px rgba(var(--dark-rgb), 0.7);
 }
 
 @media (max-width: 1280px) {
   h1 {
-    font-size: 70px;
-    line-height: 65px;
+    font-size: 4.375rem;
+    line-height: 4.0625rem;
   }
 }
 
 @media (max-width: 640px) {
   h1 {
-    font-size: 50px;
-    line-height: 45px;
+    font-size: 3.125rem;
+    line-height: 2.8125rem;
   }
 }
 
@@ -115,6 +115,16 @@ a .SVG:hover svg,
 a:hover svg,
 a:hover .CircleButton {
   fill: var(--accent);
+}
+
+img {
+  display: inline-block;
+  object-fit: cover;
+}
+
+figcaption {
+  font-size: 0.75rem;
+  font-style: italic;
 }
 
 .Header {
