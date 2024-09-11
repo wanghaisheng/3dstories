@@ -2,14 +2,14 @@ import Background from './Ui/Background'
 import Header from './Ui/Header'
 import { Route, Routes } from 'react-router-dom'
 import Footer from './Ui/Footer'
-import { showFullscreenMode, modalVisible, modalImage } from './GlobalState'
+import { modalVisible, modalImage } from './GlobalState'
 import { useAtom } from 'jotai'
 import FullscreenModelPage from './Pages/FullscreenModelPage'
 import ContentManager from './components/ContentManager'
 import ViewportManager from './components/ViewportManager'
 import { useScrollStore } from './components/ScrollManager'
 import NavPrevNextButtons from './Ui/NavPrevNextButtons'
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import MenuFullPage from './Ui/MenuFullPage'
 import GenericPage from './Pages/GenericPage'
 import RobeFrancaisePage from './Pages/RobeFrancaisePage'
@@ -23,9 +23,19 @@ function App() {
   const location = useLocation()
   const pathname = location.pathname
   const pageRef = useRef(useScrollStore.getState().page)
-  const [fullscreenMode] = useAtom(showFullscreenMode)
   const [isModalVisible, setModalVisible] = useAtom(modalVisible)
   const [isModalImage, setModalImage] = useAtom(modalImage) // Use an empty object as the key
+
+  // useEffect(() => {
+  //   const findRoot = document.getElementById('root')
+  //   const currentScrollY = window.scrollY
+  //   console.log('currentScrollY', currentScrollY)
+  //   if (isModalVisible === true) {
+  //     findRoot.classList.add('no-scroll')
+  //   } else {
+  //     findRoot.classList.remove('no-scroll')
+  //   }
+  // }, [isModalVisible])
 
   // console.log('GreekStyleDressContent', GreekStyleDressContent.sections[3].image)
 
@@ -35,7 +45,7 @@ function App() {
       behavior: 'smooth' // Optional: for smooth scrolling§
     })
   }
-  // let imageId = 0
+
   const openModal = imageId => {
     setModalImage(Images.images[imageId])
     setModalVisible(true)
@@ -44,10 +54,7 @@ function App() {
   const closeModal = () => {
     // setModalVisible(prev => !prev) // Toggle the boolean value
     setModalVisible(false)
-    setModalImage(null)
   }
-
-  console.log('fullscreenMode', fullscreenMode)
 
   console.log('PAGE-REF', pageRef)
   return (
@@ -63,7 +70,7 @@ function App() {
         <Route path="/greek_style_dress" element={<GreekStyleDressPage pathname={pathname} />}></Route>
         <Route path="/about" element={<GenericPage />}></Route>
       </Routes>
-      <ContentManager openModal={openModal} />
+      <ContentManager openModal={openModal} isModalVisible={isModalVisible} />
       <ViewportManager />
       {/* </AnimatePresence> */}
       <Footer />
