@@ -1,9 +1,10 @@
 import './ModalWindow.css'
 
 const ModalWindow = ({ isModalImage, closeModal, isModalVisible }) => {
-  return isModalVisible === true ? (
-    <div className="ModalWindow">
+  return (
+    <div className={`ModalWindow ${isModalVisible ? 'open' : null}`}>
       <button
+        className="absolute top-4 right-4"
         onClick={() => {
           // console.log('isModalImage', isModalImage.url)
           console.log('CLOSE BUTTON', isModalVisible)
@@ -13,11 +14,11 @@ const ModalWindow = ({ isModalImage, closeModal, isModalVisible }) => {
         Close
       </button>
       <div className="ModalWindow-content">
-        <img src={`${isModalImage.url}`} alt={`${isModalImage.title}`} height="100vh" width="100vw" />
-        <span>{isModalImage.title}</span>
+        <img src={`${isModalImage?.url}`} alt={`${isModalImage?.title}`} />
+        <figcaption className="mt-3">{isModalImage?.title}</figcaption>
       </div>
     </div>
-  ) : null
+  )
 }
 
 export default ModalWindow

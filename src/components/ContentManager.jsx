@@ -9,6 +9,8 @@ import { useEffect, useRef } from 'react'
 import { useSpring, a, config } from '@react-spring/web'
 import { useMediaQuery } from 'react-responsive'
 import { useViewportStore } from './ViewportManager'
+// import { modalVisible } from '../GlobalState'
+// import { useAtom } from 'jotai'
 
 const IndexRoute = '/'
 const DoubletRoute = '/doublet'
@@ -21,7 +23,7 @@ const AvailableContents = {
   [GreekStyleDressRoute]: GreekStyleDressContent,
   [AboutRoute]: AboutContent
 }
-const ContentManager = () => {
+const ContentManager = ({ openModal }) => {
   const isBigScreen = useMediaQuery({ query: '(min-width: 440px)' })
   const availableHeight = useViewportStore(state => state.availableHeight)
   // Fetch initial state
@@ -86,6 +88,7 @@ const ContentManager = () => {
             key={d.path ?? i}
           >
             <Feature
+              openModal={openModal}
               contents={contents}
               title={d.title}
               description={d.description}
