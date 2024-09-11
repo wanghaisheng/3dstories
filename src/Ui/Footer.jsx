@@ -65,7 +65,7 @@ const Footer = ({ thresholdFooter = 1 }) => {
         </div>
       </div>
       <span className="mt-3 md:mt-0 flex text-xs grow md:justify-end md:justify-end justify-center">
-        © University of Potsdam 2024. All rights reserved.
+        © University of Applied Arts Potsdam (FHP) & Centre for Contemporary and Digital History Luxembourg (C²DH), 2024.
       </span>
     </a.footer>
   )
