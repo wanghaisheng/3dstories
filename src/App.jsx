@@ -47,6 +47,7 @@ function App() {
   }
 
   const openModal = imageId => {
+    setModalImage(null)
     setModalImage(Images.images[imageId])
     setModalVisible(true)
   }
