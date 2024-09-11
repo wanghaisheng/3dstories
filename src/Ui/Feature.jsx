@@ -4,7 +4,7 @@ import Button from './Button'
 import FlourishPattern from '../Svg/FlourishPattern'
 import { useMediaQuery } from 'react-responsive'
 
-const Feature = ({ title, description, ref, i, lastItem, contents }) => {
+const Feature = ({ title, description, ref, i, lastItem, contents, openModal }) => {
   const showFullscreenMode = useStore(state => state.showFullscreenMode)
   const isBigScreen = useMediaQuery({ query: '(min-width: 640px)' })
   const location = useLocation()
@@ -49,6 +49,7 @@ const Feature = ({ title, description, ref, i, lastItem, contents }) => {
     if (e.target.hasAttribute('data-href')) {
       const href = e.target.getAttribute('data-href')
       console.log('@click href:', href)
+      openModal(href)
     }
     return false
   }
@@ -59,13 +60,13 @@ const Feature = ({ title, description, ref, i, lastItem, contents }) => {
     >
       {i === 0 ? <h1 ref={ref}>{title}</h1> : <h2 ref={ref}>{title}</h2>}
       <p className="my-5" dangerouslySetInnerHTML={{ __html: description }} onClick={onClickHandler}></p>
-      {i !== 0 ? (
+      {/* {i !== 0 ? (
         <FlourishPattern
           opacity={0.15}
           width={isBigScreen ? 160 : 100}
           className={`${isBigScreen ? 'bottom-[1rem] right-[1rem]' : 'bottom-[0.5rem] right-[0.5rem]'} `}
         />
-      ) : null}
+      ) : null} */}
       {i === 0 && pathname !== '/about' ? (
         <div className="intro-buttons">
           <Button
