@@ -77,6 +77,7 @@ const ContentManager = ({ openModal }) => {
       <a.div style={styles} className="ContentManager fixed">
         {contents.sections.map((d, i, arr) => (
           <div
+            id={`slide-${d.id}`}
             style={{ height: availableHeight }}
             className={`ContentManager flex ${
               i === 0
