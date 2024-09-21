@@ -33,11 +33,11 @@
   height: 1px;
   width: 0%;
   transition: all 0.3s ease-in-out;
+  background-color: var(--white);
 }
 
 .MenuFullPage .sub-menu.active button::after {
   width: 100%;
-  border-bottom: 1px solid var(--white);
 }
 
 @media (max-width: 640px) {
