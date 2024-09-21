@@ -4,29 +4,49 @@ import DoubletContent from '../Data/doublet.json'
 import GreekStyleDressContent from '../Data/greekStyleDress.json'
 import { NavLink } from 'react-router-dom'
 import { useSpring, a, config } from '@react-spring/web'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import useStore from '../GlobalState'
 import { useMediaQuery } from 'react-responsive'
 import FlourishPattern from '../Svg/FlourishPattern'
 import { useViewportStore } from '../components/ViewportManager'
 import { useLocation } from 'react-router-dom'
 
-const Navigation = ({ slides }) => {
+const Navigation = ({ data }) => {
+  const [activeSlideId, setActiveSlideId] = useState(null)
   const availableHeight = useViewportStore(state => state.availableHeight)
-  const scrollToSlide = (id, length) => {
-    const fullHeight = availableHeight * length
-    // document.getElementById(`slide-${id}`).scrollIntoView({ behavior: 'smooth' })
-    window.scrollTo(0, availableHeight * id)
-    console.log('ID', id, length, fullHeight)
+  const scrollToSlide = (id, length, i) => {
+    window.scrollTo(0, availableHeight * (id - 1))
+    console.log('ID', id, length, i)
   }
+  // Update active slide ID based on scroll position
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + availableHeight / 2
+      const activeSlide = data.sections.find((slide, i) => {
+        const slideTop = availableHeight * i
+        const slideBottom = slideTop + availableHeight
+        return scrollPosition >= slideTop && scrollPosition < slideBottom
+      })
+
+      if (activeSlide) {
+        setActiveSlideId(activeSlide.id)
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [availableHeight, data.sections])
 
   return (
     <nav>
       <ul>
-        {slides.sections.map((slide, i, arr) =>
+        {data.sections.map((slide, i, arr) =>
           slide.title ? (
-            <li key={slide.id} className={`text-sm mt-1 slide-${slide.id}`}>
-              <button onClick={() => scrollToSlide(slide.id, arr.length)}>{slide.title}</button>
+            <li key={slide.id} className={`sub-menu slide-${slide.id} ${slide.id === activeSlideId ? 'active' : ''}`}>
+              <button onClick={() => scrollToSlide(slide.id, arr.length, i)}>{slide.title}</button>
             </li>
           ) : null
         )}
@@ -59,15 +79,15 @@ const MenuFullPage = () => {
         <ul className="flex flex-col items-center">
           <li>
             <NavLink to="/">A luxurious Robe à la francaise</NavLink>
-            {pathname === '/' ? <Navigation slides={RobeFrancaiseContent} /> : null}
+            {pathname === '/' ? <Navigation data={RobeFrancaiseContent} /> : null}
           </li>
           <li>
             <NavLink to="/doublet">The Doublet in the 17th century</NavLink>
-            {pathname === '/doublet' ? <Navigation slides={DoubletContent} /> : null}
+            {pathname === '/doublet' ? <Navigation data={DoubletContent} /> : null}
           </li>
           <li>
             <NavLink to="/greek_style_dress">Greek Style Dress</NavLink>
-            {pathname === '/greek_style_dress' ? <Navigation slides={GreekStyleDressContent} /> : null}
+            {pathname === '/greek_style_dress' ? <Navigation data={GreekStyleDressContent} /> : null}
           </li>
           {/* <li>
             <NavLink to='/riegelhauber'>Riegelhaube</NavLink>
