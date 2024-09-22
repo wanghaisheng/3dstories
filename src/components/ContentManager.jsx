@@ -74,7 +74,7 @@ const ContentManager = ({ openModal }) => {
 
   return (
     <>
-      <a.div style={styles} className="ContentManager fixed">
+      <a.div style={styles} className="ContentManager pointer-events-none fixed">
         {contents.sections.map((d, i, arr) => (
           <div
             id={`slide-${d.id}`}

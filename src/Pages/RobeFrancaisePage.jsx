@@ -12,6 +12,7 @@ import { useMediaQuery } from 'react-responsive'
 import RobeFrancaiseModel from '../modelComps/RobeFrancaiseModel'
 import { editable as e } from '@theatre/r3f'
 import * as THREE from 'three'
+import Annotation from '../Ui/Annotation'
 
 const RobeFrancaise = ({ pathname = '/' }) => {
   const robeRef = useRef(null)
@@ -66,6 +67,10 @@ const RobeFrancaise = ({ pathname = '/' }) => {
       <PerspectiveCamera theatreKey="Camera" makeDefault position={[0, 0.2, 8]} fov={45} near={0.1} far={70} />
       <group position={isBigScreen ? [0, -2, 0] : [-1, -2, 0]} scale={isBigScreen ? 1 : 1}>
         <e.group theatreKey="Robe">
+          <Annotation id="9" position={[-0.3, 4, 0.5]} />
+          <Annotation id="11" position={[-0.3, 2.5, -1]} />
+          <Annotation id="7" position={[-1, 3, 0.6]} />
+          <Annotation id="5" position={[1, 2, 0.8]} />
           <RobeFrancaiseModel ref={robeRef} position={[0, 0, 0]} rotation={0} />
         </e.group>
       </group>

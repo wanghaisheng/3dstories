@@ -5,7 +5,7 @@ const Logo3dStories = ({ color = 'var(--white)', width = 100, className, scrollT
   return (
     <div
       onClick={scrollToTop}
-      className={`Logo3dStories SVG ${className} flex cursor-pointer`}
+      className={`Logo3dStories SVG ${className} flex cursor-pointer pointer-events-auto`}
       style={{ height: height + 'px', width: width + 'px' }}
     >
       <svg

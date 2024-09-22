@@ -5,8 +5,8 @@ import { useLocation } from 'react-router-dom'
 
 const MenuCloseButton = () => {
   const location = useLocation()
-  const isMenuOpen = useStore((state) => state.isMenuOpen)
-  const toggleMenu = useStore((state) => state.toggleMenu)
+  const isMenuOpen = useStore(state => state.isMenuOpen)
+  const toggleMenu = useStore(state => state.toggleMenu)
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -15,10 +15,10 @@ const MenuCloseButton = () => {
   }, [location.pathname])
 
   return (
-    <div className={`MenuCloseButton ${isMenuOpen ? 'cross-icon' : ''}`} onClick={toggleMenu}>
-      <span className='menu-bar one'></span>
-      <span className='menu-bar two'></span>
-      <span className='menu-bar three'></span>
+    <div className={`MenuCloseButton ${isMenuOpen ? 'cross-icon' : ''} pointer-events-auto`} onClick={toggleMenu}>
+      <span className="menu-bar one"></span>
+      <span className="menu-bar two"></span>
+      <span className="menu-bar three"></span>
     </div>
   )
 }
