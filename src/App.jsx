@@ -18,6 +18,7 @@ import { useLocation } from 'react-router-dom'
 import DoubletPage from './Pages/DoubletPage'
 import ModalWindow from './Ui/ModalWindow'
 import Images from './Data/images.json'
+import { AnimatePresence } from 'framer-motion'
 
 function App() {
   const location = useLocation()
@@ -67,15 +68,16 @@ function App() {
       <MenuFullPage />
       <NavPrevNextButtons scrollToTop={scrollToTop} />
       <FullscreenModelPage pathname={pathname} />
-      <Routes>
-        <Route path="/" element={<RobeFrancaisePage pathname={pathname} />}></Route>
-        <Route path="/doublet" element={<DoubletPage pathname={pathname} />}></Route>
-        <Route path="/greek_style_dress" element={<GreekStyleDressPage pathname={pathname} />}></Route>
-        <Route path="/about" element={<GenericPage />}></Route>
-      </Routes>
-      <ContentManager openModal={openModal} isModalVisible={isModalVisible} />
-      <ViewportManager />
-      {/* </AnimatePresence> */}
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<RobeFrancaisePage pathname={pathname} />}></Route>
+          <Route path="/doublet" element={<DoubletPage pathname={pathname} />}></Route>
+          <Route path="/greek_style_dress" element={<GreekStyleDressPage pathname={pathname} />}></Route>
+          <Route path="/about" element={<GenericPage />}></Route>
+        </Routes>
+        <ContentManager openModal={openModal} isModalVisible={isModalVisible} />
+        <ViewportManager />
+      </AnimatePresence>
       <Footer />
       <Background />
     </>

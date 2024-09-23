@@ -13,6 +13,7 @@ import { editable as e } from '@theatre/r3f'
 import * as THREE from 'three'
 import InnerDoubletModel from '../modelComps/InnerDoubletModel'
 import OuterDoubletModel from '../modelComps/OuterDoubletModel'
+import Transition from '../Ui/Transition'
 
 const InnerDoublet = ({ pathname }) => {
   const robeRef = useRef(null)
@@ -86,8 +87,6 @@ const DoubletPage = ({ pathname }) => {
   // Use JSON file to trigger the animation
   // const sheet = getProject('Model Animation').sheet('Scene')
 
-  console.info('[Scene] pathname:', pathname, 'sheet', sheet)
-
   return (
     <div className="Scene fixed h-screen w-full fixed top-0">
       <Canvas
@@ -107,4 +106,4 @@ const DoubletPage = ({ pathname }) => {
   )
 }
 
-export default DoubletPage
+export default Transition(DoubletPage)

@@ -13,6 +13,7 @@ import GreekStyleDressModel from '../modelComps/GreekStyleDressModel'
 import { editable as e } from '@theatre/r3f'
 import SpencerJacketModel from '../modelComps/SpencerJacketModel'
 import * as THREE from 'three'
+import Transition from '../Ui/Transition'
 
 const GreekStyleDress = ({ pathname }) => {
   const robeRef = useRef(null)
@@ -86,8 +87,6 @@ const GreekStyleDressPage = ({ pathname }) => {
   // Use JSON file to trigger the animation
   // const sheet = getProject('Model Animation').sheet('Scene')
 
-  console.info('[Scene] pathname:', pathname, 'sheet', sheet)
-
   return (
     <div className="Scene fixed h-screen w-full fixed top-0">
       <Canvas
@@ -108,4 +107,4 @@ const GreekStyleDressPage = ({ pathname }) => {
   )
 }
 
-export default GreekStyleDressPage
+export default Transition(GreekStyleDressPage)
