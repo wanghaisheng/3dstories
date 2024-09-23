@@ -11,8 +11,10 @@ const Annotation = ({ id, ...props }) => {
   const pageRef = useRef(useScrollStore.getState().page)
   const totalPagesRef = useRef(0)
   const scrollToSlide = () => {
-    window.scrollTo(0, availableHeight * id)
-    // console.log('ID', id, length, i)
+    window.scrollTo({
+      top: availableHeight * id,
+      behavior: 'smooth' // Optional: for smooth scrolling§
+    })
   }
 
   useEffect(() => {
