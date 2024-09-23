@@ -27,10 +27,6 @@ const Navigation = ({ data }) => {
         const slideBottom = slideTop + availableHeight
         return scrollPosition >= slideTop && scrollPosition < slideBottom
       })
-
-      if (activeSlide) {
-        setActiveSlideId(activeSlide.id)
-      }
     }
 
     window.addEventListener('scroll', handleScroll)
