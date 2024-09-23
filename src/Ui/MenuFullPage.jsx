@@ -15,7 +15,10 @@ const Navigation = ({ data }) => {
   const [activeSlideId, setActiveSlideId] = useState(null)
   const availableHeight = useViewportStore(state => state.availableHeight)
   const scrollToSlide = (id, length, i) => {
-    window.scrollTo(0, availableHeight * (id - 1))
+    window.scrollTo({
+      top: availableHeight * (id - 1),
+      behavior: 'smooth' // Optional: for smooth scrolling§
+    })
     console.log('ID', id, length, i)
   }
   // Update active slide ID based on scroll position
@@ -27,6 +30,10 @@ const Navigation = ({ data }) => {
         const slideBottom = slideTop + availableHeight
         return scrollPosition >= slideTop && scrollPosition < slideBottom
       })
+
+      if (activeSlide) {
+        setActiveSlideId(activeSlide.id)
+      }
     }
 
     window.addEventListener('scroll', handleScroll)

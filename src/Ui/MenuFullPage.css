@@ -37,6 +37,7 @@
 }
 
 .MenuFullPage .sub-menu.active button::after {
+  text-decoration: underline;
   width: 100%;
 }
 
