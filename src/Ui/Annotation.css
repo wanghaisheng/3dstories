@@ -7,15 +7,24 @@
   transition: all 0.5s ease-in-out;
   cursor: pointer;
   border-radius: 6px;
-  background: white;
+  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.Annotation.active {
+  background-color: var(--active);
+}
+
+.Annotation::after .active {
+  border: 1px solid var(--active);
+}
+
 .Annotation::after {
   content: '';
   position: absolute;
+  z-index: -1;
   display: block;
   transform-origin: center;
   width: 32px;
@@ -41,5 +50,5 @@
 }
 
 .Annotation:hover {
-  transform: scale(1.2);
+  transform: scale(0.7);
 }

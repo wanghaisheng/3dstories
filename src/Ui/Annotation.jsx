@@ -1,8 +1,8 @@
+import './Annotation.css'
 import { useViewportStore } from '../components/ViewportManager'
 import { Html } from '@react-three/drei'
 import { useEffect, useRef, useState } from 'react'
 import { useScrollStore } from '../components/ScrollManager'
-import './Annotation.css'
 
 const Annotation = ({ id, ...props }) => {
   const [activeSection, setActiveSection] = useState(null)
