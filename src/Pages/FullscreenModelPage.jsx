@@ -3,7 +3,7 @@ import useStore from '../GlobalState'
 import { Canvas } from '@react-three/fiber'
 import { Environment, OrbitControls } from '@react-three/drei'
 import Background from '../Ui/Background'
-
+import { useMediaQuery } from 'react-responsive'
 import RobeFrancaiseModel from '../modelComps/RobeFrancaiseModel'
 import GreekStyleDressModel from '../modelComps/GreekStyleDressModel'
 import SpencerJacketModel from '../modelComps/SpencerJacketModel'
@@ -13,6 +13,7 @@ import OuterDoubletModel from '../modelComps/OuterDoubletModel'
 
 const FullscreenModelPage = ({ pathname }) => {
   const showFullscreenMode = useStore(state => state.showFullscreenMode)
+  const isBigScreen = useMediaQuery({ query: '(min-width: 640px)' })
 
   const fullscreenMode = () => {
     if (showFullscreenMode === false) {
@@ -29,7 +30,13 @@ const FullscreenModelPage = ({ pathname }) => {
     >
       <button
         onClick={fullscreenMode}
-        style={{ zIndex: '100000', color: 'var(--white)', position: 'absolute', right: '3rem', top: '2rem' }}
+        style={{
+          zIndex: '100000',
+          color: 'var(--white)',
+          position: 'absolute',
+          right: isBigScreen ? '3rem' : '2rem',
+          top: '2rem'
+        }}
       >
         CLOSE
       </button>

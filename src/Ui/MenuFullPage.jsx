@@ -14,7 +14,12 @@ import { useLocation } from 'react-router-dom'
 const Navigation = ({ data }) => {
   const [activeSlideId, setActiveSlideId] = useState(null)
   const availableHeight = useViewportStore(state => state.availableHeight)
+  const toggleMenu = useStore(state => state.toggleMenu)
+  const isMenuOpen = useStore(state => state.isMenuOpen)
   const scrollToSlide = (id, length, i) => {
+    if (isMenuOpen) {
+      toggleMenu()
+    }
     window.scrollTo({
       top: availableHeight * (id - 1),
       behavior: 'smooth' // Optional: for smooth scrolling§
