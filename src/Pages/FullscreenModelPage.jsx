@@ -10,6 +10,10 @@ import SpencerJacketModel from '../modelComps/SpencerJacketModel'
 import * as THREE from 'three'
 import InnerDoubletModel from '../modelComps/InnerDoubletModel'
 import OuterDoubletModel from '../modelComps/OuterDoubletModel'
+import CloseButton from '../Ui/CloseButton'
+import { useEffect } from 'react'
+import { useSpring, a, config } from '@react-spring/web'
+import InfoPanel from './InfoPanel'
 
 const FullscreenModelPage = ({ pathname }) => {
   const showFullscreenMode = useStore(state => state.showFullscreenMode)
@@ -23,23 +27,28 @@ const FullscreenModelPage = ({ pathname }) => {
     }
   }
 
+  const [styles, api] = useSpring(() => ({
+    transform: 'translateX(-100%)',
+    config: config.slow
+  }))
+
+  useEffect(() => {
+    console.log('API', api.start)
+    api.start({
+      transform: showFullscreenMode ? 'translateX(0%)' : 'translateX(-100%)',
+      opacity: showFullscreenMode ? 1 : 0
+    })
+  }, [showFullscreenMode])
+
   return (
-    <div
-      className={`FullscreenModelPage `}
-      style={{ transform: showFullscreenMode ? 'translateX(0%)' : 'translateX(-100%)' }}
-    >
-      <button
+    <a.div style={styles} className={`FullscreenModelPage `}>
+      <CloseButton
         onClick={fullscreenMode}
-        style={{
-          zIndex: '100000',
-          color: 'var(--white)',
-          position: 'absolute',
-          right: isBigScreen ? '3rem' : '2rem',
-          top: '2rem'
-        }}
-      >
-        CLOSE
-      </button>
+        className="mb-2"
+        size={32}
+        style={{ position: 'absolute', right: isBigScreen ? '3rem' : '1rem', top: isBigScreen ? '2rem' : '1rem' }}
+      />
+      {isBigScreen ? <InfoPanel /> : <InfoPanel mobile={true} />}
       <Canvas
         gl={{
           physicallyCorrectLights: true,
@@ -58,7 +67,7 @@ const FullscreenModelPage = ({ pathname }) => {
         {pathname === '/doublet' ? <OuterDoubletModel position={[0, -0.5, 1.2]} rotation={0} /> : null}
       </Canvas>
       {showFullscreenMode ? <Background /> : null}
-    </div>
+    </a.div>
   )
 }
 
