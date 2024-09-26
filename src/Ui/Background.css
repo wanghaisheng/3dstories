@@ -13,12 +13,20 @@
 }
 
 .Background .filled {
-  filter: blur(400px);
   position: fixed;
   transform: translateX(50%) translateY(50%);
-  height: 600px;
-  width: 600px;
+  height: 2000px;
+  width: 2000px;
   bottom: 0;
   right: 0;
-  background-color: var(--bg);
+  background: var(--white);
+  background: radial-gradient(circle, rgba(var(--white-rgb), 0.4) 0%, rgba(var(--dark-rgb), 0) 69%);
+  border-radius: 100%;
+}
+
+@media screen and (max-width: 640px) {
+  .Background .filled {
+    height: 1000px;
+    width: 1000px;
+  }
 }
