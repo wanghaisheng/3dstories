@@ -13,7 +13,7 @@ import OuterDoubletModel from '../modelComps/OuterDoubletModel'
 import CloseButton from '../Ui/CloseButton'
 import { useEffect } from 'react'
 import { useSpring, a, config } from '@react-spring/web'
-import InfoPanel from './InfoPanel'
+import InfoPanel from '../Ui/InfoPanel'
 
 const FullscreenModelPage = ({ pathname }) => {
   const showFullscreenMode = useStore(state => state.showFullscreenMode)
