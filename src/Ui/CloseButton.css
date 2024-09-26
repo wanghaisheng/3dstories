@@ -1,0 +1,57 @@
+.CloseButton {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgba(var(--white-rgb), 0.3);
+  border-radius: 100%;
+  z-index: var(--z-default);
+}
+
+.CloseButton .line {
+  position: absolute;
+  display: block;
+  height: 1px;
+  background-color: var(--white);
+  transform-origin: center;
+  transform: scaleX(1);
+}
+
+@keyframes close-button-one {
+  0% {
+    transform: rotate(45deg) scaleX(1);
+  }
+  50% {
+    transform: rotate(0deg) scaleX(0);
+  }
+  100% {
+    transform: rotate(135deg) scaleX(1);
+  }
+}
+
+@keyframes close-button-two {
+  0% {
+    transform: rotate(-45deg) scaleX(1);
+  }
+  50% {
+    transform: rotate(0deg) scaleX(0);
+  }
+  100% {
+    transform: rotate(-135deg) scaleX(1);
+  }
+}
+
+.CloseButton .line.one {
+  transform: rotate(45deg) scaleX(1);
+}
+.CloseButton .line.two {
+  transform: rotate(-45deg) scaleX(1);
+}
+
+.CloseButton:hover .line.one {
+  animation: close-button-one 0.5s ease-in-out;
+}
+
+.CloseButton:hover .line.two {
+  animation: close-button-two 0.5s ease-in-out;
+}
