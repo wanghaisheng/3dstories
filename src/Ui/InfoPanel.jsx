@@ -1,11 +1,11 @@
-import CloseButton from './CloseButton.jsx'
-import ZoomInIcon from '../Svg/ZoomInIcon.jsx'
-import ZoomOutIcon from '../Svg/ZoomOutIcon.jsx'
-import RotateIcon from '../Svg/RotateIcon.jsx'
-import MoveIcon from '../Svg/MoveIcon.jsx'
-import MouseLeftIcon from '../Svg/MouseLeftIcon.jsx'
-import MouseMiddleIcon from '../Svg/MouseMiddleIcon.jsx'
-import MouseRightIcon from '../Svg/MouseRightIcon.jsx'
+import CloseButton from '../Ui/CloseButton'
+import ZoomInIcon from '../Svg/ZoomInIcon'
+import ZoomOutIcon from '../Svg/ZoomOutIcon'
+import RotateIcon from '../Svg/RotateIcon'
+import MoveIcon from '../Svg/MoveIcon'
+import MouseLeftIcon from '../Svg/MouseLeftIcon'
+import MouseMiddleIcon from '../Svg/MouseMiddleIcon'
+import MouseRightIcon from '../Svg/MouseRightIcon'
 import { useEffect, useState } from 'react'
 import InfoIcon from '../Svg/InfoIcon.jsx'
 import { useSpring, a, config } from '@react-spring/web'
@@ -33,7 +33,7 @@ const InfoPanel = ({ mobile = false }) => {
   }))
 
   const [stylesMobile, apiMobile] = useSpring(() => ({
-    transform: 'translateY(0%)',
+    transform: 'translateY(-200%)',
     config: config.slow
   }))
 
@@ -51,17 +51,17 @@ const InfoPanel = ({ mobile = false }) => {
       transform: showInfoPanel ? 'translateX(-300%)' : 'translateX(0%)'
     })
     apiMobile.start({
-      transform: showInfoPanel ? 'translateY(0%) ' : 'translateY(200%)'
+      transform: showInfoPanel ? 'translateY(-10%) ' : 'translateY(20%)'
     })
     apiIMobile.start({
-      transform: showInfoPanel ? 'translateY(200%) ' : 'translateY(0%)'
+      transform: showInfoPanel ? 'translateY(350%) ' : 'translateY(0%)'
     })
   }, [showInfoPanel])
 
   return mobile === true ? (
     <>
       <a.div
-        className="InfoIcon-wrapper absolute w-full flex items-center justify-center bottom-[2rem] z-[2]"
+        className="InfoIcon-wrapper absolute w-full flex items-center justify-center bottom-[6rem] z-[2]"
         style={stylesIMobile}
       >
         <InfoIcon opacity={0.4} width={24} style={{ transform: 'translateX(0px)' }} onClick={toggleInfoPanel} />
