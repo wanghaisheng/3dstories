@@ -116,7 +116,7 @@ const NavPrevNextButtons = ({ threshold = 0, thresholdGoUp = 1, scrollToTop }) =
           <div className="fixed w-screen" style={{ top: isBigScreen ? 'calc(50% - 130px)' : '20%' }}>
             <a.div
               style={styles}
-              className={`absolute  flex xl:flex-col md:flex-row left-[1rem] md:left-[5rem] lg:left-[8rem]`}
+              className={`absolute ${initiallScrollRatioRef.current > 1 ? 'pointer-event-auto' : 'pointer-event-none'} flex xl:flex-col md:flex-row left-[1rem] md:left-[5rem] lg:left-[8rem]`}
             >
               <a onClick={handlePrevious} disabled={disablePreviousButton}>
                 <CircleButton size={isBigScreen ? 120 : 60} width={isBigScreen ? 44 : 28} rotate={180} />
