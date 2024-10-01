@@ -7,7 +7,7 @@ const Header = ({ scrollToTop }) => {
   return (
     <>
       <header
-        className="Header fixed z-20 flex justify-between p-5 sm:p-10 pointer-events-none"
+        className="Header fixed z-20 flex justify-between p-5 md:p-10 pointer-events-none"
         style={{ width: '100%' }}
       >
         <Logo3dStories width={isBigScreen ? 80 : 60} scrollToTop={scrollToTop} />
