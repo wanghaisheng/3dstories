@@ -5,7 +5,7 @@ import './ModalWindow.css'
 const ModalWindow = ({ isModalImage, closeModal, isModalVisible }) => {
   const isBigScreen = useMediaQuery({ query: '(min-width: 640px)' })
   return (
-    <div className={`ModalWindow ${isModalVisible ? 'open' : null}`}>
+    <div className={`ModalWindow ${isModalVisible ? 'open pointer-events-auto' : 'pointer-events-none'}`}>
       <CloseButton
         onClick={() => {
           closeModal()

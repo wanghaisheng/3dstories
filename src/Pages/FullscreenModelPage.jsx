@@ -41,7 +41,7 @@ const FullscreenModelPage = ({ pathname }) => {
   }, [showFullscreenMode])
 
   return (
-    <a.div style={styles} className={`FullscreenModelPage `}>
+    <a.div style={styles} className="FullscreenModelPage">
       <CloseButton
         onClick={fullscreenMode}
         className="mb-2"

@@ -67,7 +67,7 @@ const InfoPanel = ({ mobile = false }) => {
         <InfoIcon opacity={0.4} width={24} style={{ transform: 'translateX(0px)' }} onClick={toggleInfoPanel} />
       </a.div>
       <a.div style={stylesMobile} className="info-panel mobile z-[1] pointer-events-none">
-        <CloseButton className="mb-2" size={24} onClick={toggleInfoPanel} />
+        <CloseButton className="mb-2 pointer-events-auto" size={24} onClick={toggleInfoPanel} />
         <div className="info-panel-wrapper">
           <div className="item">
             <ZoomInIcon opacity={0.6} />
@@ -94,7 +94,7 @@ const InfoPanel = ({ mobile = false }) => {
         <InfoIcon onClick={toggleInfoPanel} width={32} style={{ transform: 'translateX(40px)' }} />
       </a.div>
       <a.div style={styles} className="info-panel z-[1] pointer-events-none">
-        <CloseButton className="mb-2" size={24} onClick={toggleInfoPanel} />
+        <CloseButton className="mb-2 pointer-events-auto" size={24} onClick={toggleInfoPanel} />
         <div className="info-panel-wrapper">
           <div className="item">
             <MouseLeftIcon opacity={0.6} />
