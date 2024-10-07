@@ -79,13 +79,13 @@ const GreekStyleDress = ({ pathname }) => {
 }
 
 const GreekStyleDressPage = ({ pathname }) => {
-  const project = getProject('Greek Style Dress Animation', {
-    state: greekStyleDressAnimation
-  })
-  const sheet = project.sheet('Scene')
+  // const project = getProject('Greek Style Dress Animation', {
+  //   state: greekStyleDressAnimation
+  // })
+  // const sheet = project.sheet('Scene')
 
   // Use JSON file to trigger the animation
-  // const sheet = getProject('Model Animation').sheet('Scene')
+  const sheet = getProject('Model Animation').sheet('Scene')
 
   return (
     <div className="Scene fixed h-screen w-full fixed top-0">
