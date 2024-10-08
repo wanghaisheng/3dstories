@@ -70,7 +70,7 @@ h1 {
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 786px) {
   h1 {
     font-size: 3.125rem;
     line-height: 2.8125rem;
