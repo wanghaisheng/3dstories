@@ -22,7 +22,7 @@ const Background = ({ pathname }) => {
   }
   const contents = AvailableContents[pathname]
 
-  const backgroundValues = contents.sections
+  const backgroundValues = contents?.sections
     .filter(section => section.background)
     .map(section => ({ id: section.id, background: section.background }))
   console.info('Background values:', backgroundValues)
