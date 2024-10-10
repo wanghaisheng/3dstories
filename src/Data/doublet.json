@@ -31,12 +31,14 @@
     {
       "id": 5,
       "title": "'Doublet with slit pattern'",
-      "description": "The green silk Doublet from the beginning of the 17th century (c. 1600-1610) has long tight sleeves and a high stand-up collar, a straight waistline and twelve lapels below. Padded front and back sections define the silhouette and ensure a smooth fit around the upper body. The padding is made of cotton fleece and small shoulder pads widen the shoulders slightly."
+      "description": "The green silk Doublet from the beginning of the 17th century (c. 1600-1610) has long tight sleeves and a high stand-up collar, a straight waistline and twelve lapels below. Padded front and back sections define the silhouette and ensure a smooth fit around the upper body. The padding is made of cotton fleece and small shoulder pads widen the shoulders slightly.",
+      "background": "left"
     },
     {
       "id": 6,
       "title": "",
-      "description": "The garment has a length of 53 cm and is made of ‘embossed’ or 'cut' green-blue iridescent silk taffeta as the outer material with a plain weave. The 'pinked' silk is influenced by contemporary weaving patterns. As is the design of the slit decoration, which shows a finely embossed diamond pattern with two parallel lines. Four larger holes are cut into each diamond in a square arrangement."
+      "description": "The garment has a length of 53 cm and is made of ‘embossed’ or 'cut' green-blue iridescent silk taffeta as the outer material with a plain weave. The 'pinked' silk is influenced by contemporary weaving patterns. As is the design of the slit decoration, which shows a finely embossed diamond pattern with two parallel lines. Four larger holes are cut into each diamond in a square arrangement.",
+      "background": "left"
     },
     {
       "id": 7,
@@ -61,7 +63,8 @@
     {
       "id": 11,
       "title": "More details & findings",
-      "description": "Jutta Zander-Seidel described the green silk doublet with a slit pattern in the exhibition catalogue <a href='https://books.ub.uni-heidelberg.de//arthistoricum/catalog/book/396' target='_blanc'>“In Mode: Kleider und Bilder aus Renaissance und Frühbarock”</a> (Nuremberg 2015, p.85). The Doublet with embroidered decorative stripes can be found ibid. on p. 101 ff."
+      "description": "Jutta Zander-Seidel described the green silk doublet with a slit pattern in the exhibition catalogue <a href='https://books.ub.uni-heidelberg.de//arthistoricum/catalog/book/396' target='_blanc'>“In Mode: Kleider und Bilder aus Renaissance und Frühbarock”</a> (Nuremberg 2015, p.85). The Doublet with embroidered decorative stripes can be found ibid. on p. 101 ff.",
+      "background": "left"
     }
   ]
 }

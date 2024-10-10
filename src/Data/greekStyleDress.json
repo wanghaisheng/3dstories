@@ -27,17 +27,20 @@
     {
       "id": 5,
       "title": "",
-      "description": "A chemise is a shirt-like dress with a straight, full-length cut made of thin, almost transparent fabric. The loose-fitting dress was put on over the head and did not require a pannier. Excess fabric would be gathered at the neckline and at the shoulder seams, while a wide and contrasting sash around the waist would gather the fabric there and accentuate the waistline."
+      "description": "A chemise is a shirt-like dress with a straight, full-length cut made of thin, almost transparent fabric. The loose-fitting dress was put on over the head and did not require a pannier. Excess fabric would be gathered at the neckline and at the shoulder seams, while a wide and contrasting sash around the waist would gather the fabric there and accentuate the waistline.",
+      "background": "right"
     },
     {
       "id": 6,
       "title": "Texture and material",
-      "description": "Muslin was a favorite choice for this dress, but crêpe, silk gauze, and linen were also used. This salmon-colored dress made from high-quality silk taffeta has been preserved in the Germanisches Nationalmuseum. It has almost no ornamentation and was tailored to fit its wearer precisely and played flatteringly around her body shape."
+      "description": "Muslin was a favorite choice for this dress, but crêpe, silk gauze, and linen were also used. This salmon-colored dress made from high-quality silk taffeta has been preserved in the Germanisches Nationalmuseum. It has almost no ornamentation and was tailored to fit its wearer precisely and played flatteringly around her body shape.",
+      "background": "right"
     },
     {
       "id": 7,
       "title": "",
-      "description": "The bust and sleeves are the only parts that fit snugly, while the rest of the fabric can fall freely.</br></br>Its train emphasises that this is a festive gown. A decorative element at the back, a row of silk-covered wooden buttons, has no function but to emphasize the flowing silhouette of the dress. A Chemise might have been worn with an overdress."
+      "description": "The bust and sleeves are the only parts that fit snugly, while the rest of the fabric can fall freely.</br></br>Its train emphasises that this is a festive gown. A decorative element at the back, a row of silk-covered wooden buttons, has no function but to emphasize the flowing silhouette of the dress. A Chemise might have been worn with an overdress.",
+      "background": "right"
     },
     {
       "id": 8,
@@ -67,7 +70,8 @@
     {
       "id": 13,
       "title": "More details & findings",
-      "description": "Jutta Zander-Seidel has described the dress in <a href='https://books.ub.uni-heidelberg.de//arthistoricum/catalog/book/368' target='_blanc'>“Kleiderwechsel. Frauen-, Männer- und Kinderkleidung des 18. bis 20. Jahrhunderts”</a> (Die Schausammlungen des Germanischen Nationalmuseums, Nürnberg 2002, Vol.1, p. 58-60). Find out more about related objects in the <a href='https://objektkatalog.gnm.de/recherche?search_api_fulltext=T+4002-4070&search_api_fulltext_1=' target='_blanc'>“museum database”</a>."
+      "description": "Jutta Zander-Seidel has described the dress in <a href='https://books.ub.uni-heidelberg.de//arthistoricum/catalog/book/368' target='_blanc'>“Kleiderwechsel. Frauen-, Männer- und Kinderkleidung des 18. bis 20. Jahrhunderts”</a> (Die Schausammlungen des Germanischen Nationalmuseums, Nürnberg 2002, Vol.1, p. 58-60). Find out more about related objects in the <a href='https://objektkatalog.gnm.de/recherche?search_api_fulltext=T+4002-4070&search_api_fulltext_1=' target='_blanc'>“museum database”</a>.",
+      "background": "left"
     }
   ]
 }

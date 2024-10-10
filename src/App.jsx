@@ -7,9 +7,7 @@ import { useAtom } from 'jotai'
 import FullscreenModelPage from './Pages/FullscreenModelPage'
 import ContentManager from './components/ContentManager'
 import ViewportManager from './components/ViewportManager'
-import { useScrollStore } from './components/ScrollManager'
 import NavPrevNextButtons from './Ui/NavPrevNextButtons'
-import { useEffect, useRef } from 'react'
 import MenuFullPage from './Ui/MenuFullPage'
 import GenericPage from './Pages/GenericPage'
 import RobeFrancaisePage from './Pages/RobeFrancaisePage'
@@ -23,22 +21,8 @@ import { AnimatePresence } from 'framer-motion'
 function App() {
   const location = useLocation()
   const pathname = location.pathname
-  const pageRef = useRef(useScrollStore.getState().page)
   const [isModalVisible, setModalVisible] = useAtom(modalVisible)
   const [isModalImage, setModalImage] = useAtom(modalImage) // Use an empty object as the key
-
-  // useEffect(() => {
-  //   const findRoot = document.getElementById('root')
-  //   const currentScrollY = window.scrollY
-  //   console.log('currentScrollY', currentScrollY)
-  //   if (isModalVisible === true) {
-  //     findRoot.classList.add('no-scroll')
-  //   } else {
-  //     findRoot.classList.remove('no-scroll')
-  //   }
-  // }, [isModalVisible])
-
-  // console.log('GreekStyleDressContent', GreekStyleDressContent.sections[3].image)
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -60,7 +44,6 @@ function App() {
     }, 500)
   }
 
-  console.log('PAGE-REF', pageRef)
   return (
     <>
       <ModalWindow closeModal={closeModal} isModalImage={isModalImage} isModalVisible={isModalVisible} />
@@ -79,7 +62,7 @@ function App() {
         <ViewportManager />
       </AnimatePresence>
       <Footer />
-      <Background />
+      <Background pathname={pathname} />
     </>
   )
 }

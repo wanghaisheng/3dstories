@@ -34,17 +34,20 @@
     {
       "id": 7,
       "title": "A wedding dress for Juliana Luisa Mauritia Eck?",
-      "description": "As a hypothesis, Adelheid Rasche, curator of the textile collection, having analyzed the sparse source material, concluded that the ensemble of dress and petticoat was possibly a wedding dress for a young woman called Juliana Luisa Maurtia Eck (1739-1805). Her wedding took place on January 11th, 1757."
+      "description": "As a hypothesis, Adelheid Rasche, curator of the textile collection, having analyzed the sparse source material, concluded that the ensemble of dress and petticoat was possibly a wedding dress for a young woman called Juliana Luisa Maurtia Eck (1739-1805). Her wedding took place on January 11th, 1757.",
+      "background": "right"
     },
     {
       "id": 8,
       "title": "Dress elements & Accessories",
-      "description": "The upper part of the dress is fitted at the front and has a partially closed group of pleats at the back - the typical feature of a Robe à la française."
+      "description": "The upper part of the dress is fitted at the front and has a partially closed group of pleats at the back - the typical feature of a Robe à la française.",
+      "background": "right"
     },
     {
       "id": 9,
       "title": "",
-      "description": "A stomacher was originally worn over the long front opening. This triangular insert which has not survived in the case of the blue dress, concealed the undergarment. It was attached to the dress neckline with pins.</br> The entire inside of the dress’ bodice is stabilized with whalebone stays. Lacing at the back allowed it to be adjusted to fit the wearer. A long linen shirt and a separate laced bodice were worn under the dress."
+      "description": "A stomacher was originally worn over the long front opening. This triangular insert which has not survived in the case of the blue dress, concealed the undergarment. It was attached to the dress neckline with pins.</br> The entire inside of the dress’ bodice is stabilized with whalebone stays. Lacing at the back allowed it to be adjusted to fit the wearer. A long linen shirt and a separate laced bodice were worn under the dress.",
+      "background": "right"
     },
     {
       "id": 10,
@@ -84,7 +87,8 @@
     {
       "id": 17,
       "title": "More details & findings",
-      "description": "Adelheid Rasche published her research on the dress, its origins and its likely use in the exhibition catalogue <a href='https://webopac.gnm.de/aDISWeb/app?service=direct/0/Home/$DirectLink&sp=SOPAC&sp=SAK00603930' target='_blanc'>“Luxury in Silk. Eighteenth-Century Fashion”</a>, Nuremberg 2018. Find out more about the hoop petticoat, whalebone production and accessories like fans, gloves, lace, shoes and stomachers in the catalogue."
+      "description": "Adelheid Rasche published her research on the dress, its origins and its likely use in the exhibition catalogue <a href='https://webopac.gnm.de/aDISWeb/app?service=direct/0/Home/$DirectLink&sp=SOPAC&sp=SAK00603930' target='_blanc'>“Luxury in Silk. Eighteenth-Century Fashion”</a>, Nuremberg 2018. Find out more about the hoop petticoat, whalebone production and accessories like fans, gloves, lace, shoes and stomachers in the catalogue.",
+      "background": "left"
     }
   ]
 }
