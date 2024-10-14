@@ -62,15 +62,13 @@ const ScrollManager = ({ pages = [], pathname = '/' }) => {
         <div
           className="page-content"
           key={'i' + i}
-          style={
-            {
-              // height:
-              //   i === arr.length - 1
-              //     ? window.innerHeight + window.innerHeight / (isBigScreen ? 4 : 3)
-              //     : window.innerHeight
-              // border: '1px solid blue',
-            }
-          }
+          style={{
+            height:
+              i === arr.length - 1
+                ? window.outerHeight + window.outerHeight / (isBigScreen ? 4 : 3)
+                : window.outerHeight
+            // border: '1px solid blue'
+          }}
         ></div>
       ))}
     </div>
