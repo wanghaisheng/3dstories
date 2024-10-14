@@ -19,6 +19,7 @@ const Footer = ({ thresholdFooter = 1 }) => {
   useEffect(
     () =>
       useScrollStore.subscribe(state => {
+        console.log('stainitiallScrollRatioRef', state.scrollRatio)
         initiallScrollRatioRef.current = state.scrollRatio
         if (isVisibleFooter.current === true) {
           setFooterLinks(true)
@@ -50,12 +51,12 @@ const Footer = ({ thresholdFooter = 1 }) => {
       } fixed w-screen bottom-0 left-0 flex flex-wrap p-5 sm:p-10 items-center`}
     >
       <div className="flex z-40 flex-wrap w-screen justify-between ">
-        <div className="footer-left my-3 justify-between md:justify-start flex-wrap flex flex-row items-center flex-grow">
+        <div className="footer-left justify-between md:justify-start flex-wrap flex flex-row items-center flex-grow">
           <LogoFhp width={isBigScreen ? 160 : 90} />
           <LogoUcl className={'ml-5'} width={isBigScreen ? 120 : 80} />
           <LogoUni className={'ml-5'} width={isBigScreen ? 140 : 90} />
         </div>
-        <div className="my-3 md:mt-0 flex items-center footer-right justify-center md:justify-end flex-grow">
+        <div className="mt-3 md:mt-0 flex items-center footer-right justify-center md:justify-end flex-grow">
           <a href="https://www.fh-potsdam.de/impressum" rel="no-referrer" target="_blank">
             Imprint
           </a>
