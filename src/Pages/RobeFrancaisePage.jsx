@@ -64,7 +64,7 @@ const RobeFrancaise = ({ pathname }) => {
       <ambientLight intensity={1} />
       <Environment preset="studio" environmentIntensity={0.2} environmentRotation={[2.5, 1.3, 1.3]} />
       <PerspectiveCamera theatreKey="Camera" makeDefault position={[0, 0.2, 8]} fov={45} near={0.1} far={70} />
-      <group position={isBigScreen ? [0, -1.4, 0] : [-1, -2, 0]} scale={isBigScreen ? 1 : 1}>
+      <group position={isBigScreen ? [0, -1.4, 0] : [-1, -1.6, 0]} scale={isBigScreen ? 1 : 1}>
         <e.group theatreKey="Robe">
           <Annotation id={3} position={[1, 2, 0.8]} />
           <Annotation id={5} position={[-1, 3, 0.6]} />
