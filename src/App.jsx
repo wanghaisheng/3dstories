@@ -17,6 +17,7 @@ import DoubletPage from './Pages/DoubletPage'
 import ModalWindow from './Ui/ModalWindow'
 import Images from './Data/images.json'
 import { AnimatePresence } from 'framer-motion'
+import ArmorPage from './Pages/ArmorPage'
 
 function App() {
   const location = useLocation()
@@ -54,6 +55,7 @@ function App() {
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<RobeFrancaisePage pathname={pathname} />}></Route>
+          <Route path="/armor" element={<ArmorPage pathname={pathname} />}></Route>
           <Route path="/doublet" element={<DoubletPage pathname={pathname} />}></Route>
           <Route path="/greek_style_dress" element={<GreekStyleDressPage pathname={pathname} />}></Route>
           <Route path="/about" element={<GenericPage />}></Route>
