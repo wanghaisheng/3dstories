@@ -1,6 +1,7 @@
 import './MenuFullPage.css'
 import RobeFrancaiseContent from '../Data/robeFrancaise.json'
 import DoubletContent from '../Data/doublet.json'
+import ArmorContent from '../Data/armor.json'
 import GreekStyleDressContent from '../Data/greekStyleDress.json'
 import { NavLink } from 'react-router-dom'
 import { useSpring, a, config } from '@react-spring/web'
@@ -88,6 +89,10 @@ const MenuFullPage = () => {
           <li>
             <NavLink to="/">A luxurious Robe à la francaise</NavLink>
             {pathname === '/' ? <Navigation data={RobeFrancaiseContent} /> : null}
+          </li>
+          <li>
+            <NavLink to="/armor">A plate armor for Elector Christian I. of Saxony</NavLink>
+            {pathname === '/armor' ? <Navigation data={ArmorContent} /> : null}
           </li>
           <li>
             <NavLink to="/doublet">The Doublet in the 17th century</NavLink>

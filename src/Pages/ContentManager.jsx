@@ -1,5 +1,6 @@
 import RobeFrancaiseContent from '../Data/robeFrancaise.json'
 import GreekStyleDressContent from '../Data/greekStyleDress.json'
+import ArmorContent from '../Data/armor.json'
 import DoubletContent from '../Data/doublet.json'
 import AboutContent from '../Data/about.json'
 import { useLocation } from 'react-router-dom'
@@ -13,12 +14,14 @@ import { useViewportStore } from './ViewportManager'
 // import { useAtom } from 'jotai'
 
 const IndexRoute = '/'
+const ArmorRoute = '/armor'
 const DoubletRoute = '/doublet'
 const GreekStyleDressRoute = '/greek_style_dress'
 const AboutRoute = '/about'
 
 const AvailableContents = {
   [IndexRoute]: RobeFrancaiseContent,
+  [ArmorRoute]: ArmorContent,
   [DoubletRoute]: DoubletContent,
   [GreekStyleDressRoute]: GreekStyleDressContent,
   [AboutRoute]: AboutContent
