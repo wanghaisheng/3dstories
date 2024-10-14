@@ -63,7 +63,7 @@ function App() {
         <ContentManager openModal={openModal} isModalVisible={isModalVisible} />
         <ViewportManager />
       </AnimatePresence>
-      {/* <Footer /> */}
+      <Footer />
       <Background pathname={pathname} />
     </>
   )

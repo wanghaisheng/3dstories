@@ -10,7 +10,6 @@ import { useEffect, useRef } from 'react'
 import { useSpring, a, config } from '@react-spring/web'
 import { useMediaQuery } from 'react-responsive'
 import { useViewportStore } from './ViewportManager'
-import Footer from '../Ui/Footer'
 // import { modalVisible } from '../GlobalState'
 // import { useAtom } from 'jotai'
 
@@ -102,7 +101,6 @@ const ContentManager = ({ openModal }) => {
             />
           </div>
         ))}
-        <Footer className="mt-10"></Footer>
       </a.div>
       <ScrollManager pages={contents.sections} pathname={pathname} />
     </>

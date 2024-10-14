@@ -6,7 +6,7 @@ import { useRef, useEffect, useState } from 'react'
 import { useScrollStore } from '../components/ScrollManager'
 import { useSpring, a } from '@react-spring/web'
 
-const Footer = ({ thresholdFooter = 1, className }) => {
+const Footer = ({ thresholdFooter = 1 }) => {
   const [footerLinks, setFooterLinks] = useState(false)
   const initiallScrollRatioRef = useRef(useScrollStore.getState().scrollRatio)
   const isVisibleFooter = useRef(true)
@@ -45,9 +45,9 @@ const Footer = ({ thresholdFooter = 1, className }) => {
   return (
     <a.footer
       style={stylesScrollUp}
-      className={`w-screen ${className} ${
+      className={`w-screen ${
         footerLinks === false ? 'pointer-events-none' : 'pointer-events-auto'
-      } fixed w-screen left-0 flex flex-wrap p-5 sm:p-10 items-center`}
+      } fixed w-screen bottom-0 left-0 flex flex-wrap p-5 sm:p-10 items-center`}
     >
       <div className="flex z-40 flex-wrap w-screen justify-between ">
         <div className="footer-left my-3 justify-between md:justify-start flex-wrap flex flex-row items-center flex-grow">

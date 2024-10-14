@@ -133,7 +133,10 @@ const NavPrevNextButtons = ({ threshold = 0, thresholdGoUp = 1, scrollToTop }) =
         ) : null}
         <div
           className="go-to-top z-20 fixed flex flex-col"
-          style={{ bottom: 'calc(15% + 60px)', left: isBigScreen ? '5rem' : 'calc(50% - 40px)' }}
+          style={{
+            bottom: isBigScreen ? 'calc(15% + 60px)' : 'calc(15% + 80px)',
+            left: isBigScreen ? '5rem' : 'calc(50% - 40px)'
+          }}
         >
           <a.div style={stylesScrollUp}>
             <a onClick={scrollToTop}>
