@@ -68,7 +68,7 @@ const Armor = ({ pathname }) => {
         <e.group theatreKey="Robe">
           <Annotation id={3} position={[0.2, 0, 0.6]} />
           <Annotation id={5} position={[0, 2.1, 0.6]} />
-          <ArmorModel ref={ArmorRef} position={[0, 0.4, 0]} rotation={0} scale={3.5} />
+          <ArmorModel ref={ArmorRef} position={[0, 0.4, 0]} rotation={0} scale={4} />
         </e.group>
       </group>
     </>
