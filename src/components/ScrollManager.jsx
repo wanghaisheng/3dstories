@@ -65,8 +65,8 @@ const ScrollManager = ({ pages = [], pathname = '/' }) => {
           style={{
             height:
               i === arr.length - 1
-                ? window.outerHeight + window.outerHeight / (isBigScreen ? 4 : 3)
-                : window.outerHeight
+                ? window.innerHeight + window.innerHeight / (isBigScreen ? 4 : 3.15)
+                : window.innerHeight
             // border: '1px solid blue'
           }}
         ></div>
