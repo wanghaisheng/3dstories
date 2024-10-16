@@ -12,7 +12,6 @@ import { useMediaQuery } from 'react-responsive'
 import ArmorModel from '../modelComps/ArmorModel'
 import { editable as e } from '@theatre/r3f'
 import * as THREE from 'three'
-import Annotation from '../Ui/Annotation'
 import Transition from '../Ui/Transition'
 
 const Armor = ({ pathname }) => {
@@ -66,8 +65,6 @@ const Armor = ({ pathname }) => {
       <PerspectiveCamera theatreKey="Camera" makeDefault position={[0, 0.2, 8]} fov={45} near={0.1} far={70} />
       <group position={isBigScreen ? [0, 0, 0] : [-1, 0, 0]} scale={isBigScreen ? 1 : 1}>
         <e.group theatreKey="Robe">
-          <Annotation id={3} position={[0.2, 0, 0.6]} />
-          <Annotation id={5} position={[0, 2.1, 0.6]} />
           <ArmorModel ref={ArmorRef} position={[0, 0.4, 0]} rotation={0} scale={4} />
         </e.group>
       </group>

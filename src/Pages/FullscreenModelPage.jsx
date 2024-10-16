@@ -15,6 +15,7 @@ import CloseButton from '../Ui/CloseButton'
 import { useEffect } from 'react'
 import { useSpring, a, config } from '@react-spring/web'
 import InfoPanel from '../Ui/InfoPanel'
+import Annotation from '../Ui/Annotation'
 
 const FullscreenModelPage = ({ pathname }) => {
   const showFullscreenMode = useStore(state => state.showFullscreenMode)
@@ -58,10 +59,17 @@ const FullscreenModelPage = ({ pathname }) => {
           toneMapping: THREE.LinearToneMapping
         }}
       >
-        <OrbitControls autoRotate={true} autoRotateSpeed={0.5} enableDamping={true} />
+        <OrbitControls autoRotate={false} autoRotateSpeed={0.5} enableDamping={true} />
         <ambientLight intensity={1} />
         <Environment preset="studio" environmentIntensity={0.2} environmentRotation={[1, 1, 0]} />
-        {pathname === '/' ? <RobeFrancaiseModel position={[0, -2, 0]} rotation={0} /> : null}
+        {pathname === '/' ? (
+          <>
+            <RobeFrancaiseModel position={[0, -1.9, 0]} scale={1.2} rotation={0} />
+            <Annotation id={5} position={[-1, 0, -1]} />
+            <Annotation id={6} position={[-0.1, 0, 0.8]} />
+            <Annotation id={16} position={[-1, 1.5, 0.3]} />
+          </>
+        ) : null}
         {pathname === '/armor' ? <ArmorModel position={[0, 0.2, 0]} scale={5} rotation={0} /> : null}
         {pathname === '/greek_style_dress' ? <GreekStyleDressModel position={[0, -2.2, 0.5]} rotation={0} /> : null}
         {pathname === '/greek_style_dress' ? <SpencerJacketModel position={[0, 1, -0.5]} rotation={1.4} /> : null}
