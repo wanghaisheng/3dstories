@@ -12,30 +12,12 @@ const Annotation = ({ id, ...props }) => {
   const pageRef = useRef(useScrollStore.getState().page)
   const totalPagesRef = useRef(0)
   const scrollToSlide = () => {
+    const startOffset = availableHeight * (id - 1)
+    console.info('[Annotation] scrollToSlide', startOffset)
     window.scrollTo({
-      top: availableHeight * id,
-      behavior: 'smooth'
+      top: startOffset,
+      behavior: 'auto'
     })
-
-    // Manually handle the duration for 2 seconds
-    const start = window.scrollY
-    const end = availableHeight * id
-    const duration = 2000
-    const startTime = performance.now()
-
-    const animateScroll = currentTime => {
-      const elapsed = currentTime - startTime
-      const progress = Math.min(elapsed / duration, 1)
-      const easeInOutQuad = t => (t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t)
-      const easedProgress = easeInOutQuad(progress)
-      window.scrollTo(0, start + (end - start) * easedProgress)
-
-      if (progress < 1) {
-        requestAnimationFrame(animateScroll)
-      }
-    }
-
-    requestAnimationFrame(animateScroll)
   }
 
   const hoverOverPoint = () => {

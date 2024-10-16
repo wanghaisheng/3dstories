@@ -64,7 +64,7 @@ function App() {
         <ViewportManager />
       </AnimatePresence>
       <Footer />
-      <Background pathname={pathname} />
+      <Background pathname={pathname} showFullscreenMode={true} />
     </>
   )
 }

@@ -38,7 +38,8 @@ const FullscreenModelPage = ({ pathname }) => {
     console.log('API', api.start)
     api.start({
       transform: showFullscreenMode ? 'translateX(0%)' : 'translateX(-100%)',
-      opacity: showFullscreenMode ? 1 : 0
+      opacity: showFullscreenMode ? 1 : 0,
+      config: { delay: showFullscreenMode === false ? 5000 : 5000, duration: showFullscreenMode === false ? 500 : 300 } // Added 500ms to the existing delay
     })
   }, [showFullscreenMode])
 
@@ -76,7 +77,7 @@ const FullscreenModelPage = ({ pathname }) => {
         {pathname === '/doublet' ? <InnerDoubletModel position={[0, -0.5, -1.2]} rotation={1.4} /> : null}
         {pathname === '/doublet' ? <OuterDoubletModel position={[0, -0.5, 1.2]} rotation={0} /> : null}
       </Canvas>
-      {showFullscreenMode ? <Background /> : null}
+      <Background showFullscreenMode={showFullscreenMode} />
     </a.div>
   )
 }
