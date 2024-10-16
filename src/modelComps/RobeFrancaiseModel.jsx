@@ -21,10 +21,10 @@ const RobeFrancaiseModel = forwardRef(({ position, rotation, ...props }, ref) =>
   return (
     <group {...props} position={position} dispose={null} rotation={[0, 0, rotation]}>
       <mesh
-        scale={0.035}
+        ref={ref}
+        scale={1.4}
         castShadow
         receiveShadow
-        ref={ref}
         geometry={nodes['robe-francaise'].geometry}
         material={materials.material_0}
         rotation={[Math.PI / 2, 0, 0]}

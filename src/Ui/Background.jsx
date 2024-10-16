@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useScrollStore } from '../components/ScrollManager'
 import RobeFrancaiseContent from '../Data/robeFrancaise.json'
 import GreekStyleDressContent from '../Data/greekStyleDress.json'
+import ArmorContent from '../Data/armor.json'
 import DoubletContent from '../Data/doublet.json'
 
 const Background = ({ pathname }) => {
@@ -12,11 +13,13 @@ const Background = ({ pathname }) => {
   const [backgroundClass, setBackgroundClass] = useState('')
 
   const IndexRoute = '/'
+  const ArmorRoute = '/armor'
   const DoubletRoute = '/doublet'
   const GreekStyleDressRoute = '/greek_style_dress'
 
   const AvailableContents = {
     [IndexRoute]: RobeFrancaiseContent,
+    [ArmorRoute]: ArmorContent,
     [DoubletRoute]: DoubletContent,
     [GreekStyleDressRoute]: GreekStyleDressContent
   }

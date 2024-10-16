@@ -16,7 +16,10 @@ const ModalWindow = ({ isModalImage, closeModal, isModalVisible }) => {
       />
       <div className="ModalWindow-content">
         <img src={`${isModalImage?.url}`} alt={`${isModalImage?.title}`} />
-        <figcaption className="mt-3">{isModalImage?.title}</figcaption>
+        {/* <figcaption className="mt-3">{isModalImage?.title}</figcaption> */}
+        {isModalImage?.description ? (
+          <figcaption className="w-11/12 md:w-2/4 text-sm mt-3">{isModalImage?.description}</figcaption>
+        ) : null}
       </div>
     </div>
   )

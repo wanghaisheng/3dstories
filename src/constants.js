@@ -2,6 +2,10 @@ export const IndexRoute = {
   pathname: '/',
   isSmoothScrollActive: true
 }
+export const ArmorsRoute = {
+  pathname: '/armor',
+  isSmoothScrollActive: true
+}
 export const DoubletRoute = {
   pathname: '/doublet',
   isSmoothScrollActive: true
@@ -15,4 +19,4 @@ export const AboutRoute = {
   isSmoothScrollActive: false
 }
 
-export const RoutesUsingButtons = [IndexRoute, DoubletRoute, GreekStyleDressRoute]
+export const RoutesUsingButtons = [IndexRoute, ArmorsRoute, DoubletRoute, GreekStyleDressRoute]

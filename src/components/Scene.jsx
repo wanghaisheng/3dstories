@@ -10,7 +10,7 @@ import { useMemo } from 'react'
 const RobeSheet = getProject('Model Animation', {
   state: robeAnimation
 }).sheet('Scene')
-const KnightSheet = getProject('Model Animation2', {
+const ArmorSheet = getProject('Model Animation2', {
   state: robeAnimation2
 }).sheet('Scene')
 
@@ -23,7 +23,7 @@ const Scene = () => {
     if (pathname === '/') {
       return RobeSheet
     } else {
-      return KnightSheet
+      return ArmorSheet
     }
   }, [pathname])
 
