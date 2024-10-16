@@ -25,29 +25,29 @@
     {
       "id": 4,
       "title": "Components",
-      "description": "The armor consists of body, arm wear and a helmet, and does not include legwear. The closed helmet with a strongly extruded crest has a pin to hold the visor open."
+      "description": "A typical 16th century plate armor consisted of a helmet, a collar to protect the throat and neck, a cuirass (or breastplate), arm armor, i.e. upper and lower arm guards, fingered gloves, leg armor and an armored apron (succinctorium). Here the armor does not include legwear."
     },
     {
       "id": 5,
       "title": "",
-      "description": "The collar is triple pushed, has a laced edge and straps to fasten the armpits.",
+      "description": "The helmet covers the entire head, while the visor can be kept open by means of a pin. The ring collar, arranged in three layers, has leather straps from which the shoulder elements are suspended.",
       "background": "left"
     },
     {
       "id": 6,
       "title": "",
-      "description": "The breastplate is heavily ridged with a goose belly.",
+      "description": "The breastplate, seen here in profile, has the form of a peascod belly, also called a goose belly, a very popular element in men's fashion in the late 16th to the early 17th century.",
       "background": "left"
     },
     {
       "id": 7,
       "title": "",
-      "description": "Belly hoops are attached to the chest plate using leather straps."
+      "description": "The so called belly hoops, covering only the front and upper part of the legs, are attached to the breastplate via prominently featuring leather straps."
     },
     {
       "id": 8,
       "title": "",
-      "description": "The shoulders are unequal. The right shoulder also allows it to be used as a rider's harness. The holes on the right side of the chest would also allow the attachment of a hook for the lance. However, the current configuration is intended for combat on foot."
+      "description": "Both shoulder elements allow the arms to moove freely. According to the museum description , the right shoulder also allows it to be used as a rider's harness, allowing to attach a hook for a lance. As seen here, the configuration is intended for combat on foot."
     },
     {
       "id": 9,
@@ -56,23 +56,18 @@
     },
     {
       "id": 10,
-      "title": "",
-      "description": "The Augsburg inspection mark is stamped on the visor, collar, chest, back and arm tiles."
-    },
-    {
-      "id": 11,
       "title": "Modular armor kits",
       "description": "Armor of the 16th century, especially the more valuable examples, was produced as a kind of modular kit. There were various requirements for use in war as well as in tournaments. The basic armor could be reinforced with additional parts, modified for special battles or even omitted in parts to be more flexible."
     },
     {
-      "id": 12,
+      "id": 11,
       "title": "The work of the plater",
       "description": "The so-called house books of the Mendel (cf. Mendel I, around 1425, Mendel II, around 1670-77) and Landauer 'Zwölfbrüderhaus Stiftungen' from the 15th century, in the possession of the Nuremberg City Library, are a valuable source of images of historical craftsmanship in Europe. For instance, <a href='https://online-service.nuernberg.de/viewer/hausbuecher/' target='_blanc'>“Mendel I, Mendel II and Landauer II”</a> depict the activities of the plater. They show, as in <a href='https://online-service.nuernberg.de/viewer/image/0f5e1d20-0f54-473b-9516-8cf87c93689a/109/LOG_0109/' target='_blanc'>“this example of a plater from 1592 (Amb. 317b.2°, [Fol 53/r])”</a>  the working environment within the brotherhood and the tools of the trade."
     },
     {
       "id": 13,
       "title": "The plate armorer Anton Pfeffenhauser",
-      "description": "TAnton Pfeffenhauser (Peffenhauser, Pepfenhauser) (around 1527 – 1601) was trained by members of the Helmschmied family and became the foremost master plate armorer in Augsburg during the late 16th century. He made richly decorated luxury armor for the princes of his time, including Archduke Ferdinand II, whose tournament armor is preserved at Ambras Castle in Innsbruck, or for Duke Johann Wilhelm of Saxe-Weimar. This </br><span class='module-content' data-href='3'>half armor</span>, created around 1570 and attributed to him is now in the art collections of the Veste Coburg. Pfeffenhausers armor mark shows a free-standing tripot, corresponding to his coat of arms. A copper votive panel from 1586 preserved in the Museo Correr (Venice) shows Plattner with three of his sons, as well as his master's mark in the coat of arms."
+      "description": "Anton Pfeffenhauser (Peffenhauser, Pepfenhauser) (around 1527 – 1601) was trained by members of the Helmschmied family and became the foremost master plate armorer in Augsburg during the late 16th century. He made richly decorated luxury armor for the princes of his time, including Archduke Ferdinand II, whose tournament armor is preserved at Ambras Castle in Innsbruck, or for Duke Johann Wilhelm of Saxe-Weimar. This </br><span class='module-content' data-href='3'>half armor</span>, created around 1570 and attributed to him is now in the art collections of the Veste Coburg. Pfeffenhausers armor mark shows a free-standing tripot, corresponding to his coat of arms. A copper votive panel from 1586 preserved in the Museo Correr (Venice) shows Plattner with three of his sons, as well as his master's mark in the coat of arms."
     },
     {
       "id": 14,
