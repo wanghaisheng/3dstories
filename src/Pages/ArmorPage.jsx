@@ -9,14 +9,14 @@ import { useCurrentSheet, PerspectiveCamera } from '@theatre/r3f'
 import { useScrollStore } from '../components/ScrollManager'
 import { val } from '@theatre/core'
 import { useMediaQuery } from 'react-responsive'
-import RobeFrancaiseModel from '../modelComps/RobeFrancaiseModel'
+import ArmorModel from '../modelComps/ArmorModel'
 import { editable as e } from '@theatre/r3f'
 import * as THREE from 'three'
 import Annotation from '../Ui/Annotation'
 import Transition from '../Ui/Transition'
 
-const RobeFrancaise = ({ pathname }) => {
-  const robeRef = useRef(null)
+const Armor = ({ pathname }) => {
+  const ArmorRef = useRef(null)
   const ratioRef = useRef(useScrollStore.getState().scrollRatio)
   // const pageRef = useRef(useScrollStore.getState().page)
   const isBigScreen = useMediaQuery({ query: '(min-width: 640px)' })
@@ -45,8 +45,8 @@ const RobeFrancaise = ({ pathname }) => {
     opacity: 0,
     config: config.slow,
     onChange: ({ value }) => {
-      if (robeRef.current) {
-        robeRef.current.material.opacity = value.opacity
+      if (ArmorRef.current) {
+        ArmorRef.current.material.opacity = value.opacity
       }
     }
   }))
@@ -61,23 +61,21 @@ const RobeFrancaise = ({ pathname }) => {
 
   return (
     <>
-      <ambientLight intensity={1} />
-      <Environment preset="studio" environmentIntensity={0.2} environmentRotation={[2.5, 1.3, 1.3]} />
+      <ambientLight intensity={0.4} />
+      <Environment preset="studio" environmentIntensity={0.5} environmentRotation={[0, 0, 0]} />
       <PerspectiveCamera theatreKey="Camera" makeDefault position={[0, 0.2, 8]} fov={45} near={0.1} far={70} />
-      <group position={isBigScreen ? [0, -1.4, 0] : [-1, -1.6, 0]} scale={isBigScreen ? 1 : 1}>
+      <group position={isBigScreen ? [0, 0, 0] : [-1, 0, 0]} scale={isBigScreen ? 1 : 1}>
         <e.group theatreKey="Robe">
-          <Annotation id={3} position={[1, 2, 0.8]} />
-          <Annotation id={5} position={[-1, 3, 0.6]} />
-          <Annotation id={6} position={[-0.3, 4, 0.5]} />
-          <Annotation id={16} position={[-0.3, 2.5, -1]} />
-          <RobeFrancaiseModel ref={robeRef} position={[0, 0, 0]} rotation={0} />
+          <Annotation id={3} position={[0.2, 0, 0.6]} />
+          <Annotation id={5} position={[0, 2.1, 0.6]} />
+          <ArmorModel ref={ArmorRef} position={[0, 0.4, 0]} rotation={0} scale={4} />
         </e.group>
       </group>
     </>
   )
 }
 
-const RobeFrancaisePage = ({ pathname }) => {
+const ArmorPage = ({ pathname }) => {
   const project = getProject('Robe Francaise Animation', {
     state: robeAnimation
   })
@@ -96,11 +94,11 @@ const RobeFrancaisePage = ({ pathname }) => {
         }}
       >
         <SheetProvider sheet={sheet}>
-          <RobeFrancaise pathname={pathname} />
+          <Armor pathname={pathname} />
         </SheetProvider>
       </Canvas>
     </div>
   )
 }
 
-export default Transition(RobeFrancaisePage)
+export default Transition(ArmorPage)

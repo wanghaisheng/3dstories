@@ -10,6 +10,7 @@ import SpencerJacketModel from '../modelComps/SpencerJacketModel'
 import * as THREE from 'three'
 import InnerDoubletModel from '../modelComps/InnerDoubletModel'
 import OuterDoubletModel from '../modelComps/OuterDoubletModel'
+import ArmorModel from '../modelComps/ArmorModel'
 import CloseButton from '../Ui/CloseButton'
 import { useEffect } from 'react'
 import { useSpring, a, config } from '@react-spring/web'
@@ -61,6 +62,7 @@ const FullscreenModelPage = ({ pathname }) => {
         <ambientLight intensity={1} />
         <Environment preset="studio" environmentIntensity={0.2} environmentRotation={[1, 1, 0]} />
         {pathname === '/' ? <RobeFrancaiseModel position={[0, -2, 0]} rotation={0} /> : null}
+        {pathname === '/armor' ? <ArmorModel position={[0, 0.2, 0]} scale={5} rotation={0} /> : null}
         {pathname === '/greek_style_dress' ? <GreekStyleDressModel position={[0, -2.2, 0.5]} rotation={0} /> : null}
         {pathname === '/greek_style_dress' ? <SpencerJacketModel position={[0, 1, -0.5]} rotation={1.4} /> : null}
         {pathname === '/doublet' ? <InnerDoubletModel position={[0, -0.5, -1.2]} rotation={1.4} /> : null}
