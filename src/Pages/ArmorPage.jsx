@@ -1,7 +1,7 @@
 import { Canvas } from '@react-three/fiber'
 import { SheetProvider } from '@theatre/r3f'
 import { getProject } from '@theatre/core'
-import robeAnimation from '../Data/Animation/robeAnimation.json'
+import armorAnimation from '../Data/Animation/armorAnimation.json'
 import { useLayoutEffect, useEffect, useRef } from 'react'
 import { Environment } from '@react-three/drei'
 import { config, useSpring } from '@react-spring/web'
@@ -64,7 +64,7 @@ const Armor = ({ pathname }) => {
       <Environment preset="studio" environmentIntensity={0.5} environmentRotation={[0, 0, 0]} />
       <PerspectiveCamera theatreKey="Camera" makeDefault position={[0, 0.2, 8]} fov={45} near={0.1} far={70} />
       <group position={isBigScreen ? [0, 0, 0] : [-1, 0, 0]} scale={isBigScreen ? 1 : 1}>
-        <e.group theatreKey="Robe">
+        <e.group theatreKey="Armor">
           <ArmorModel ref={ArmorRef} position={[0, 0.4, 0]} rotation={0} scale={4} />
         </e.group>
       </group>
@@ -73,8 +73,8 @@ const Armor = ({ pathname }) => {
 }
 
 const ArmorPage = ({ pathname }) => {
-  const project = getProject('Robe Francaise Animation', {
-    state: robeAnimation
+  const project = getProject('Armor Animation', {
+    state: armorAnimation
   })
   const sheet = project.sheet('Scene')
   // Use JSON file to trigger the animation
