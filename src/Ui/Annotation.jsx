@@ -21,7 +21,7 @@ const Annotation = ({ id, ...props }) => {
   }
 
   const hoverOverPoint = () => {
-    const slideElement = document.querySelector(`.slide-${id + 1} button`)
+    const slideElement = document.querySelector(`.slide-${id} button`)
     if (slideElement) {
       slideElement.classList.add('active')
       console.log(`Button text: ${slideElement?.textContent}`)

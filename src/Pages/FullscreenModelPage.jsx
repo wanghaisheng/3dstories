@@ -66,16 +66,34 @@ const FullscreenModelPage = ({ pathname }) => {
         {pathname === '/' ? (
           <>
             <RobeFrancaiseModel position={[0, -1.9, 0]} scale={1.2} rotation={0} />
-            <Annotation id={5} position={[-1, 0, -1]} />
-            <Annotation id={6} position={[-0.1, 0, 0.8]} />
-            <Annotation id={16} position={[-1, 1.5, 0.3]} />
+            <Annotation id={8} position={[-0.1, 2.2, -0.5]} />
+            <Annotation id={14} position={[-0.15, 0, 0.6]} />
           </>
         ) : null}
-        {pathname === '/armor' ? <ArmorModel position={[0, 0.2, 0]} scale={5} rotation={0} /> : null}
-        {pathname === '/greek_style_dress' ? <GreekStyleDressModel position={[0, -2.2, 0.5]} rotation={0} /> : null}
-        {pathname === '/greek_style_dress' ? <SpencerJacketModel position={[0, 1, -0.5]} rotation={1.4} /> : null}
-        {pathname === '/doublet' ? <InnerDoubletModel position={[0, -0.5, -1.2]} rotation={1.4} /> : null}
-        {pathname === '/doublet' ? <OuterDoubletModel position={[0, -0.5, 1.2]} rotation={0} /> : null}
+        {pathname === '/armor' ? (
+          <>
+            <ArmorModel position={[0, 0.2, 0]} scale={5} rotation={0} />
+            <Annotation id={6} position={[-0.11, 0.5, 0.8]} />
+            <Annotation id={14} position={[-0.1, 0, 0.95]} />
+          </>
+        ) : null}
+        {pathname === '/greek_style_dress' ? (
+          <>
+            <GreekStyleDressModel position={[0, -2.2, 0.5]} rotation={0} />
+            <SpencerJacketModel position={[0, 1, -0.5]} rotation={1.4} />
+            <Annotation id={6} position={[-0.11, 0.5, 0.8]} />
+            <Annotation id={14} position={[-0.1, 0, 0.95]} />
+          </>
+        ) : null}
+
+        {pathname === '/doublet' ? (
+          <>
+            <InnerDoubletModel position={[0, -0.5, -1.2]} rotation={1.4} />
+            <OuterDoubletModel position={[0, -0.5, 1.2]} rotation={0} />
+            <Annotation id={9} position={[1.6, 0.5, 1.7]} />
+            <Annotation id={10} position={[-0.1, 1, 0.5]} />
+          </>
+        ) : null}
       </Canvas>
       <Background showFullscreenMode={showFullscreenMode} />
     </a.div>

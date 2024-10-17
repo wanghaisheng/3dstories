@@ -51,7 +51,7 @@ const Footer = ({ thresholdFooter = 1 }) => {
       } fixed w-screen bottom-0 left-0 flex flex-wrap p-5 sm:p-10 items-center`}
     >
       <div className="flex z-40 flex-wrap w-screen justify-between ">
-        <div className="footer-left justify-between md:justify-start flex-wrap flex flex-row items-center flex-grow">
+        <div className="footer-left my-3 justify-between md:justify-start flex-wrap flex flex-row items-center flex-grow">
           <LogoFhp width={isBigScreen ? 160 : 90} />
           <LogoUcl className={'ml-5'} width={isBigScreen ? 120 : 80} />
           <LogoUni className={'ml-5'} width={isBigScreen ? 140 : 90} />
