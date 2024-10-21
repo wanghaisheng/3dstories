@@ -5,8 +5,9 @@ import { useMediaQuery } from 'react-responsive'
 import { useRef, useEffect, useState } from 'react'
 import { useScrollStore } from '../components/ScrollManager'
 import { useSpring, a } from '@react-spring/web'
+import CircleButton from './CircleButton'
 
-const Footer = ({ thresholdFooter = 1 }) => {
+const Footer = ({ thresholdFooter = 1, scrollToTop }) => {
   const [footerLinks, setFooterLinks] = useState(false)
   const initiallScrollRatioRef = useRef(useScrollStore.getState().scrollRatio)
   const isVisibleFooter = useRef(true)
@@ -48,8 +49,13 @@ const Footer = ({ thresholdFooter = 1 }) => {
       style={stylesScrollUp}
       className={`w-screen ${
         footerLinks === false ? 'pointer-events-none' : 'pointer-events-auto'
-      } fixed w-screen bottom-0 left-0 flex flex-wrap p-5 sm:p-10 items-center`}
+      } fixed w-screen bottom-0 left-0 flex flex-wrap p-5 sm:p-10 items-center justify-center`}
     >
+      <div className="go-to-top z-1 fixed flex flex-col translate-y-[-10rem]">
+        <a onClick={scrollToTop}>
+          <CircleButton size={isBigScreen ? 120 : 60} width={isBigScreen ? 44 : 28} rotate={-90} />
+        </a>
+      </div>
       <div className="flex z-40 flex-wrap w-screen justify-between ">
         <div className="footer-left my-3 justify-between md:justify-start flex-wrap flex flex-row items-center flex-grow">
           <LogoFhp width={isBigScreen ? 160 : 90} />

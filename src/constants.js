@@ -1,5 +1,5 @@
 export const IndexRoute = {
-  pathname: '/',
+  pathname: '/robe',
   isSmoothScrollActive: true
 }
 export const ArmorsRoute = {
@@ -14,8 +14,8 @@ export const GreekStyleDressRoute = {
   pathname: '/greek_style_dress',
   isSmoothScrollActive: true
 }
-export const AboutRoute = {
-  pathname: '/about',
+export const IntroPage = {
+  pathname: '/',
   isSmoothScrollActive: false
 }
 

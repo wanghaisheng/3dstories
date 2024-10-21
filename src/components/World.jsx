@@ -58,7 +58,7 @@ const World = ({ pathname = '/' }) => {
   useLayoutEffect(() => {
     console.info('[World] pathname changed to:', pathname)
     apiOpacity.start({
-      opacity: pathname === '/about' ? 0.1 : 1
+      opacity: pathname === '/' ? 0.1 : 1
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname])

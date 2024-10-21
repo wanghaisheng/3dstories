@@ -87,8 +87,11 @@ const MenuFullPage = () => {
       <menu className="flex flex">
         <ul className="flex flex-col items-center">
           <li>
-            <NavLink to="/">A luxurious Robe à la francaise</NavLink>
-            {pathname === '/' ? <Navigation data={RobeFrancaiseContent} /> : null}
+            <NavLink to="/">Intro Project</NavLink>
+          </li>
+          <li>
+            <NavLink to="/robe">A luxurious Robe à la francaise</NavLink>
+            {pathname === '/robe' ? <Navigation data={RobeFrancaiseContent} /> : null}
           </li>
           <li>
             <NavLink to="/armor">A plate armor for Elector Christian I. of Saxony</NavLink>
@@ -106,9 +109,6 @@ const MenuFullPage = () => {
             <NavLink to='/riegelhauber'>Riegelhaube</NavLink>
           </li> */}
           <hr />
-          <li>
-            <NavLink to="/about">About Project</NavLink>
-          </li>
         </ul>
       </menu>
       <FlourishPattern
