@@ -1,0 +1,19 @@
+{
+  "sections": [
+    {
+      "id": 1,
+      "title": "Telling stories</br>about historical</br>dress",
+      "description": ""
+    },
+    {
+      "id": 2,
+      "title": "interface / how to describe 3d objects online",
+      "description": "Two different modes are available: The first approach (Read Story) has a narrative that comments on the 3D object implemented. The reader is guided in identifying the relevant details by the scenographic animation of the 3D objects. The second option allows for free navigation of the 3D model: the user-controlled mode is made available when clicking the ‘Explore’ button.<br/>The annotation and enhancement of the generated 3D models beyond embedding them in the visualization was the focus of a cooperation between the C²DH and the UCLAB. The aim was to create a tool that would allow researchers, experts or laypersons to enrich a 3D model with information and stage the 3D model accordingly. Based on the form of scrollytelling, the possibility of a narrative-driven animation of the garment models was created. The application also allows aspects of the model to be highlighted using markers, as well as free exploration of the 3D model. 3D-Stories is also a freely reusable prototype based on a modification of open software."
+    },
+    {
+      "id": 3,
+      "title": "background on projects and institutions",
+      "description": "The project was implemented in a collaboration between the Centre for Contemporary and Digital History Luxembourg (C²DH) and the Urban Complexity Lab (UCLAB) at Potsdam University of Applied Sciences. Kirill Mitsurov (C²DH) created the interface and Marian Dörk and Sabine de Günther (UCLAB) offered data expertise and content for the stories."
+    }
+  ]
+}

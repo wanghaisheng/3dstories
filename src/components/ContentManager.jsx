@@ -1,38 +1,41 @@
+import IntroContent from '../Data/intro.json'
 import RobeFrancaiseContent from '../Data/robeFrancaise.json'
 import ArmorContent from '../Data/armor.json'
 import GreekStyleDressContent from '../Data/greekStyleDress.json'
 import DoubletContent from '../Data/doublet.json'
-import AboutContent from '../Data/about.json'
 import { useLocation } from 'react-router-dom'
 import ScrollManager, { useScrollStore } from './ScrollManager'
 import Feature from '../Ui/Feature'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useSpring, a, config } from '@react-spring/web'
 import { useMediaQuery } from 'react-responsive'
 import { useViewportStore } from './ViewportManager'
+import Vimeo from '@u-wave/react-vimeo'
+import ScrollDownIndicator from '../Ui/ScrollDownIndicator'
 // import { modalVisible } from '../GlobalState'
 // import { useAtom } from 'jotai'
 
-const IndexRoute = '/'
+const IntroRoute = '/'
+const RobexRoute = '/robe'
 const ArmorRoute = '/armor'
 const DoubletRoute = '/doublet'
 const GreekStyleDressRoute = '/greek_style_dress'
-const AboutRoute = '/about'
 
 const AvailableContents = {
-  [IndexRoute]: RobeFrancaiseContent,
+  [RobexRoute]: RobeFrancaiseContent,
   [ArmorRoute]: ArmorContent,
   [DoubletRoute]: DoubletContent,
   [GreekStyleDressRoute]: GreekStyleDressContent,
-  [AboutRoute]: AboutContent
+  [IntroRoute]: IntroContent
 }
-const ContentManager = ({ openModal }) => {
+const ContentManager = ({ openModal, scrollToTop }) => {
   const isBigScreen = useMediaQuery({ query: '(min-width: 440px)' })
   const availableHeight = useViewportStore(state => state.availableHeight)
   // Fetch initial state
   const ratioRef = useRef(useScrollStore.getState().scrollRatio)
   const pageRef = useRef(useScrollStore.getState().page)
   const totalPagesRef = useRef(0)
+  const [displayIndicator, setDisplayIndicator] = useState(true)
 
   const { pathname } = useLocation()
 
@@ -53,6 +56,11 @@ const ContentManager = ({ openModal }) => {
       ratioRef.current = state.scrollRatio * (totalPagesRef.current - 1)
       if (pageRef.current !== state.page) {
         pageRef.current = state.page
+        if (pageRef.current === 0) {
+          setDisplayIndicator(true)
+        } else {
+          setDisplayIndicator(false)
+        }
         // api.start({
         //   y: -window.innerHeight * pageRef.current,
         // })
@@ -77,21 +85,43 @@ const ContentManager = ({ openModal }) => {
 
   return (
     <>
-      <a.div style={styles} className="ContentManager fixed">
+      <a.div
+        style={styles}
+        className={`ContentManager ${displayIndicator === true ? 'display-indicator' : ''} ${pathname === '/' ? 'index-page' : ''} flex flex-col items-center fixed`}
+      >
+        <div className="absolute w-screen h-screen flex items-end pointer-events-none">
+          <ScrollDownIndicator className={'mb-10'}></ScrollDownIndicator>
+        </div>
+        {pathname === '/' ? (
+          <div className="IntroPage background-video">
+            <Vimeo
+              video="https://vimeo.com/1021606397/0c67cd3435"
+              autoplay
+              loop
+              muted
+              showByline={false}
+              showTitle={false}
+              showPortrait={false}
+              controls={false} // Hide controls
+              background
+            />
+          </div>
+        ) : null}
         {contents.sections.map((d, i, arr) => (
           <div
             id={`slide-${d.id}`}
             style={{ height: availableHeight }}
-            className={`ContentManager flex ${
+            className={`flex slides ${
               i === 0
-                ? `sm:translate-x-[0rem] md:translate-x-[1rem] lg:translate-x-[4rem] xl:translate-x-[14rem] max-w-[100%] lg:max-w-[70%] xl:max-w-[50%]  items-center ${
+                ? `sm:translate-x-[0rem] md:translate-x-[-1rem] lg:translate-x-[-2rem] xl:translate-x-[-14rem] max-w-[100%] xl:max-w-[65%]  items-center ${
                     isBigScreen ? 'mt-0' : 'mt-[3rem]'
                   }`
-                : `sm:translate-x-[0rem] lg:translate-x-[4rem] md:max-w-[60%] lg:max-w-[50%] 2xl:max-w-[40%] items-center`
+                : `translate-x-[0rem] md:translate-x-[-14rem] md:max-w-[60%] lg:max-w-[50%] 2xl:max-w-[40%] items-center`
             }`}
             key={d.path ?? i}
           >
             <Feature
+              scrollToTop={scrollToTop}
               openModal={openModal}
               contents={contents}
               title={d.title}

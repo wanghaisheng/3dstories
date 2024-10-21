@@ -63,7 +63,7 @@ const FullscreenModelPage = ({ pathname }) => {
         <OrbitControls autoRotate={false} autoRotateSpeed={0.5} enableDamping={true} />
         <ambientLight intensity={1} />
         <Environment preset="studio" environmentIntensity={0.2} environmentRotation={[1, 1, 0]} />
-        {pathname === '/' ? (
+        {pathname === '/robe' ? (
           <>
             <RobeFrancaiseModel position={[0, -1.9, 0]} scale={1.2} rotation={0} />
             <Annotation id={8} position={[-0.1, 2.2, -0.5]} />
