@@ -113,11 +113,11 @@ const MenuFullPage = () => {
       </menu>
       <FlourishPattern
         width={isBigScreen ? 400 : 150}
-        className={`${isBigScreen ? 'bottom-[3rem] right-[3rem]' : 'bottom-[1rem] right-[1rem]'} `}
+        className={`${isBigScreen ? 'bottom-[3rem] right-[3rem]' : 'bottom-[1rem] right-[1rem]'} pointer-events-none`}
       />
       <FlourishPattern
         width={isBigScreen ? 400 : 150}
-        className={`${isBigScreen ? 'bottom-[3rem] left-[3rem]' : 'bottom-[1rem] left-[1rem]'} scale-x-[-1]`}
+        className={`${isBigScreen ? 'bottom-[3rem] left-[3rem]' : 'bottom-[1rem] left-[1rem]'} scale-x-[-1] pointer-events-none`}
       />
     </a.section>
   )
