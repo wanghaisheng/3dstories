@@ -55,7 +55,10 @@ const Navigation = ({ data }) => {
         {data.sections.map((slide, i, arr) =>
           slide.title ? (
             <li key={slide.id} className={`sub-menu slide-${slide.id} ${slide.id === activeSlideId ? 'active' : ''}`}>
-              <button onClick={() => scrollToSlide(slide.id, arr.length, i)}>{slide.title}</button>
+              <button
+                onClick={() => scrollToSlide(slide.id, arr.length, i)}
+                dangerouslySetInnerHTML={{ __html: slide.title }}
+              ></button>
             </li>
           ) : null
         )}
@@ -87,8 +90,11 @@ const MenuFullPage = () => {
       <menu className="flex flex">
         <ul className="flex flex-col items-center">
           <li>
-            <NavLink to="/">A luxurious Robe à la francaise</NavLink>
-            {pathname === '/' ? <Navigation data={RobeFrancaiseContent} /> : null}
+            <NavLink to="/">Intro</NavLink>
+          </li>
+          <li>
+            <NavLink to="/robe">A luxurious Robe à la francaise</NavLink>
+            {pathname === '/robe' ? <Navigation data={RobeFrancaiseContent} /> : null}
           </li>
           <li>
             <NavLink to="/armor">A plate armor for Elector Christian I. of Saxony</NavLink>
@@ -106,18 +112,15 @@ const MenuFullPage = () => {
             <NavLink to='/riegelhauber'>Riegelhaube</NavLink>
           </li> */}
           <hr />
-          <li>
-            <NavLink to="/about">About Project</NavLink>
-          </li>
         </ul>
       </menu>
       <FlourishPattern
         width={isBigScreen ? 400 : 150}
-        className={`${isBigScreen ? 'bottom-[3rem] right-[3rem]' : 'bottom-[1rem] right-[1rem]'} `}
+        className={`${isBigScreen ? 'bottom-[3rem] right-[3rem]' : 'bottom-[1rem] right-[1rem]'} pointer-events-none`}
       />
       <FlourishPattern
         width={isBigScreen ? 400 : 150}
-        className={`${isBigScreen ? 'bottom-[3rem] left-[3rem]' : 'bottom-[1rem] left-[1rem]'} scale-x-[-1]`}
+        className={`${isBigScreen ? 'bottom-[3rem] left-[3rem]' : 'bottom-[1rem] left-[1rem]'} scale-x-[-1] pointer-events-none`}
       />
     </a.section>
   )

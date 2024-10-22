@@ -1,10 +1,11 @@
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import useStore from '../GlobalState'
 import Button from './Button'
 import FlourishPattern from '../Svg/FlourishPattern'
 import { useMediaQuery } from 'react-responsive'
+import NavPrevNextButtons from './NavPrevNextButtons'
 
-const Feature = ({ title, description, ref, i, lastItem, contents, openModal }) => {
+const Feature = ({ title, description, ref, i, lastItem, contents, openModal, scrollToTop }) => {
   const showFullscreenMode = useStore(state => state.showFullscreenMode)
   const isBigScreen = useMediaQuery({ query: '(min-width: 640px)' })
   const location = useLocation()
@@ -56,32 +57,47 @@ const Feature = ({ title, description, ref, i, lastItem, contents, openModal }) 
 
   return (
     <div
-      className={`Feature ${i === 0 ? null : `bg-black/50`} relative text-left py-[1rem] md:py-[2rem] px-[1rem] md:px-[4rem]`}
+      className={`Feature ${i === 0 ? null : `bg-black/50`} min-w-full relative text-left py-[1rem] md:py-[2rem] px-[1rem] md:px-[4rem]`}
     >
-      {i === 0 ? <h1 ref={ref}>{title}</h1> : <h2 ref={ref}>{title}</h2>}
-      <p className="my-5" dangerouslySetInnerHTML={{ __html: description }} onClick={onClickHandler}></p>
-      {/* {i !== 0 ? (
-        <FlourishPattern
-          opacity={0.15}
-          width={isBigScreen ? 160 : 100}
-          className={`${isBigScreen ? 'bottom-[1rem] right-[1rem]' : 'bottom-[0.5rem] right-[0.5rem]'} `}
-        />
-      ) : null} */}
-      {i === 0 && pathname !== '/about' ? (
-        <div className="intro-buttons">
-          <Button
-            onClick={scrollToInnerHeight}
-            className="mt-5 w-full md:w-auto sm:mr-0 md:mr-3 xl2:mr-3 pointer-events-auto"
-            value="Read model's story"
-          />
-          <Button
-            onClick={fullscreenMode}
-            type="secondary"
-            className="mt-5 mb-5 pointer-events-auto w-full md:w-auto"
-            value="Explore model"
-          />
+      {i === 0 ? (
+        <div className="flex items-center flex-col lg:flex-row">
+          <NavPrevNextButtons className="mr-[2rem]" scrollToTop={scrollToTop} />
+          <div className="flex flex-col">
+            <h1 className="" ref={ref} dangerouslySetInnerHTML={{ __html: title }}></h1>
+            <div className="intro-buttons">
+              {pathname !== '/' ? (
+                <>
+                  <Button
+                    onClick={scrollToInnerHeight}
+                    className="mt-5 w-full md:w-auto sm:mr-0 md:mr-3 xl2:mr-3 pointer-events-auto"
+                    value="Read model's story"
+                  />
+                  <Button
+                    onClick={fullscreenMode}
+                    type="secondary"
+                    className="mt-5 pointer-events-auto w-full md:w-auto"
+                    value="Explore model"
+                  />
+                </>
+              ) : (
+                <Link to="/robe">
+                  <Button
+                    className="mt-5 w-full md:w-auto sm:mr-0 md:mr-3 xl2:mr-3 pointer-events-auto"
+                    value="Read our stories"
+                  />
+                </Link>
+              )}
+            </div>
+          </div>
         </div>
-      ) : null}
+      ) : (
+        <h2 ref={ref} dangerouslySetInnerHTML={{ __html: title }}></h2>
+      )}
+      <p className="my-5" dangerouslySetInnerHTML={{ __html: description }} onClick={onClickHandler}></p>
+
+      {/* {i === 0 && pathname !== '/' ? (
+
+      ) : null} */}
       {lastItem ? (
         <>
           {contents?.links?.[0] ? (
@@ -98,7 +114,7 @@ const Feature = ({ title, description, ref, i, lastItem, contents, openModal }) 
               value={contents?.links?.[1]?.linkValue ? contents.links[1].linkValue : 'Database'}
             />
           ) : null}
-          {pathname !== '/about' ? (
+          {pathname !== '/' ? (
             <Button
               onClick={flashionPlatform}
               type="secondary"

@@ -15,6 +15,7 @@ import CloseButton from '../Ui/CloseButton'
 import { useEffect } from 'react'
 import { useSpring, a, config } from '@react-spring/web'
 import InfoPanel from '../Ui/InfoPanel'
+import Annotation from '../Ui/Annotation'
 
 const FullscreenModelPage = ({ pathname }) => {
   const showFullscreenMode = useStore(state => state.showFullscreenMode)
@@ -37,7 +38,8 @@ const FullscreenModelPage = ({ pathname }) => {
     console.log('API', api.start)
     api.start({
       transform: showFullscreenMode ? 'translateX(0%)' : 'translateX(-100%)',
-      opacity: showFullscreenMode ? 1 : 0
+      opacity: showFullscreenMode ? 1 : 0,
+      config: { delay: showFullscreenMode === false ? 5000 : 5000, duration: showFullscreenMode === false ? 500 : 300 } // Added 500ms to the existing delay
     })
   }, [showFullscreenMode])
 
@@ -58,17 +60,42 @@ const FullscreenModelPage = ({ pathname }) => {
           toneMapping: THREE.LinearToneMapping
         }}
       >
-        <OrbitControls autoRotate={true} autoRotateSpeed={0.5} enableDamping={true} />
+        <OrbitControls autoRotate={false} autoRotateSpeed={0.5} enableDamping={true} />
         <ambientLight intensity={1} />
         <Environment preset="studio" environmentIntensity={0.2} environmentRotation={[1, 1, 0]} />
-        {pathname === '/' ? <RobeFrancaiseModel position={[0, -2, 0]} rotation={0} /> : null}
-        {pathname === '/armor' ? <ArmorModel position={[0, 0.2, 0]} scale={5} rotation={0} /> : null}
-        {pathname === '/greek_style_dress' ? <GreekStyleDressModel position={[0, -2.2, 0.5]} rotation={0} /> : null}
-        {pathname === '/greek_style_dress' ? <SpencerJacketModel position={[0, 1, -0.5]} rotation={1.4} /> : null}
-        {pathname === '/doublet' ? <InnerDoubletModel position={[0, -0.5, -1.2]} rotation={1.4} /> : null}
-        {pathname === '/doublet' ? <OuterDoubletModel position={[0, -0.5, 1.2]} rotation={0} /> : null}
+        {pathname === '/robe' ? (
+          <>
+            <RobeFrancaiseModel position={[0, -1.9, 0]} scale={1.2} rotation={0} />
+            <Annotation id={8} position={[-0.1, 2.2, -0.5]} />
+            <Annotation id={14} position={[-0.15, 0, 0.6]} />
+          </>
+        ) : null}
+        {pathname === '/armor' ? (
+          <>
+            <ArmorModel position={[0, 0.2, 0]} scale={5} rotation={0} />
+            <Annotation id={6} position={[-0.11, 0.5, 0.8]} />
+            <Annotation id={14} position={[-0.1, 0, 0.95]} />
+          </>
+        ) : null}
+        {pathname === '/greek_style_dress' ? (
+          <>
+            <GreekStyleDressModel position={[0, -2.2, 0.5]} rotation={0} />
+            <SpencerJacketModel position={[0, 1, -0.5]} rotation={1.4} />
+            <Annotation id={6} position={[-0.11, 0.5, 0.8]} />
+            <Annotation id={14} position={[-0.1, 0, 0.95]} />
+          </>
+        ) : null}
+
+        {pathname === '/doublet' ? (
+          <>
+            <InnerDoubletModel position={[0, -0.5, -1.2]} rotation={1.4} />
+            <OuterDoubletModel position={[0, -0.5, 1.2]} rotation={0} />
+            <Annotation id={9} position={[1.6, 0.5, 1.7]} />
+            <Annotation id={10} position={[-0.1, 1, 0.5]} />
+          </>
+        ) : null}
       </Canvas>
-      {showFullscreenMode ? <Background /> : null}
+      <Background showFullscreenMode={showFullscreenMode} />
     </a.div>
   )
 }

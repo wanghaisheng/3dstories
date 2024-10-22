@@ -5,23 +5,25 @@ import RobeFrancaiseContent from '../Data/robeFrancaise.json'
 import GreekStyleDressContent from '../Data/greekStyleDress.json'
 import ArmorContent from '../Data/armor.json'
 import DoubletContent from '../Data/doublet.json'
-
-const Background = ({ pathname }) => {
+import IntroContent from '../Data/intro.json'
+const Background = ({ pathname, showFullscreenMode }) => {
   const ratioRef = useRef(useScrollStore.getState().scrollRatio)
   const pageRef = useRef(useScrollStore.getState().page)
   const totalPagesRef = useRef(0)
   const [backgroundClass, setBackgroundClass] = useState('')
 
-  const IndexRoute = '/'
+  const IntroRoute = '/'
+  const RobexRoute = '/robe'
   const ArmorRoute = '/armor'
   const DoubletRoute = '/doublet'
   const GreekStyleDressRoute = '/greek_style_dress'
 
   const AvailableContents = {
-    [IndexRoute]: RobeFrancaiseContent,
+    [RobexRoute]: RobeFrancaiseContent,
     [ArmorRoute]: ArmorContent,
     [DoubletRoute]: DoubletContent,
-    [GreekStyleDressRoute]: GreekStyleDressContent
+    [GreekStyleDressRoute]: GreekStyleDressContent,
+    [IntroRoute]: IntroContent
   }
   const contents = AvailableContents[pathname]
 
@@ -35,7 +37,7 @@ const Background = ({ pathname }) => {
       ratioRef.current = state.scrollRatio * (totalPagesRef.current - 1)
       if (pageRef.current !== state.page) {
         pageRef.current = state.page
-        const currentSection = backgroundValues.find(section => section.id === pageRef.current + 1)
+        const currentSection = backgroundValues?.find(section => section.id === pageRef.current + 1)
         if (currentSection) {
           setBackgroundClass(currentSection.background)
         } else {
@@ -47,8 +49,8 @@ const Background = ({ pathname }) => {
   }, [pageRef.current])
 
   return (
-    <div className={`Background ${backgroundClass}`}>
-      <div className="filled"></div>
+    <div className={`Background ${backgroundClass} pointer-events-none`}>
+      {showFullscreenMode === true ? <div className="filled"></div> : null}
     </div>
   )
 }

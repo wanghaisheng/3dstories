@@ -54,7 +54,7 @@ const RobeFrancaise = ({ pathname }) => {
   useLayoutEffect(() => {
     console.info('[World] pathname changed to:', pathname)
     apiOpacityTwo.start({
-      opacity: pathname === '/about' ? 0.1 : 1
+      opacity: pathname === '/' ? 0.1 : 1
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname])
@@ -66,10 +66,6 @@ const RobeFrancaise = ({ pathname }) => {
       <PerspectiveCamera theatreKey="Camera" makeDefault position={[0, 0.2, 8]} fov={45} near={0.1} far={70} />
       <group position={isBigScreen ? [0, -1.4, 0] : [-1, -1.6, 0]} scale={isBigScreen ? 1 : 1}>
         <e.group theatreKey="Robe">
-          <Annotation id={3} position={[1, 2, 0.8]} />
-          <Annotation id={5} position={[-1, 3, 0.6]} />
-          <Annotation id={6} position={[-0.3, 4, 0.5]} />
-          <Annotation id={16} position={[-0.3, 2.5, -1]} />
           <RobeFrancaiseModel ref={robeRef} position={[0, 0, 0]} rotation={0} />
         </e.group>
       </group>

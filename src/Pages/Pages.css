@@ -66,7 +66,96 @@
   text-align: center;
 }
 
-.AboutPage .content {
-  max-width: 1024px;
-  padding: 4rem;
+/* .IntroPage ~ .ContentManager h1 {
+  margin-bottom: 25rem;
+} */
+
+.background-video {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: black;
+  width: 100%;
+  /* max-height: 1080px; */
+  height: 100vh;
+  z-index: 0;
+}
+
+.background-video iframe {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+}
+
+.background-video > div::after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: -40%;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+  z-index: -1;
+}
+.background-video > div::before {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+  z-index: 1;
+}
+
+@media (max-width: 432px) {
+  .background-video iframe {
+    height: 100vh;
+  }
+
+  .IntroPage ~ .ContentManager h1 {
+    margin-bottom: 0;
+  }
+}
+
+.ContentManager .ScrollDownIndicator {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.ContentManager.display-indicator .ScrollDownIndicator {
+  opacity: 0.6 !important;
+}
+
+.ContentManager .NavPrevNextButtons {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.ContentManager.display-indicator .NavPrevNextButtons {
+  opacity: 1;
+}
+
+.ContentManager.index-page #slide-1 {
+  height: 1080px !important;
+}
+
+.ContentManager.index-page .slides:not(#slide-1) {
+  transform: none;
+  min-width: 1024px;
+}
+
+@media screen and (max-width: 768px) {
+  .ContentManager.index-page #slide-1 {
+    height: 100vh !important;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .ContentManager.index-page .slides:not(#slide-1) {
+    min-width: 100%;
+  }
 }

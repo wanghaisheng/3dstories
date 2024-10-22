@@ -9,7 +9,6 @@ import ContentManager from './components/ContentManager'
 import ViewportManager from './components/ViewportManager'
 import NavPrevNextButtons from './Ui/NavPrevNextButtons'
 import MenuFullPage from './Ui/MenuFullPage'
-import GenericPage from './Pages/GenericPage'
 import RobeFrancaisePage from './Pages/RobeFrancaisePage'
 import GreekStyleDressPage from './Pages/GreekStyleDressPage'
 import { useLocation } from 'react-router-dom'
@@ -18,6 +17,8 @@ import ModalWindow from './Ui/ModalWindow'
 import Images from './Data/images.json'
 import { AnimatePresence } from 'framer-motion'
 import ArmorPage from './Pages/ArmorPage'
+import IntroPage from './Pages/IntroPage'
+import Preloader from './Ui/Preloader'
 
 function App() {
   const location = useLocation()
@@ -50,21 +51,21 @@ function App() {
       <ModalWindow closeModal={closeModal} isModalImage={isModalImage} isModalVisible={isModalVisible} />
       <Header scrollToTop={scrollToTop} />
       <MenuFullPage />
-      <NavPrevNextButtons scrollToTop={scrollToTop} />
+      <Preloader pathname={pathname} />
       <FullscreenModelPage pathname={pathname} />
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<RobeFrancaisePage pathname={pathname} />}></Route>
+          <Route path="/" element={<IntroPage />}></Route>
+          <Route path="/robe" element={<RobeFrancaisePage pathname={pathname} />}></Route>
           <Route path="/armor" element={<ArmorPage pathname={pathname} />}></Route>
           <Route path="/doublet" element={<DoubletPage pathname={pathname} />}></Route>
           <Route path="/greek_style_dress" element={<GreekStyleDressPage pathname={pathname} />}></Route>
-          <Route path="/about" element={<GenericPage />}></Route>
         </Routes>
         <ContentManager openModal={openModal} isModalVisible={isModalVisible} />
         <ViewportManager />
       </AnimatePresence>
-      <Footer />
-      <Background pathname={pathname} />
+      <Footer scrollToTop={scrollToTop} />
+      <Background pathname={pathname} showFullscreenMode={true} />
     </>
   )
 }

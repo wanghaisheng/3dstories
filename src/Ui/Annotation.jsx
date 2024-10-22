@@ -3,6 +3,7 @@ import { useViewportStore } from '../components/ViewportManager'
 import { Html } from '@react-three/drei'
 import { useEffect, useRef, useState } from 'react'
 import { useScrollStore } from '../components/ScrollManager'
+import useStore from '../GlobalState'
 
 const Annotation = ({ id, ...props }) => {
   const [activeSection, setActiveSection] = useState(null)
@@ -11,11 +12,28 @@ const Annotation = ({ id, ...props }) => {
   const pageRef = useRef(useScrollStore.getState().page)
   const totalPagesRef = useRef(0)
   const scrollToSlide = () => {
+    const startOffset = availableHeight * (id - 1)
+    console.info('[Annotation] scrollToSlide', startOffset)
     window.scrollTo({
-      top: availableHeight * id,
-      behavior: 'smooth' // Optional: for smooth scrolling§
+      top: startOffset,
+      behavior: 'auto'
     })
   }
+
+  const hoverOverPoint = () => {
+    const slideElement = document.querySelector(`.slide-${id} button`)
+    if (slideElement) {
+      slideElement.classList.add('active')
+      console.log(`Button text: ${slideElement?.textContent}`)
+      return slideElement?.textContent
+    } else {
+      return null
+    }
+  }
+
+  useEffect(() => {
+    hoverOverPoint()
+  }, [id])
 
   useEffect(() => {
     return useScrollStore.subscribe(state => {
@@ -23,14 +41,27 @@ const Annotation = ({ id, ...props }) => {
       if (pageRef.current !== state.page) {
         pageRef.current = state.page
         setActiveSection(pageRef.current)
+        useStore.setState({ showFullscreenMode: false })
         console.info('[POINT OF INTEREST]', pageRef.current, id)
       }
     })
   }, [pageRef.current])
 
+  const [hoverText, setHoverText] = useState('')
+
   return (
     <Html {...props} style={{ pointerEvents: 'auto' }} occlude="raycast">
-      <span onClick={() => scrollToSlide()} className={`Annotation ${id === activeSection ? 'active' : ''}`}></span>
+      <span
+        onClick={() => scrollToSlide()}
+        onMouseEnter={() => {
+          setHoverText(hoverOverPoint())
+          setActiveSection(id)
+        }}
+        onMouseLeave={() => setActiveSection(null)}
+        className={`Annotation ${id === activeSection ? 'active' : ''}`}
+      >
+        <p className="tooltips">{hoverText}</p>
+      </span>
     </Html>
   )
 }
