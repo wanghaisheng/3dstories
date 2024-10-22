@@ -20,7 +20,9 @@ export const useViewportStore = create(set => ({
       isPortrait: window.innerHeight > window.innerWidth,
       isLandscape: window.innerHeight < window.innerWidth
     })
-  }
+  },
+  isBackgroundVideoReady: false,
+  setBackgroundVideoReady: isBackgroundVideoReady => set({ isBackgroundVideoReady })
 }))
 
 const ViewportManager = () => {
