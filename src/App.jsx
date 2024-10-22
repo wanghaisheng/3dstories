@@ -18,6 +18,7 @@ import Images from './Data/images.json'
 import { AnimatePresence } from 'framer-motion'
 import ArmorPage from './Pages/ArmorPage'
 import IntroPage from './Pages/IntroPage'
+import Preloader from './Ui/Preloader'
 
 function App() {
   const location = useLocation()
@@ -50,7 +51,7 @@ function App() {
       <ModalWindow closeModal={closeModal} isModalImage={isModalImage} isModalVisible={isModalVisible} />
       <Header scrollToTop={scrollToTop} />
       <MenuFullPage />
-
+      <Preloader pathname={pathname} />
       <FullscreenModelPage pathname={pathname} />
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
