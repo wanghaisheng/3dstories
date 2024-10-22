@@ -55,7 +55,10 @@ const Navigation = ({ data }) => {
         {data.sections.map((slide, i, arr) =>
           slide.title ? (
             <li key={slide.id} className={`sub-menu slide-${slide.id} ${slide.id === activeSlideId ? 'active' : ''}`}>
-              <button onClick={() => scrollToSlide(slide.id, arr.length, i)}>{slide.title}</button>
+              <button
+                onClick={() => scrollToSlide(slide.id, arr.length, i)}
+                dangerouslySetInnerHTML={{ __html: slide.title }}
+              ></button>
             </li>
           ) : null
         )}
