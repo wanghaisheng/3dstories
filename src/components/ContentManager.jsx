@@ -115,9 +115,7 @@ const ContentManager = ({ openModal, scrollToTop }) => {
             style={{ height: availableHeight }}
             className={`flex slides ${
               i === 0
-                ? `sm:translate-x-[0rem] md:translate-x-[-1rem] lg:translate-x-[-2rem] xl:translate-x-[-14rem] max-w-[100%] xl:max-w-[65%]  items-center ${
-                    isBigScreen ? 'mt-0' : 'mt-[3rem]'
-                  }`
+                ? `sm:translate-x-[0rem] md:translate-x-[-1rem] lg:translate-x-[-2rem] xl:translate-x-[-14rem] max-w-[100%] xl:max-w-[65%]  items-center`
                 : `translate-x-[0rem] md:translate-x-[-14rem] md:max-w-[60%] lg:max-w-[50%] 2xl:max-w-[40%] items-center`
             }`}
             key={d.path ?? i}
