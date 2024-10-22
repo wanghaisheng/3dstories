@@ -31,6 +31,7 @@ const AvailableContents = {
 const ContentManager = ({ openModal, scrollToTop }) => {
   const isBigScreen = useMediaQuery({ query: '(min-width: 440px)' })
   const availableHeight = useViewportStore(state => state.availableHeight)
+  const setBackgroundVideoReady = useViewportStore(state => state.setBackgroundVideoReady)
   // Fetch initial state
   const ratioRef = useRef(useScrollStore.getState().scrollRatio)
   const pageRef = useRef(useScrollStore.getState().page)
@@ -104,6 +105,7 @@ const ContentManager = ({ openModal, scrollToTop }) => {
               showPortrait={false}
               controls={false} // Hide controls
               background
+              onReady={() => setBackgroundVideoReady(true)}
             />
           </div>
         ) : null}

@@ -138,10 +138,13 @@
 }
 
 @media screen and (max-width: 768px) {
-  .ContentManager.index-page .slides:not(#slide-1) {
-    min-width: auto;
-  }
   .ContentManager.index-page #slide-1 {
     height: 100vh !important;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .ContentManager.index-page .slides:not(#slide-1) {
+    min-width: 100%;
   }
 }
