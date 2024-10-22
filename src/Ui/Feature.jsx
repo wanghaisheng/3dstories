@@ -57,7 +57,7 @@ const Feature = ({ title, description, ref, i, lastItem, contents, openModal, sc
 
   return (
     <div
-      className={`Feature ${i === 0 ? null : `bg-black/50`} relative text-left py-[1rem] md:py-[2rem] px-[1rem] md:px-[4rem]`}
+      className={`Feature ${i === 0 ? null : `bg-black/50`} min-w-full relative text-left py-[1rem] md:py-[2rem] px-[1rem] md:px-[4rem]`}
     >
       {i === 0 ? (
         <div className="flex items-center flex-col lg:flex-row">
