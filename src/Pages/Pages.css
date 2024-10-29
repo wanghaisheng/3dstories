@@ -66,28 +66,6 @@
   text-align: center;
 }
 
-/* .IntroPage ~ .ContentManager h1 {
-  margin-bottom: 25rem;
-} */
-
-.background-video {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  background-color: black;
-  width: 100%;
-  /* max-height: 1080px; */
-  height: 100vh;
-  z-index: 0;
-}
-
-.background-video iframe {
-  position: relative;
-  width: 1920px;
-  height: 1080px;
-}
-
 .background-video > div::after {
   content: '';
   display: block;
@@ -99,6 +77,10 @@
   background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
   z-index: -1;
 }
+.background-video > div {
+  position: relative;
+}
+
 .background-video > div::before {
   content: '';
   display: block;
@@ -111,13 +93,33 @@
   z-index: 1;
 }
 
-@media (max-width: 432px) {
-  .background-video iframe {
-    height: 100vh;
-  }
+.background-video {
+  position: absolute;
+  /* overflow: hidden; */
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+}
 
-  .IntroPage ~ .ContentManager h1 {
-    margin-bottom: 0;
+.background-video iframe {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 100vh;
+  transform: translate(-50%, 0%);
+}
+
+@media (min-aspect-ratio: 16/9) {
+  .background-video iframe {
+    /* height = 100 * (9 / 16) = 56.25 */
+    height: 56.25vw;
+  }
+}
+@media (max-aspect-ratio: 16/9) {
+  .background-video iframe {
+    /* width = 100 / (9 / 16) = 177.777777 */
+    width: 177.78vh;
   }
 }
 
@@ -140,22 +142,21 @@
 }
 
 .ContentManager.index-page #slide-1 {
-  height: 1080px !important;
+  height: 100vh !important;
 }
 
 .ContentManager.index-page .slides:not(#slide-1) {
-  transform: none;
-  min-width: 1024px;
-}
-
-@media screen and (max-width: 768px) {
-  .ContentManager.index-page #slide-1 {
-    height: 100vh !important;
-  }
+  transform: translateX(0);
 }
 
 @media screen and (max-width: 1024px) {
   .ContentManager.index-page .slides:not(#slide-1) {
     min-width: 100%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .ContentManager.index-page .slides:not(#slide-1) {
+    min-width: 1024px;
   }
 }
