@@ -3,7 +3,7 @@ button {
 }
 
 button.lg {
-  padding: 20px 30px;
+  padding: 16px 24px;
   color: var(--dark);
   background-color: var(--accent);
   border-radius: 32px;

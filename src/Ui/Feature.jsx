@@ -57,7 +57,7 @@ const Feature = ({ title, description, ref, i, lastItem, contents, openModal, sc
 
   return (
     <div
-      className={`Feature ${i === 0 ? null : `bg-black/50`} min-w-full relative text-left py-[1rem] md:py-[2rem] px-[1rem] md:px-[4rem]`}
+      className={`Feature ${i === 0 ? null : `bg-black/50`} min-w-full relative text-left py-[1rem] md:py-[2rem] px-[1rem] md:px-[2rem]`}
     >
       {i === 0 ? (
         <div className="flex items-center flex-col lg:flex-row">
@@ -79,21 +79,14 @@ const Feature = ({ title, description, ref, i, lastItem, contents, openModal, sc
                     value="Explore model"
                   />
                 </>
-              ) : (
-                <Link to="/robe">
-                  <Button
-                    className="mt-5 w-full md:w-auto sm:mr-0 md:mr-3 xl2:mr-3 pointer-events-auto"
-                    value="Read our stories"
-                  />
-                </Link>
-              )}
+              ) : null}
             </div>
           </div>
         </div>
       ) : (
         <h2 ref={ref} dangerouslySetInnerHTML={{ __html: title }}></h2>
       )}
-      <p className="my-5" dangerouslySetInnerHTML={{ __html: description }} onClick={onClickHandler}></p>
+      <p className="my-4" dangerouslySetInnerHTML={{ __html: description }} onClick={onClickHandler}></p>
 
       {/* {i === 0 && pathname !== '/' ? (
 

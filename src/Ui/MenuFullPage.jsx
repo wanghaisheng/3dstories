@@ -90,7 +90,7 @@ const MenuFullPage = () => {
       <menu className="flex flex">
         <ul className="flex flex-col items-center">
           <li>
-            <NavLink to="/">Intro</NavLink>
+            <NavLink to="/">Introduction</NavLink>
           </li>
           <li>
             <NavLink to="/robe">A luxurious Robe à la francaise</NavLink>

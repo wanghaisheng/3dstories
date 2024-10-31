@@ -12,7 +12,6 @@ import { useMediaQuery } from 'react-responsive'
 import RobeFrancaiseModel from '../modelComps/RobeFrancaiseModel'
 import { editable as e } from '@theatre/r3f'
 import * as THREE from 'three'
-import Annotation from '../Ui/Annotation'
 import Transition from '../Ui/Transition'
 
 const RobeFrancaise = ({ pathname }) => {
