@@ -42,23 +42,12 @@
         justify-content: center;
         align-items: center;
         z-index: 9999;
-
-        animation: opacityAnimation 2s linear;
+        opacity: 1;
       }
-      .hidden {
+      #preloader.hidden-preloader {
         opacity: 0;
         pointer-events: none; /* Ensure the preloader is not interactive when hidden */
-      }
-      @keyframes opacityAnimation {
-        0% {
-          opacity: 1;
-        }
-        80% {
-          opacity: 1;
-        }
-        100% {
-          opacity: 0;
-        }
+        transition: opacity 0.5s ease-in-out;
       }
     </style>
   </head>

@@ -11,12 +11,10 @@ const Preloader = ({ pathname }) => {
       return
     }
     console.info('[Preloader] isBackgroundVideoReady', isBackgroundVideoReady)
-    if (isBackgroundVideoReady && pathname === '/') {
-      preloader.classList.add('hidden')
-    } else {
-      preloader.classList.add('hidden')
-    }
-  }, [isBackgroundVideoReady, pathname])
+    setTimeout(() => {
+      if (isBackgroundVideoReady) preloader.classList.add('hidden-preloader')
+    }, 1500)
+  }, [isBackgroundVideoReady])
 }
 
 export default Preloader
