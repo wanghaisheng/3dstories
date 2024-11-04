@@ -86,4 +86,4 @@ const IntroPage = ({ pathname }) => {
   )
 }
 
-export default IntroPage
+export default Transition(IntroPage)
