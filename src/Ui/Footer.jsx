@@ -2,60 +2,62 @@ import LogoFhp from '../Svg/LogoFhp'
 import LogoUcl from '../Svg/LogoUcl'
 import LogoUni from '../Svg/LogoUni'
 import { useMediaQuery } from 'react-responsive'
-import { useRef, useEffect, useState } from 'react'
-import { useScrollStore } from '../components/ScrollManager'
+import { useLayoutEffect, useEffect, useState } from 'react'
 import { useSpring, a } from '@react-spring/web'
 import CircleButton from './CircleButton'
+import { useViewportStore } from '../components/ViewportManager'
 
-const Footer = ({ thresholdFooter = 1, scrollToTop, pathname }) => {
-  const [footerLinks, setFooterLinks] = useState(false)
-  const initiallScrollRatioRef = useRef(useScrollStore.getState().scrollRatio)
-  const isVisibleFooter = useRef(true)
+const Footer = ({ scrollToTop, pathname }) => {
   const isBigScreen = useMediaQuery({ query: '(min-width: 640px)' })
-  const [stylesScrollUp, apiScrollUp] = useSpring(() => ({
-    opacity: initiallScrollRatioRef.current > thresholdFooter ? 1 : 0,
-    y: initiallScrollRatioRef.current > thresholdFooter ? 10 : 0
-  }))
+  const [isVisibleFooter, setIsVisibleFooter] = useState(false)
+  const isBottomVisible = useViewportStore(state => state.isBottomVisible)
 
-  useEffect(
-    () =>
-      useScrollStore.subscribe(state => {
-        console.log('stainitiallScrollRatioRef', state.scrollRatio)
-        initiallScrollRatioRef.current = state.scrollRatio
-        if (isVisibleFooter.current === true) {
-          setFooterLinks(true)
-        } else {
-          setFooterLinks(false)
-        }
-        if (state.scrollRatio < thresholdFooter && isVisibleFooter.current) {
-          isVisibleFooter.current = false
-          apiScrollUp.start({
-            opacity: 0,
-            y: -10
-          })
-        } else if (state.scrollRatio >= thresholdFooter && !isVisibleFooter.current) {
-          isVisibleFooter.current = true
-          apiScrollUp.start({
-            opacity: 1,
-            y: 0
-          })
-        }
-      }),
-    [pathname]
-  )
+  const [stylesScrollUp, apiScrollUp] = useSpring(() => ({
+    opacity: scrollY === innerHeight ? 1 : 0,
+    y: scrollY === innerHeight ? 10 : 0
+  }))
+  useEffect(() => {
+    console.log('[Footer] isBottomVisible', isBottomVisible)
+    if (!isBottomVisible) {
+      setIsVisibleFooter(false)
+      apiScrollUp.start({
+        opacity: 0,
+        y: -10
+      })
+    } else {
+      setIsVisibleFooter(true)
+      apiScrollUp.start({
+        opacity: 1,
+        y: 0
+      })
+    }
+  }, [isBottomVisible])
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (pathname === '/') {
+        document.querySelector('.footer').classList.add('opacity-100')
+      } else {
+        document.querySelector('.footer').classList.remove('opacity-100')
+      }
+    }, 1000)
+    return () => clearTimeout(timer)
+  }, [pathname])
 
   return (
     <a.footer
       style={stylesScrollUp}
-      className={`max-w-full md:w-screen ${
-        footerLinks === false ? 'pointer-events-none' : 'pointer-events-auto'
-      } ${pathname === '/' ? 'relative opacity-100' : 'fixed'} w-screen bottom-0 left-0 flex flex-wrap p-5 sm:p-10 items-center justify-center`}
+      className={`footer max-w-full md:w-screen ${
+        isVisibleFooter === false ? 'pointer-events-none' : 'pointer-events-auto'
+      } ${pathname === '/' ? 'relative' : 'fixed'} w-screen bottom-0 left-0 flex flex-wrap p-5 sm:p-10 items-center justify-center`}
     >
-      <div className="go-to-top z-1 fixed flex flex-col translate-y-[-10rem]">
-        <a onClick={scrollToTop}>
-          <CircleButton size={isBigScreen ? 120 : 60} width={isBigScreen ? 44 : 28} rotate={-90} />
-        </a>
-      </div>
+      {pathname !== '/' ? (
+        <div className="go-to-top z-1 fixed flex flex-col translate-y-[-10rem]">
+          <a onClick={scrollToTop}>
+            <CircleButton size={isBigScreen ? 120 : 60} width={isBigScreen ? 44 : 28} rotate={-90} />
+          </a>
+        </div>
+      ) : null}
       <div className="flex z-40 flex-wrap w-screen justify-between ">
         <div className="footer-left my-3 justify-center md:justify-start flex-wrap flex flex-row items-center flex-grow">
           <LogoFhp width={isBigScreen ? 160 : 90} />

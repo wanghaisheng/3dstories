@@ -25,7 +25,10 @@ const IntroPage = ({ pathname }) => {
             showPortrait={false}
             controls={false} // Hide controls
             background
-            onReady={() => setBackgroundVideoReady(true)}
+            onReady={() => {
+              console.log('[Preloader] onPlay')
+              setBackgroundVideoReady(true)
+            }}
           />
         </div>
       </div>
@@ -58,11 +61,11 @@ const IntroPage = ({ pathname }) => {
               ></div>
             </section>
           ))}
-        <h2 className="mb-5">Team</h2>
+        <h2 className="mb-[1rem] mt-[10rem] relative">Team</h2>
         {IntroContent?.sections
           .filter(section => section.team)
           .map((section, i) => (
-            <div className="team-block my-[10rem]" key={i}>
+            <div className="team-block mb-[10rem]" key={i}>
               {section.team.map((member, j) => (
                 <div key={j}>
                   <Team
@@ -83,4 +86,4 @@ const IntroPage = ({ pathname }) => {
   )
 }
 
-export default Transition(IntroPage)
+export default IntroPage
