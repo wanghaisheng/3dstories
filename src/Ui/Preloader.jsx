@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useViewportStore } from '../components/ViewportManager'
 
-const Preloader = () => {
+const Preloader = ({ pathname }) => {
   const isBackgroundVideoReady = useViewportStore(state => state.isBackgroundVideoReady)
 
   useEffect(() => {
@@ -11,10 +11,17 @@ const Preloader = () => {
       return
     }
     console.info('[Preloader] isBackgroundVideoReady', isBackgroundVideoReady)
-    setTimeout(() => {
-      if (isBackgroundVideoReady) preloader.classList.add('hidden-preloader')
-    }, 1500)
-  }, [isBackgroundVideoReady])
+
+    if (pathname === '/') {
+      preloader.classList.remove('hidden-preloader')
+    }
+
+    if (isBackgroundVideoReady || pathname === '/') {
+      setTimeout(() => {
+        preloader.classList.add('hidden-preloader')
+      }, 2000)
+    }
+  }, [isBackgroundVideoReady, pathname])
 }
 
 export default Preloader
