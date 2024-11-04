@@ -5,7 +5,7 @@ import DoubletContent from '../Data/doublet.json'
 import { useLocation } from 'react-router-dom'
 import ScrollManager, { useScrollStore } from './ScrollManager'
 import Feature from '../Ui/Feature'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { useSpring, a, config } from '@react-spring/web'
 import { useMediaQuery } from 'react-responsive'
 import { useViewportStore } from './ViewportManager'
@@ -25,8 +25,10 @@ const AvailableContents = {
   [GreekStyleDressRoute]: GreekStyleDressContent
 }
 const ContentManager = ({ openModal, scrollToTop }) => {
+  const bottomRef = useRef(null)
   const isBigScreen = useMediaQuery({ query: '(min-width: 440px)' })
   const availableHeight = useViewportStore(state => state.availableHeight)
+  const setBottomVisible = useViewportStore(state => state.setBottomVisible)
   // Fetch initial state
   const ratioRef = useRef(useScrollStore.getState().scrollRatio)
   const pageRef = useRef(useScrollStore.getState().page)
@@ -41,6 +43,28 @@ const ContentManager = ({ openModal, scrollToTop }) => {
     y: 0,
     config: config.slow
   }))
+
+  useLayoutEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setBottomVisible(true)
+          console.log('[ContentManager] Bottom is visible')
+        } else {
+          setBottomVisible(false)
+          console.log('[ContentManager] Bottom is not visible')
+        }
+      },
+      { threshold: 1 }
+    )
+    if (bottomRef.current) {
+      observer.observe(bottomRef.current)
+    }
+    return () => {
+      // cleanup observer
+      observer.disconnect()
+    }
+  }, [])
 
   useEffect(() => {
     console.info('[ContentManager] @useEffect pathname', pathname)
@@ -100,7 +124,11 @@ const ContentManager = ({ openModal, scrollToTop }) => {
             />
           </div>
         ))}
+        <div className="opacity-0" ref={bottomRef}>
+          Footer Trigger
+        </div>
       </a.div>
+
       <ScrollManager pages={contents.sections} pathname={pathname} />
     </>
   )
