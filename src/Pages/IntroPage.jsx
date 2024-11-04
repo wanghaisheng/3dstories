@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 import ScrollDownIndicator from '../Ui/ScrollDownIndicator'
 import Team from '../Ui/Team'
 
-const IntroPage = ({ pathname }) => {
+const IntroPage = () => {
   const setBackgroundVideoReady = useViewportStore(state => state.setBackgroundVideoReady)
   return (
     <div className="IntroPage">
@@ -37,8 +37,8 @@ const IntroPage = ({ pathname }) => {
         <div className="h-screen flex items-center sm:translate-x-[0rem] xl:translate-x-[-12rem]">
           {IntroContent?.sections?.map((d, i) =>
             i === 0 ? (
-              <div className="intro relative">
-                <h1 key={d.path ?? i} dangerouslySetInnerHTML={{ __html: d.title }} />{' '}
+              <div key={d.path ?? i} className="intro relative">
+                <h1 dangerouslySetInnerHTML={{ __html: d.title }} />{' '}
                 <Link to="/robe">
                   <Button
                     className="mt-5 w-full md:w-auto sm:mr-0 md:mr-3 xl2:mr-3 pointer-events-auto"
@@ -52,11 +52,9 @@ const IntroPage = ({ pathname }) => {
         {IntroContent?.sections
           .filter((_, i) => i >= 1)
           .map((d, i) => (
-            <section className="flex with-background w-screen relative justify-center items-center">
-              {/* <h2 dangerouslySetInnerHTML={{ __html: d.title }}></h2> */}
+            <section key={d.path ?? i} className="flex with-background w-screen relative justify-center items-center">
               <div
                 className={`relative intro-content p-4 max-w-[800px] ${i === 0 ? 'mt-[10vh]' : 'mt-[15vh]'} `}
-                key={d.path ?? i}
                 dangerouslySetInnerHTML={{ __html: d.description }}
               ></div>
             </section>

@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useViewportStore } from '../components/ViewportManager'
 
-const Preloader = ({ pathname }) => {
+const Preloader = () => {
   const isBackgroundVideoReady = useViewportStore(state => state.isBackgroundVideoReady)
 
   useEffect(() => {
