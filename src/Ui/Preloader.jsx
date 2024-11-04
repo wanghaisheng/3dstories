@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect } from 'react'
+import { useLayoutEffect } from 'react'
 import { useViewportStore } from '../components/ViewportManager'
 
 const Preloader = ({ pathname }) => {
@@ -6,7 +6,7 @@ const Preloader = ({ pathname }) => {
 
   const preloader = document.getElementById('preloader')
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (isBackgroundVideoReady || pathname === '/') {
       preloader.classList.remove('hidden-preloader')
       setTimeout(() => {
@@ -15,7 +15,7 @@ const Preloader = ({ pathname }) => {
     }
   }, [pathname, isBackgroundVideoReady])
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (pathname !== '/') {
       preloader.classList.add('hidden-preloader')
     }
