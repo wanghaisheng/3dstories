@@ -66,7 +66,7 @@ const InnerDoublet = ({ pathname }) => {
       <ambientLight intensity={1} />
       <Environment preset="studio" environmentIntensity={0.2} environmentRotation={[1, 1, 0]} />
       <PerspectiveCamera theatreKey="Camera" makeDefault position={[0, 0.2, 8]} fov={45} near={0.1} far={70} />
-      <group position={isBigScreen ? [0, 0, 0] : [-1, 0, 0]} scale={isBigScreen ? 1 : 1}>
+      <group position={isBigScreen ? [0.3, 0, 0] : [-1, 0, 0]} scale={isBigScreen ? 1 : 1}>
         <e.group theatreKey="Inner Doublet">
           <InnerDoubletModel ref={robeRef} position={[0, 0, 0]} rotation={-1.9} />
         </e.group>
