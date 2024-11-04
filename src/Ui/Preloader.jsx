@@ -1,27 +1,25 @@
-import { useEffect } from 'react'
+import { useEffect, useLayoutEffect } from 'react'
 import { useViewportStore } from '../components/ViewportManager'
 
 const Preloader = ({ pathname }) => {
   const isBackgroundVideoReady = useViewportStore(state => state.isBackgroundVideoReady)
 
+  const preloader = document.getElementById('preloader')
+
   useEffect(() => {
-    const preloader = document.getElementById('preloader')
-    if (!preloader) {
-      console.warn('[Preloader] preloader not found, make sure you have a div with id="preloader"')
-      return
-    }
-    console.info('[Preloader] isBackgroundVideoReady', isBackgroundVideoReady)
-
-    if (pathname === '/') {
-      preloader.classList.remove('hidden-preloader')
-    }
-
     if (isBackgroundVideoReady || pathname === '/') {
+      preloader.classList.remove('hidden-preloader')
       setTimeout(() => {
         preloader.classList.add('hidden-preloader')
-      }, 2000)
+      }, 4000)
     }
-  }, [isBackgroundVideoReady, pathname])
+  }, [pathname, isBackgroundVideoReady])
+
+  useEffect(() => {
+    if (pathname !== '/') {
+      preloader.classList.add('hidden-preloader')
+    }
+  }, [])
 }
 
 export default Preloader

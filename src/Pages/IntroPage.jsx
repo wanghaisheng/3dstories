@@ -17,17 +17,28 @@ const IntroPage = () => {
         <div className="background-video">
           <Vimeo
             video="https://vimeo.com/1021606397/0c67cd3435"
-            autoplay
+            // autoplay={false}
             loop
             muted
             showByline={false}
             showTitle={false}
             showPortrait={false}
             controls={false} // Hide controls
-            background
-            onReady={() => {
-              console.log('[Preloader] onPlay')
-              setBackgroundVideoReady(true)
+            // background
+            onReady={e => {
+              console.log('[Preloader] onPlay', e)
+              e.play().then(() => {
+                console.log('Video is playing')
+                setBackgroundVideoReady(true)
+              })
+              // debugger
+              //
+            }}
+            onPlaying={e => {
+              console.log('[Preloader] onPlaying', e)
+            }}
+            onProgress={e => {
+              console.log('[Preloader] onProgress', e)
             }}
           />
         </div>

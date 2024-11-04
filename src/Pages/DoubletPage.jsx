@@ -17,9 +17,8 @@ import Transition from '../Ui/Transition'
 
 const InnerDoublet = ({ pathname }) => {
   const robeRef = useRef(null)
-  const ratioRef = useRef(useScrollStore.getState().scrollRatio)
-  // const pageRef = useRef(useScrollStore.getState().page)
   const isBigScreen = useMediaQuery({ query: '(min-width: 640px)' })
+  const ratioRef = useRef(useScrollStore.getState().scrollRatio)
   const sheet = useCurrentSheet()
   const sequenceLength = val(sheet.sequence.pointer.length)
   const [, apiTheatre] = useSpring(() => ({
@@ -31,7 +30,6 @@ const InnerDoublet = ({ pathname }) => {
   }))
 
   useEffect(() => {
-    console.debug('[World] useEffect ', sheet.address.sheetId)
     return useScrollStore.subscribe(state => {
       ratioRef.current = state.scrollRatio
       apiTheatre.start({
@@ -40,26 +38,6 @@ const InnerDoublet = ({ pathname }) => {
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sequenceLength, sheet.address.sheetId])
-
-  const [, apiOpacity] = useSpring(() => ({
-    opacity: 0,
-    config: config.slow,
-    onChange: ({ value }) => {
-      if (robeRef.current) {
-        robeRef.current.material.opacity = value.opacity
-      }
-    }
-  }))
-
-  useLayoutEffect(() => {
-    console.info('[World] pathname changed to:', pathname)
-    apiOpacity.start({
-      opacity: pathname === '/' ? 0.1 : 1
-    })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pathname])
-
-  console.debug('[World] rendering')
 
   return (
     <>

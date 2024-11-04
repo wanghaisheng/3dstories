@@ -15,9 +15,7 @@ import * as THREE from 'three'
 import Transition from '../Ui/Transition'
 
 const RobeFrancaise = ({ pathname }) => {
-  const robeRef = useRef(null)
   const ratioRef = useRef(useScrollStore.getState().scrollRatio)
-  // const pageRef = useRef(useScrollStore.getState().page)
   const isBigScreen = useMediaQuery({ query: '(min-width: 640px)' })
   const sheet = useCurrentSheet()
   const sequenceLength = val(sheet.sequence.pointer.length)
@@ -40,24 +38,6 @@ const RobeFrancaise = ({ pathname }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sequenceLength, sheet.address.sheetId])
 
-  const [, apiOpacityTwo] = useSpring(() => ({
-    opacity: 0,
-    config: config.slow,
-    onChange: ({ value }) => {
-      if (robeRef.current) {
-        robeRef.current.material.opacity = value.opacity
-      }
-    }
-  }))
-
-  useLayoutEffect(() => {
-    console.info('[World] pathname changed to:', pathname)
-    apiOpacityTwo.start({
-      opacity: pathname === '/' ? 0.1 : 1
-    })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pathname])
-
   return (
     <>
       <ambientLight intensity={1} />
@@ -65,7 +45,7 @@ const RobeFrancaise = ({ pathname }) => {
       <PerspectiveCamera theatreKey="Camera" makeDefault position={[0, 0.2, 8]} fov={45} near={0.1} far={70} />
       <group position={isBigScreen ? [0, -1.4, 0] : [-1, -1.6, 0]} scale={isBigScreen ? 1 : 1}>
         <e.group theatreKey="Robe">
-          <RobeFrancaiseModel ref={robeRef} position={[0, 0, 0]} rotation={0} />
+          <RobeFrancaiseModel position={[0, 0, 0]} rotation={0} />
         </e.group>
       </group>
     </>

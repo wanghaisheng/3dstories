@@ -45,7 +45,7 @@ const FullscreenModelPage = ({ pathname }) => {
   return (
     <a.div
       style={styles}
-      className={`FullscreenModelPage ${showFullscreenMode ? 'pointer-events-auto z-50' : 'pointer-events-none z-0'}`}
+      className={`FullscreenModelPage ${showFullscreenMode ? 'pointer-events-auto z-50' : 'pointer-events-none z-[-1]'}`}
     >
       <CloseButton
         onClick={fullscreenMode}

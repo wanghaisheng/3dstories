@@ -17,7 +17,6 @@ import Transition from '../Ui/Transition'
 const Armor = ({ pathname }) => {
   const ArmorRef = useRef(null)
   const ratioRef = useRef(useScrollStore.getState().scrollRatio)
-  // const pageRef = useRef(useScrollStore.getState().page)
   const isBigScreen = useMediaQuery({ query: '(min-width: 640px)' })
   const sheet = useCurrentSheet()
   const sequenceLength = val(sheet.sequence.pointer.length)
@@ -30,7 +29,6 @@ const Armor = ({ pathname }) => {
   }))
 
   useEffect(() => {
-    console.debug('[World] useEffect', sheet.address.sheetId, sheet)
     return useScrollStore.subscribe(state => {
       ratioRef.current = state.scrollRatio
       apiTheatre.start({
@@ -39,24 +37,6 @@ const Armor = ({ pathname }) => {
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sequenceLength, sheet.address.sheetId])
-
-  const [, apiOpacityTwo] = useSpring(() => ({
-    opacity: 0,
-    config: config.slow,
-    onChange: ({ value }) => {
-      if (ArmorRef.current) {
-        ArmorRef.current.material.opacity = value.opacity
-      }
-    }
-  }))
-
-  useLayoutEffect(() => {
-    console.info('[World] pathname changed to:', pathname)
-    apiOpacityTwo.start({
-      opacity: pathname === '/' ? 0.1 : 1
-    })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pathname])
 
   return (
     <>
