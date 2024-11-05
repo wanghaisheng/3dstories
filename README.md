@@ -2,18 +2,53 @@
 
 ## Overview
 
-`git clone https://github.com/yourusername/3D-Stories.git
-cd 3D-Stories`
+3D Stories is a powerful tool designed to present 3D models of historic garments from the textile collection at the Germanisches Nationalmuseum Nuremberg. Developed in collaboration with the Urban Complexity Lab of Potsdam, this tool provides an interactive and immersive experience for exploring historic textiles.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Table of Contents
 
-Currently, two official plugins are available:
+- [Installation](#installation)
+- [Usage](#usage)
+- [Features](#features)
+- [Applications Used](#applications-used)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Installation
 
-# 3dstories
+### Prerequisites
 
-# 3dstories
+Ensure you have the following installed:
 
-# 3dstories
+- [Node.js](https://nodejs.org/) (version X.X.X or higher)
+- [npm](https://www.npmjs.com/) (version X.X.X or higher)
+
+### Steps
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/3D-Stories.git
+   cd 3D-Stories
+   ```
+2. Install the dependencies:
+   ```bash
+   npm install
+   ```
+
+## Usage
+
+### Running the Application
+
+To start the application, run the following command:
+
+```bash
+npm start
+```
+
+This will launch the development server and open the application in your default web browser.
+
+### Exploring the Models
+
+1. Load a Model: Navigate to the 'Models' section and select a historic garment to load its 3D representation.
+2. Interact with the Model: Use your mouse or touchpad to rotate, zoom, and pan the 3D model for a detailed examination.
+3. View Information: Click on various parts of the garment to view detailed information about its history, materials, and craftsmanship.
