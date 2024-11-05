@@ -47,12 +47,6 @@ npm run dev
 
 This will launch the development server and open the application in your default web browser.
 
-### Exploring the Models
-
-1. **Load a Model**: Navigate to the 'Models' section and select a historic garment to load its 3D representation.
-2. **Interact with the Model**: Use your mouse or touchpad to rotate, zoom, and pan the 3D model for a detailed examination.
-3. **View Information**: Click on various parts of the garment to view detailed information about its history, materials, and craftsmanship.
-
 ## Features
 
 - **Animated Storyline**: Animation of 3D objects based on a narrative that guides the user through the object's details.
