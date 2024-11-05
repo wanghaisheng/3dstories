@@ -20,8 +20,8 @@
 
 Ensure you have the following installed:
 
-- [Node.js](https://nodejs.org/) (version X.X.X or higher)
-- [npm](https://www.npmjs.com/) (version X.X.X or higher)
+- [Node.js](https://nodejs.org/) (version 22.9.0 or higher)
+- [npm](https://www.npmjs.com/) (version 10.8.3 or higher)
 
 ### Steps
 
@@ -42,7 +42,7 @@ Ensure you have the following installed:
 To start the application, run the following command:
 
 ```bash
-npm start
+npm run dev
 ```
 
 This will launch the development server and open the application in your default web browser.
@@ -55,9 +55,15 @@ This will launch the development server and open the application in your default
 
 ## Features
 
-- **Interactive 3D Visualization**: Rotate, zoom, and explore historic garments in 3D.
-- **Detailed Annotations**: Clickable hotspots on garments provide in-depth information.
-- **User-Friendly Interface**: Intuitive controls and navigation for an enhanced user experience.
+- **Animated Storyline**: Animation of 3D objects based on a narrative that guides the user through the object's details.
+- **Visual Consistency**: Link your presentation to a preferable position, rotation, or scale of the 3D/2D objects.
+- **Flexible Navigation**:
+  - Scrolling
+  - Points of interest (the model exploration mode).
+  - Fullscreen menu navigation
+- **Orbit Tool**: Use the orbit tool to explore the 3D model from different angles (Rotate, Zoom Out/In (Scale), Move).
+- **Multiple Objects**: Animate and explore multiple objects within a single story.
+- **Modal Windows**: Modal windows provide additional images and information related to the text.
 - **Responsive Design**: Optimized for both desktop and mobile devices.
 
 ## Applications Used
@@ -79,8 +85,16 @@ You can preview your glTF models using the following tools:
 
 We welcome contributions! If you would like to contribute to this project, please follow these steps:
 
-- Fork the repository.
-- Create a new branch (`git checkout -b feature/YourFeature`).
-- Make your changes and commit them (`git commit -m 'Add some feature'`).
-- Push to the branch (`git push origin feature/YourFeature`).
-- Open a Pull Request.
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature/YourFeature`).
+3. Make your changes and commit them (`git commit -m 'Add some feature'`).
+4. Push to the branch (`git push origin feature/YourFeature`).
+5. Open a Pull Request.
+
+## License
+
+This project is licensed under the GNU Affero General Public License. See the [AGPL-3.0 License](https://www.gnu.org/licenses/agpl-3.0.en.html) for details.
+
+## Contact
+
+If you have any questions or suggestions, please feel free to contact us at your-email@example.com.
