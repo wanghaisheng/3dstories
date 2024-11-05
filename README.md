@@ -2,6 +2,9 @@
 
 ## Overview
 
+`git clone https://github.com/yourusername/3D-Stories.git
+cd 3D-Stories`
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
