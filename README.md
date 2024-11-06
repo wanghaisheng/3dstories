@@ -10,6 +10,7 @@
 - [Usage](#usage)
 - [Features](#features)
 - [Applications Used](#applications-used)
+- [How to Create Your 3D Story (Step-by-Step User Guide)](https://github.com/uclab-potsdam/3dstories/wiki/How-to-Create-Your-3D-Story-(Step%E2%80%90by%E2%80%90Step-User-Guide))
 - [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
