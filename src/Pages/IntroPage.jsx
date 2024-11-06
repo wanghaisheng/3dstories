@@ -95,14 +95,14 @@ const IntroPage = () => {
               ))}
             </div>
           ))}
-        <div className="intiroduction-links relative flex flex-wrap justify-center">
+        {/* <div className="intiroduction-links relative flex flex-wrap justify-center">
           <a className="mx-3" href="https://uclab.fh-potsdam.de/refa/" target="_blank">
             GitHub-Repro
           </a>
           <a className="mx-3" href="https://uclab.fh-potsdam.de/refa/" target="_blank">
             Restaging Fashion (refa)
           </a>
-        </div>
+        </div> */}
       </main>
     </div>
   )
