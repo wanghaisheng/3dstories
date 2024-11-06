@@ -53,7 +53,7 @@ const IntroPage = () => {
                 <Link to="/robe">
                   <Button
                     className="mt-5 w-full md:w-auto sm:mr-0 md:mr-3 xl2:mr-3 pointer-events-auto"
-                    value="Read our stories"
+                    value="EXPLORE STORIES"
                   />
                 </Link>
               </div>
@@ -62,12 +62,18 @@ const IntroPage = () => {
         </div>
         {IntroContent?.sections
           .filter((_, i) => i >= 1)
-          .map((d, i) => (
-            <section key={d.path ?? i} className="flex with-background w-screen relative justify-center items-center">
+          .map((d, i, arr) => (
+            <section
+              key={d.path ?? i}
+              className="flex relative flex-col with-background w-screen justify-center items-center"
+            >
+              {console.log('PATH', arr)}
               <div
-                className={`relative intro-content p-4 max-w-[800px] ${i === 0 ? 'mt-[10vh]' : 'mt-[15vh]'} `}
-                dangerouslySetInnerHTML={{ __html: d.description }}
-              ></div>
+                className={`max-w-[800px] p-6 md:p-10 ${i === 0 ? 'mt-[10vh]' : ''} justify-start ${i === 5 ? 'hidden' : 'block'} ${i === 4 ? 'mb-[10vh]' : ''}`}
+              >
+                <h2 className="mb-[1rem] self-start">{d.title === 'Team' ? null : d.title}</h2>
+                <p className="intro-content flex-grow" dangerouslySetInnerHTML={{ __html: d.description }}></p>
+              </div>
             </section>
           ))}
         <h2 className="mb-[1rem] mt-[10rem] relative">Team</h2>
