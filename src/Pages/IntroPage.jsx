@@ -91,7 +91,6 @@ const IntroPage = () => {
                     uni={member.uni}
                     link={member.link}
                   />
-                  {console.log('ROLE', member.role)}
                 </div>
               ))}
             </div>
