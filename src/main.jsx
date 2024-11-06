@@ -4,11 +4,16 @@ import App from './App.jsx'
 import './index.css'
 import { BrowserRouter } from 'react-router-dom'
 
-// import studio from '@theatre/studio'
-// import extension from '@theatre/r3f/dist/extension'
+const editMode = false
 
-// studio.extend(extension)
-// studio.initialize()
+if (editMode) {
+  import('@theatre/studio').then(studio => {
+    import('@theatre/r3f/dist/extension').then(extension => {
+      studio.default.extend(extension.default)
+      studio.default.initialize()
+    })
+  })
+}
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
