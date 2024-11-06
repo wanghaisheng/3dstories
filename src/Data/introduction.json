@@ -13,8 +13,10 @@
     },
     {
       "id": 3,
-      "title": "3D scanning / data",
-      "description": "Textiles are a challenging material for digital 3D reproduction; they are fragile, rich in detail and often difficult to stabilize. The 3D scanning strategy was adopted on site to the specific object characteristics. Data acquisition was carried out using the photogrammetric approach (Structure-from-Motion) on one hand and the Artec 3D Leo hand-held scanner on the other. The latter operates wirelessly and with its own light source. The processing of the photogrammetric data was done with Metashape and of the 3D-scanning data with Artec Studio. In cases where the data complemented each other well, the photogrammetric data was merged with the 3D body data captured by the scanner. As a result 15 models were digitized and published on Kompakkt."
+
+      "title": "",
+      "description": "Textiles are a challenging material for digital 3D reproduction; they are fragile, rich in detail and often difficult to stabilize. In the project <a href='https://uclab.fh-potsdam.de/refa/' target='_blanc'>“Restaging Fashion”</a> the 3D scanning strategy was adopted on site to the specific object characteristics. Data acquisition was carried out using the photogrammetric approach (Structure-from-Motion) on one hand and the Artec 3D Leo hand-held scanner on the other. The latter operates wirelessly and with its own light source. The processing of the photogrammetric data was done with Metashape and of the 3D-scanning data with Artec Studio. In cases where the data complemented each other well, the photogrammetric data was merged with the 3D body data captured by the scanner. As a result 15 models were digitized and published on <a href='https://kompakkt.de/compilation/64c29b510f5cf7f03d50374f' target='_blanc'>“Kompakkt”</a>."
+
     },
     {
       "id": 4,
