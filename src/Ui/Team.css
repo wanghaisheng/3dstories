@@ -7,11 +7,11 @@
 .Team {
   position: relative;
   padding: 0.7rem;
-  max-width: 320px;
-  min-width: 300px;
+  max-width: 280px;
+  min-width: 240px;
   background-color: rgba(0, 0, 0, 0.8);
   margin: 0.5rem;
-  /* border-radius: 1.4rem; */
+  border-radius: 1.4rem;
   transition: all 0.3s;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
@@ -38,7 +38,7 @@
   position: absolute;
   top: 1.5rem;
   right: 1.5rem;
-  background-color: var(--dark);
+  background-color: rgba(var(--white-rgb), 0.3);
   padding: 0.3rem 0.5rem;
   font-size: 0.7rem;
   border-radius: 0.5rem;
@@ -52,4 +52,5 @@
 .Team p {
   font-size: 0.9rem;
   margin-top: 0.3rem;
+  opacity: 0.6;
 }
