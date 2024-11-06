@@ -22,7 +22,10 @@ export const useViewportStore = create(set => ({
     })
   },
   isBackgroundVideoReady: false,
-  setBackgroundVideoReady: isBackgroundVideoReady => set({ isBackgroundVideoReady })
+  setBackgroundVideoReady: isBackgroundVideoReady => set({ isBackgroundVideoReady }),
+
+  isBottomVisible: false,
+  setBottomVisible: isBottomVisible => set({ isBottomVisible })
 }))
 
 const ViewportManager = () => {

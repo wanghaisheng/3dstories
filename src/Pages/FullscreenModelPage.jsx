@@ -30,21 +30,23 @@ const FullscreenModelPage = ({ pathname }) => {
   }
 
   const [styles, api] = useSpring(() => ({
-    transform: 'translateX(-100%)',
+    opacity: 0,
     config: config.slow
   }))
 
   useEffect(() => {
     console.log('API', api.start)
     api.start({
-      transform: showFullscreenMode ? 'translateX(0%)' : 'translateX(-100%)',
       opacity: showFullscreenMode ? 1 : 0,
       config: { delay: showFullscreenMode === false ? 5000 : 5000, duration: showFullscreenMode === false ? 500 : 300 } // Added 500ms to the existing delay
     })
   }, [showFullscreenMode])
 
   return (
-    <a.div style={styles} className="FullscreenModelPage">
+    <a.div
+      style={styles}
+      className={`FullscreenModelPage ${showFullscreenMode ? 'pointer-events-auto z-50' : 'pointer-events-none z-[-1]'}`}
+    >
       <CloseButton
         onClick={fullscreenMode}
         className="mb-2"

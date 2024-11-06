@@ -17,9 +17,8 @@ import Transition from '../Ui/Transition'
 
 const GreekStyleDress = ({ pathname }) => {
   const robeRef = useRef(null)
-  const ratioRef = useRef(useScrollStore.getState().scrollRatio)
-  // const pageRef = useRef(useScrollStore.getState().page)
   const isBigScreen = useMediaQuery({ query: '(min-width: 640px)' })
+  const ratioRef = useRef(useScrollStore.getState().scrollRatio)
   const sheet = useCurrentSheet()
   const sequenceLength = val(sheet.sequence.pointer.length)
   const [, apiTheatre] = useSpring(() => ({
@@ -31,7 +30,6 @@ const GreekStyleDress = ({ pathname }) => {
   }))
 
   useEffect(() => {
-    console.debug('[World] useEffect ', sheet.address.sheetId)
     return useScrollStore.subscribe(state => {
       ratioRef.current = state.scrollRatio
       apiTheatre.start({
@@ -41,32 +39,12 @@ const GreekStyleDress = ({ pathname }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sequenceLength, sheet.address.sheetId])
 
-  const [, apiOpacity] = useSpring(() => ({
-    opacity: 0,
-    config: config.slow,
-    onChange: ({ value }) => {
-      if (robeRef.current) {
-        robeRef.current.material.opacity = value.opacity
-      }
-    }
-  }))
-
-  useLayoutEffect(() => {
-    console.info('[World] pathname changed to:', pathname)
-    apiOpacity.start({
-      opacity: pathname === '/' ? 0.1 : 1
-    })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pathname])
-
-  console.debug('[World] rendering')
-
   return (
     <>
       <ambientLight intensity={1} />
       <Environment preset="studio" environmentIntensity={0.2} environmentRotation={[1, 1, 0]} />
       <PerspectiveCamera theatreKey="Camera" makeDefault position={[0, 0.2, 8]} fov={45} near={0.1} far={70} />
-      <group position={isBigScreen ? [0, 0, 0] : [-1, 0, 0]} scale={isBigScreen ? 1 : 1}>
+      <group position={isBigScreen ? [0.3, 0, 0] : [-1, 0, 0]} scale={isBigScreen ? 1 : 1}>
         <e.group theatreKey="Greek Style Dress Model">
           <GreekStyleDressModel ref={robeRef} position={[0, -2, 0]} rotation={0} />
         </e.group>
@@ -83,9 +61,6 @@ const GreekStyleDressPage = ({ pathname }) => {
     state: greekStyleDressAnimation
   })
   const sheet = project.sheet('Scene')
-
-  // Use JSON file to trigger the animation
-  // const sheet = getProject('Model Animation').sheet('Scene')
 
   return (
     <div className="Scene fixed h-screen w-full fixed top-0">

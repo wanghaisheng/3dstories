@@ -1,4 +1,3 @@
-import IntroContent from '../Data/intro.json'
 import RobeFrancaiseContent from '../Data/robeFrancaise.json'
 import ArmorContent from '../Data/armor.json'
 import GreekStyleDressContent from '../Data/greekStyleDress.json'
@@ -6,16 +5,14 @@ import DoubletContent from '../Data/doublet.json'
 import { useLocation } from 'react-router-dom'
 import ScrollManager, { useScrollStore } from './ScrollManager'
 import Feature from '../Ui/Feature'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { useSpring, a, config } from '@react-spring/web'
 import { useMediaQuery } from 'react-responsive'
 import { useViewportStore } from './ViewportManager'
-import Vimeo from '@u-wave/react-vimeo'
 import ScrollDownIndicator from '../Ui/ScrollDownIndicator'
 // import { modalVisible } from '../GlobalState'
 // import { useAtom } from 'jotai'
 
-const IntroRoute = '/'
 const RobexRoute = '/robe'
 const ArmorRoute = '/armor'
 const DoubletRoute = '/doublet'
@@ -25,13 +22,13 @@ const AvailableContents = {
   [RobexRoute]: RobeFrancaiseContent,
   [ArmorRoute]: ArmorContent,
   [DoubletRoute]: DoubletContent,
-  [GreekStyleDressRoute]: GreekStyleDressContent,
-  [IntroRoute]: IntroContent
+  [GreekStyleDressRoute]: GreekStyleDressContent
 }
 const ContentManager = ({ openModal, scrollToTop }) => {
+  const bottomRef = useRef(null)
   const isBigScreen = useMediaQuery({ query: '(min-width: 440px)' })
   const availableHeight = useViewportStore(state => state.availableHeight)
-  const setBackgroundVideoReady = useViewportStore(state => state.setBackgroundVideoReady)
+  const setBottomVisible = useViewportStore(state => state.setBottomVisible)
   // Fetch initial state
   const ratioRef = useRef(useScrollStore.getState().scrollRatio)
   const pageRef = useRef(useScrollStore.getState().page)
@@ -46,6 +43,28 @@ const ContentManager = ({ openModal, scrollToTop }) => {
     y: 0,
     config: config.slow
   }))
+
+  useLayoutEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setBottomVisible(true)
+          console.log('[ContentManager] Bottom is visible')
+        } else {
+          setBottomVisible(false)
+          console.log('[ContentManager] Bottom is not visible')
+        }
+      },
+      { threshold: 1 }
+    )
+    if (bottomRef.current) {
+      observer.observe(bottomRef.current)
+    }
+    return () => {
+      // cleanup observer
+      observer.disconnect()
+    }
+  }, [])
 
   useEffect(() => {
     console.info('[ContentManager] @useEffect pathname', pathname)
@@ -74,16 +93,6 @@ const ContentManager = ({ openModal, scrollToTop }) => {
     })
   }, [])
 
-  // function processDescription(description) {
-  //   let newdescription = description.split(' ')
-  //   return <div>
-  //     {newdescription.map((d, i) => (
-  //       if(d.includes('<word')) {
-  //         <OpenModal text="new var"/>}
-  //     ))}
-  //   </div>
-  // }
-
   return (
     <>
       <a.div
@@ -93,30 +102,14 @@ const ContentManager = ({ openModal, scrollToTop }) => {
         <div className="absolute w-screen h-screen flex items-end pointer-events-none">
           <ScrollDownIndicator className={'mb-10'}></ScrollDownIndicator>
         </div>
-        {pathname === '/' ? (
-          <div className="IntroPage background-video">
-            <Vimeo
-              video="https://vimeo.com/1021606397/0c67cd3435"
-              autoplay
-              loop
-              muted
-              showByline={false}
-              showTitle={false}
-              showPortrait={false}
-              controls={false} // Hide controls
-              background
-              onReady={() => setBackgroundVideoReady(true)}
-            />
-          </div>
-        ) : null}
         {contents.sections.map((d, i, arr) => (
           <div
             id={`slide-${d.id}`}
             style={{ height: availableHeight }}
             className={`flex slides ${
               i === 0
-                ? `sm:translate-x-[0rem] md:translate-x-[-1rem] lg:translate-x-[-2rem] xl:translate-x-[-14rem] max-w-[100%] xl:max-w-[65%]  items-center`
-                : `translate-x-[0rem] md:translate-x-[-14rem] md:max-w-[60%] lg:max-w-[50%] 2xl:max-w-[40%] items-center`
+                ? `sm:translate-x-[0rem] md:translate-x-[1rem] xl:translate-x-[10rem] max-w-[100%] sm:max-w-[75%] xl:max-w-[50%]  items-center xl:self-start self-center`
+                : `translate-x-[0rem] md:translate-x-[-11rem] xl:translate-x-[-18rem] md:max-w-[55%] md:min-w-[55%] lg:max-w-[50%] lg:min-w-[50%] 2xl:max-w-[40%] 2xl:min-w-[40%] items-center mx-2`
             }`}
             key={d.path ?? i}
           >
@@ -131,7 +124,11 @@ const ContentManager = ({ openModal, scrollToTop }) => {
             />
           </div>
         ))}
+        <div className="opacity-0" ref={bottomRef}>
+          Footer Trigger
+        </div>
       </a.div>
+
       <ScrollManager pages={contents.sections} pathname={pathname} />
     </>
   )

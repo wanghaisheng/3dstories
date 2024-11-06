@@ -7,7 +7,6 @@ import { useAtom } from 'jotai'
 import FullscreenModelPage from './Pages/FullscreenModelPage'
 import ContentManager from './components/ContentManager'
 import ViewportManager from './components/ViewportManager'
-import NavPrevNextButtons from './Ui/NavPrevNextButtons'
 import MenuFullPage from './Ui/MenuFullPage'
 import RobeFrancaisePage from './Pages/RobeFrancaisePage'
 import GreekStyleDressPage from './Pages/GreekStyleDressPage'
@@ -19,6 +18,7 @@ import { AnimatePresence } from 'framer-motion'
 import ArmorPage from './Pages/ArmorPage'
 import IntroPage from './Pages/IntroPage'
 import Preloader from './Ui/Preloader'
+import { useEffect } from 'react'
 
 function App() {
   const location = useLocation()
@@ -46,6 +46,10 @@ function App() {
     }, 500)
   }
 
+  useEffect(() => {
+    scrollToTop
+  }, [pathname])
+
   return (
     <>
       <ModalWindow closeModal={closeModal} isModalImage={isModalImage} isModalVisible={isModalVisible} />
@@ -55,16 +59,16 @@ function App() {
       <FullscreenModelPage pathname={pathname} />
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<IntroPage />}></Route>
+          <Route path="/" element={<IntroPage pathname={pathname} />}></Route>
           <Route path="/robe" element={<RobeFrancaisePage pathname={pathname} />}></Route>
           <Route path="/armor" element={<ArmorPage pathname={pathname} />}></Route>
           <Route path="/doublet" element={<DoubletPage pathname={pathname} />}></Route>
           <Route path="/greek_style_dress" element={<GreekStyleDressPage pathname={pathname} />}></Route>
         </Routes>
-        <ContentManager openModal={openModal} isModalVisible={isModalVisible} />
+        {pathname === '/' ? null : <ContentManager openModal={openModal} isModalVisible={isModalVisible} />}
         <ViewportManager />
       </AnimatePresence>
-      <Footer scrollToTop={scrollToTop} />
+      <Footer scrollToTop={scrollToTop} pathname={pathname} />
       <Background pathname={pathname} showFullscreenMode={true} />
     </>
   )

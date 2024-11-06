@@ -5,7 +5,7 @@ import RobeFrancaiseContent from '../Data/robeFrancaise.json'
 import GreekStyleDressContent from '../Data/greekStyleDress.json'
 import ArmorContent from '../Data/armor.json'
 import DoubletContent from '../Data/doublet.json'
-import IntroContent from '../Data/intro.json'
+import IntroContent from '../Data/introduction.json'
 const Background = ({ pathname, showFullscreenMode }) => {
   const ratioRef = useRef(useScrollStore.getState().scrollRatio)
   const pageRef = useRef(useScrollStore.getState().page)
