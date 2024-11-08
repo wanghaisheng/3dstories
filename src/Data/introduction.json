@@ -8,7 +8,7 @@
     },
     {
       "id": 2,
-      "title": "Garments / germanisches collection",
+      "title": "Garments",
       "description": "Dress research draws on visual, documentary, and material evidence. Textiles as cultural artefacts though are challenging as regards their presentation in the museum because of their vulnaribilty to light and hence the exhibition span is rather short and they are mostly stored in flat boxes in museum depots. In collaboration with the Textiles, Clothing and Jewelry collection of Germanisches Nationalmuseum Nuremberg a total of fifteen historical clothing items were selected for digitazion."
     },
     {
@@ -20,12 +20,12 @@
     },
     {
       "id": 4,
-      "title": "Interface / how to describe 3d objects online",
+      "title": "Interface Design",
       "description": "While 3D-model Viewers, such as Kompakkt or the Smithonian Voyager, offer a presentation and annotation mode, there is a desideratum for a narrative attached to the 3D model. In the collaboration between the C²DH (Luxembourg) and the UCLAB (Potsdam) we envisioned to create a tool that enables a dynamic and fluid presentation of a 3D model  combined with a narrative. We aimed for creating a free and reusable interface that allows researchers, experts or laypeople to enrich a 3D model with information and embed it in a scenography that supports the narrative.<br/>Hence the possibility of a narrative-driven animation of the garment models was created. The application '3D Stories' allows different aproaches: the user can either lean back and follow the story, or select one of the highlights and be directed to the relevant paragraph or by using the 'Explore' button roam the 3D model on his or hers own terms. 3D-Stories is also a freely reusable prototype based on a modification of open software."
     },
     {
       "id": 5,
-      "title": "Background on projects and institutions",
+      "title": "Background",
       "description": "The project was implemented in a collaboration between the Centre for Contemporary and Digital History Luxembourg (C²DH) and the Urban Complexity Lab (UCLAB) at Potsdam University of Applied Sciences. Kirill Mitsurov and Daniele Guido (C²DH) created the interface and Marian Dörk and Sabine de Günther (UCLAB) provided the 3D models and content for the stories."
     },
     {
