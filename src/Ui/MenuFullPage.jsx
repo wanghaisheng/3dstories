@@ -53,8 +53,18 @@ const Navigation = ({ data }) => {
     <nav>
       <ul>
         {data.sections.map((slide, i, arr) =>
-          slide.title ? (
+          slide.title && i !== 0 ? (
             <li key={slide.id} className={`sub-menu slide-${slide.id} ${slide.id === activeSlideId ? 'active' : ''}`}>
+              <button
+                onClick={() => scrollToSlide(slide.id, arr.length, i)}
+                dangerouslySetInnerHTML={{ __html: slide.title }}
+              ></button>
+            </li>
+          ) : slide.title ? (
+            <li
+              key={slide.id}
+              className={`sub-menu-header slide-${slide.id} ${slide.id === activeSlideId ? 'active' : ''}`}
+            >
               <button
                 onClick={() => scrollToSlide(slide.id, arr.length, i)}
                 dangerouslySetInnerHTML={{ __html: slide.title }}
@@ -112,24 +122,25 @@ const MenuFullPage = () => {
             <NavLink to="/">Introduction</NavLink>
           </li>
           <li>
-            <NavLink to="/robe">A luxurious Robe à la francaise</NavLink>
+            {pathnameUpdated !== '/robe' ? <NavLink to="/robe">A luxurious Robe à la francaise</NavLink> : null}
             {pathnameUpdated === '/robe' ? <Navigation data={RobeFrancaiseContent} /> : null}
           </li>
           <li>
-            <NavLink to="/armor">A plate armor for Elector Christian I. of Saxony</NavLink>
+            {pathnameUpdated !== '/armor' ? (
+              <NavLink to="/armor">A plate armor for Elector Christian I. of Saxony</NavLink>
+            ) : null}
             {pathnameUpdated === '/armor' ? <Navigation data={ArmorContent} /> : null}
           </li>
           <li>
-            <NavLink to="/doublet">The Doublet in the 17th century</NavLink>
+            {pathnameUpdated !== '/doublet' ? <NavLink to="/doublet">The Doublet in the 17th century</NavLink> : null}
             {pathnameUpdated === '/doublet' ? <Navigation data={DoubletContent} /> : null}
           </li>
           <li>
-            <NavLink to="/greek_style_dress">Greek Style Dress</NavLink>
+            {pathnameUpdated !== '/greek_style_dress' ? (
+              <NavLink to="/greek_style_dress">Greek Style Dress</NavLink>
+            ) : null}
             {pathnameUpdated === '/greek_style_dress' ? <Navigation data={GreekStyleDressContent} /> : null}
           </li>
-          {/* <li>
-            <NavLink to='/riegelhauber'>Riegelhaube</NavLink>
-          </li> */}
           <hr />
         </ul>
       </menu>

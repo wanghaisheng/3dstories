@@ -19,6 +19,11 @@
   line-height: 28px;
 }
 
+.MenuFullPage h2.sub-menu button {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
 .MenuFullPage .sub-menu button {
   font-size: 1rem;
   position: relative;
