@@ -109,7 +109,7 @@ const ContentManager = ({ openModal, scrollToTop }) => {
             className={`flex slides ${
               i === 0
                 ? `sm:translate-x-[0rem] md:translate-x-[1rem] xl:translate-x-[10rem] max-w-[100%] sm:max-w-[75%] xl:max-w-[50%]  items-center xl:self-start self-center`
-                : `translate-x-[0rem] md:translate-x-[-11rem] xl:translate-x-[-18rem] md:max-w-[55%] md:min-w-[55%] lg:max-w-[50%] lg:min-w-[50%] 2xl:max-w-[40%] 2xl:min-w-[40%] items-center mx-2`
+                : `translate-x-[0rem] md:translate-x-[-11rem] lg:translate-x-[-10rem] xl:translate-x-[-45%] md:max-w-[55%] md:min-w-[55%] lg:max-w-[50%] lg:min-w-[50%] 2xl:max-w-[40%] 2xl:min-w-[40%] items-center mx-2`
             }`}
             key={d.path ?? i}
           >
