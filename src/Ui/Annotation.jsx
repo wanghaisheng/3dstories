@@ -27,7 +27,7 @@ const Annotation = ({ id, ...props }) => {
       console.log(`Button text: ${slideElement?.textContent}`)
       return slideElement?.textContent
     } else {
-      return null
+      return 'Go to slide' + ' ' + id
     }
   }
 
