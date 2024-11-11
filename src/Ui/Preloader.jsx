@@ -17,7 +17,9 @@ const Preloader = ({ pathname }) => {
 
   useLayoutEffect(() => {
     if (pathname !== '/') {
-      preloader.classList.add('hidden-preloader')
+      setTimeout(() => {
+        preloader.classList.add('hidden-preloader')
+      }, 3000)
     }
   }, [])
 }
