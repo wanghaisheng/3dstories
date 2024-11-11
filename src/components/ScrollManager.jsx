@@ -30,7 +30,6 @@ const ScrollManager = ({ pages = [], pathname = '/' }) => {
   console.info('[ScrollManager] rendered', pages)
 
   useEffect(() => {
-    console.debug('[ScrollManager] @useEffect', '\n - pathname:', pathname, '\n - pathname:', pages.length)
     window.scrollTo(0, 0)
     const scrollme = () => {
       window.innerHeight = windowHeight
@@ -40,10 +39,13 @@ const ScrollManager = ({ pages = [], pathname = '/' }) => {
       setScrollRatio(ratio)
       setCurrentPage(currentPage)
       setPage(currentPage)
+      console.debug('[ScrollManager] @useEffect', ratio)
     }
 
     window.addEventListener('scroll', scrollme)
     return () => {
+      setScrollOffset(0)
+      setScrollRatio(0)
       window.removeEventListener('scroll', scrollme)
     }
   }, [pages, pathname, windowHeight])
