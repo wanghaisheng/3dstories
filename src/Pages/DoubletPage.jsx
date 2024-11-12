@@ -63,7 +63,7 @@ const DoubletPage = ({ pathname }) => {
   const sheet = project.sheet('Scene')
 
   return (
-    <div className="Scene fixed h-screen w-full fixed top-0">
+    <div className="Scene fixed h-screen w-full top-0">
       <Canvas
         shadows
         gl={{
