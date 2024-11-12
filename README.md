@@ -69,6 +69,8 @@ This will launch the development server and open the application in your default
 - **Theatre JS**: For animation and interactive experiences.
 - **Blender**: For converting 3D models to glb/gltf format.
 
+## [How to Create Your 3D Story (Step-by-Step User Guide)](https://github.com/uclab-potsdam/3dstories/wiki/How-to-Create-Your-3D-Story-(Step%E2%80%90by%E2%80%90Step-User-Guide))
+
 ### Preview glTF Models
 
 You can preview your glTF models using the following tools:
