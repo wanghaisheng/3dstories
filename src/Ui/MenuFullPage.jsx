@@ -141,7 +141,6 @@ const MenuFullPage = () => {
             ) : null}
             {pathnameUpdated === '/greek_style_dress' ? <Navigation data={GreekStyleDressContent} /> : null}
           </li>
-          <hr />
         </ul>
       </menu>
       <FlourishPattern
