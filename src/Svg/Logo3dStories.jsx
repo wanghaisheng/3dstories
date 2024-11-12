@@ -5,7 +5,12 @@ const Logo3dStories = ({ color = 'var(--white)', width = 100, className, scrollT
   const height = width / ratio
 
   return (
-    <Link to="/" onClick={scrollToTop} className={`${pointerEvent ? 'pointer-events-auto' : 'pointer-events-none'}`}>
+    <Link
+      to="/"
+      aria-label="Link to homepage"
+      onClick={scrollToTop}
+      className={`${pointerEvent ? 'pointer-events-auto' : 'pointer-events-none'}`}
+    >
       <div
         className={`Logo3dStories SVG ${className} flex cursor-pointer ${pointerEvent ? 'pointer-events-auto' : 'pointer-events-none'}`}
         style={{ height: height + 'px', width: width + 'px' }}

@@ -38,16 +38,27 @@ const NavPrevNextButtons = ({ className }) => {
             <div
               className={` ${initiallScrollRatioRef.current > 1 ? 'pointer-event-auto' : 'pointer-event-none'} flex lg:flex-col lg:flex-row`}
             >
-              <a onClick={handlePrevious} disabled={disablePreviousButton}>
+              <button
+                type="button"
+                onClick={handlePrevious}
+                aria-label="Previous Story"
+                disabled={disablePreviousButton}
+              >
                 <CircleButton size={isBigScreen ? 100 : 60} width={isBigScreen ? 44 : 28} rotate={180} />
-              </a>
-              <a className="relative" onClick={handleNext} disabled={disableNextButton}>
+              </button>
+              <button
+                type="button"
+                className="relative"
+                aria-label="Next Story"
+                onClick={handleNext}
+                disabled={disableNextButton}
+              >
                 <CircleButton
                   size={isBigScreen ? 100 : 60}
                   width={isBigScreen ? 44 : 28}
                   className="lg:mt-5 lg:ml-0 ml-5"
                 />
-              </a>
+              </button>
             </div>
           </div>
         ) : null}

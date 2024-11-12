@@ -53,9 +53,9 @@ const Footer = ({ scrollToTop, pathname }) => {
     >
       {pathname !== '/' ? (
         <div className="go-to-top z-1 fixed flex flex-col translate-y-[-10rem]">
-          <a onClick={scrollToTop}>
+          <button type="button" aria-label="Go to top" onClick={scrollToTop}>
             <CircleButton size={isBigScreen ? 120 : 60} width={isBigScreen ? 44 : 28} rotate={-90} />
-          </a>
+          </button>
         </div>
       ) : null}
       <div className="flex z-40 flex-wrap w-screen justify-between ">
@@ -65,10 +65,21 @@ const Footer = ({ scrollToTop, pathname }) => {
           <LogoUni className={'ml-5'} width={isBigScreen ? 140 : 90} />
         </div>
         <div className="mt-3 md:mt-0 flex items-center footer-right justify-center md:justify-end flex-grow">
-          <a href="https://www.fh-potsdam.de/impressum" rel="no-referrer" target="_blank">
+          <a
+            href="https://www.fh-potsdam.de/impressum"
+            aria-label="Link to FH;P impressum"
+            rel="no-referrer"
+            target="_blank"
+          >
             Imprint
           </a>
-          <a className="ml-5" href="https://www.fh-potsdam.de/datenschutz" rel="no-referrer" target="_blank">
+          <a
+            className="ml-5"
+            aria-label="Link to FH;P datenschutz"
+            href="https://www.fh-potsdam.de/datenschutz"
+            rel="no-referrer"
+            target="_blank"
+          >
             Privacy policy
           </a>
         </div>

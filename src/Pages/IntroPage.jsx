@@ -22,7 +22,7 @@ const IntroPage = () => {
             muted
             showByline={false}
             showTitle={false}
-            showPortrait={false}
+            showPortrait={true}
             controls={false} // Hide controls
             // background
             onReady={e => {
