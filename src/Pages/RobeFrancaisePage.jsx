@@ -33,7 +33,7 @@ const RobeFrancaise = ({ pathname }) => {
     return useScrollStore.subscribe(state => {
       ratioRef.current = state.scrollRatio
       let ratioMenuLinkPosition = window.scrollY / state.menuLinkPosition
-      console.log(
+      console.debug(
         '[RobeFrancaise] @useEffect @useScrollStore.subscribe',
         state.menuLinkPosition,
         window.scrollY,

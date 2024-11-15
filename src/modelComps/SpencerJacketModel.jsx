@@ -19,7 +19,7 @@ const SpencerJacketModel = forwardRef(({ position, rotation, ...props }, ref) =>
   materials.material_0.roughness = 1
   materials.material_0.transparent = true
 
-  console.log('SpencerJacketModel', materials.material_0)
+  console.debug('SpencerJacketModel', materials.material_0)
 
   return (
     <group {...props} position={position} dispose={null} rotation={[0, rotation, 0]}>

@@ -49,10 +49,10 @@ const ContentManager = ({ openModal, scrollToTop }) => {
       ([entry]) => {
         if (entry.isIntersecting) {
           setBottomVisible(true)
-          console.log('[ContentManager] Bottom is visible')
+          console.debug('[ContentManager] Bottom is visible')
         } else {
           setBottomVisible(false)
-          console.log('[ContentManager] Bottom is not visible')
+          console.debug('[ContentManager] Bottom is not visible')
         }
       },
       { threshold: 1 }

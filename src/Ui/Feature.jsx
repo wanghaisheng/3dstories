@@ -31,7 +31,7 @@ const Feature = ({ title, description, ref, i, lastItem, contents, openModal, sc
       window.open(contents.links[0].externalUrl, '_blank')
     } else {
       window.open(contents.externalUrl, '_blank')
-      console.log('externalUrl', contents.externalUrl)
+      console.debug('externalUrl', contents.externalUrl)
     }
   }
 
@@ -49,7 +49,7 @@ const Feature = ({ title, description, ref, i, lastItem, contents, openModal, sc
   function onClickHandler(e) {
     if (e.target.hasAttribute('data-href')) {
       const href = e.target.getAttribute('data-href')
-      console.log('@click href:', href)
+      console.debug('@click href:', href)
       openModal(href)
     }
     return false

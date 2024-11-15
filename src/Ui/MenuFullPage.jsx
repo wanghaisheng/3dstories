@@ -110,7 +110,7 @@ const MenuFullPage = () => {
   }, [pathname])
 
   useEffect(() => {
-    console.log('API', api.start)
+    console.debug('API', api.start)
     if (isMenuOpen) {
       api.start({
         opacity: 1

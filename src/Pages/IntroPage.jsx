@@ -26,19 +26,19 @@ const IntroPage = () => {
             controls={false} // Hide controls
             // background
             onReady={e => {
-              console.log('[Preloader] onPlay', e)
+              console.debug('[Preloader] onPlay', e)
               e.play().then(() => {
-                console.log('Video is playing')
+                console.debug('Video is playing')
                 setBackgroundVideoReady(true)
               })
               // debugger
               //
             }}
             onPlaying={e => {
-              console.log('[Preloader] onPlaying', e)
+              console.debug('[Preloader] onPlaying', e)
             }}
             onProgress={e => {
-              console.log('[Preloader] onProgress', e)
+              console.debug('[Preloader] onProgress', e)
             }}
           />
         </div>
@@ -67,7 +67,7 @@ const IntroPage = () => {
               key={d.path ?? i}
               className="flex relative flex-col with-background w-screen justify-center items-center"
             >
-              {console.log('PATH', arr)}
+              {console.debug('PATH', arr)}
               <div
                 className={`max-w-[800px] p-6 md:p-10 ${i === 0 ? 'mt-[10vh]' : ''} justify-start ${i === 5 ? 'hidden' : 'block'} ${i === 4 ? 'mb-[10vh]' : ''}`}
               >

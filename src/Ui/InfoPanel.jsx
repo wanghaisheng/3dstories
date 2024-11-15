@@ -19,7 +19,7 @@ const InfoPanel = ({ mobile = false }) => {
 
   const toggleInfoPanel = () => {
     setShowInfoPanel(!showInfoPanel)
-    console.log('SHOW-INFO-PANEL', showInfoPanel)
+    console.debug('SHOW-INFO-PANEL', showInfoPanel)
   }
 
   const [styles, api] = useSpring(() => ({
@@ -43,7 +43,7 @@ const InfoPanel = ({ mobile = false }) => {
   }))
 
   useEffect(() => {
-    // console.log('API', api.start)
+    // console.debug('API', api.start)
     api.start({
       transform: showInfoPanel ? 'translateX(0%)' : 'translateX(-200%)'
     })

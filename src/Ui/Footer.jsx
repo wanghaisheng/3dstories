@@ -17,7 +17,7 @@ const Footer = ({ scrollToTop, pathname }) => {
     y: scrollY === innerHeight ? 10 : 0
   }))
   useEffect(() => {
-    console.log('[Footer] isBottomVisible', isBottomVisible)
+    console.debug('[Footer] isBottomVisible', isBottomVisible)
     if (!isBottomVisible) {
       setIsVisibleFooter(false)
       apiScrollUp.start({

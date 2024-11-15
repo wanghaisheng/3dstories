@@ -24,7 +24,7 @@ const Annotation = ({ id, ...props }) => {
     const slideElement = document.querySelector(`.slide-${id} button`)
     if (slideElement) {
       slideElement.classList.add('active')
-      console.log(`Button text: ${slideElement?.textContent}`)
+      console.debug(`Button text: ${slideElement?.textContent}`)
       return slideElement?.textContent
     } else {
       return 'Go to slide' + ' ' + id

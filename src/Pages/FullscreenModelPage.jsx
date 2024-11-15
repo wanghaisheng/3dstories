@@ -35,7 +35,7 @@ const FullscreenModelPage = ({ pathname }) => {
   }))
 
   useEffect(() => {
-    console.log('API', api.start)
+    console.debug('API', api.start)
     api.start({
       opacity: showFullscreenMode ? 1 : 0,
       config: { delay: showFullscreenMode === false ? 5000 : 5000, duration: showFullscreenMode === false ? 500 : 300 } // Added 500ms to the existing delay
