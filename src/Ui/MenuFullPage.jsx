@@ -20,16 +20,20 @@ const Navigation = ({ data }) => {
   const toggleMenu = useStore(state => state.toggleMenu)
   const isMenuOpen = useStore(state => state.isMenuOpen)
   const setMenuLinkPosition = useScrollStore(state => state.setMenuLinkPosition)
-
+  const toggleMenuTimerRef = useRef(null)
   const scrollToSlide = id => {
     if (isMenuOpen) {
-      toggleMenu()
+      clearTimeout(toggleMenuTimerRef.current)
+      toggleMenuTimerRef.current = setTimeout(() => {
+        toggleMenu()
+      }, 750)
     }
     const top = availableHeight * (id - 1)
     console.debug('[Navigation] scrollToSlide', id, top)
+
     window.scrollTo({
       top: availableHeight * (id - 1),
-      behavior: 'smooth' // Optional: for smooth scrolling§
+      behavior: 'instant'
     })
     setMenuLinkPosition(top)
   }
@@ -52,6 +56,7 @@ const Navigation = ({ data }) => {
 
     return () => {
       window.removeEventListener('scroll', handleScroll)
+      clearTimeout(toggleMenuTimerRef.current)
     }
   }, [availableHeight, data.sections])
 
