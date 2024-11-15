@@ -8,6 +8,8 @@ import { useViewportStore } from './ViewportManager'
 export const useScrollStore = create(set => ({
   scrollRatio: 0,
   page: 0,
+  menuLinkPosition: 0,
+
   setScrollRatio: scrollRatio =>
     set({
       scrollRatio
@@ -15,7 +17,8 @@ export const useScrollStore = create(set => ({
   setPage: page =>
     set({
       page
-    })
+    }),
+  setMenuLinkPosition: menuLinkPosition => set({ menuLinkPosition })
 }))
 
 const ScrollManager = ({ pages = [], pathname = '/' }) => {

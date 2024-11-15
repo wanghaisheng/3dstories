@@ -4,28 +4,34 @@ import DoubletContent from '../Data/doublet.json'
 import ArmorContent from '../Data/armor.json'
 import GreekStyleDressContent from '../Data/greekStyleDress.json'
 import { NavLink } from 'react-router-dom'
-import { useSpring, a, config } from '@react-spring/web'
+import { useSpring, a } from '@react-spring/web'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import useStore from '../GlobalState'
 import { useMediaQuery } from 'react-responsive'
 import FlourishPattern from '../Svg/FlourishPattern'
 import { useViewportStore } from '../components/ViewportManager'
 import { useLocation } from 'react-router-dom'
+import { useScrollStore } from '../components/ScrollManager'
 
+// eslint-disable-next-line react/prop-types
 const Navigation = ({ data }) => {
   const [activeSlideId, setActiveSlideId] = useState(null)
   const availableHeight = useViewportStore(state => state.availableHeight)
   const toggleMenu = useStore(state => state.toggleMenu)
   const isMenuOpen = useStore(state => state.isMenuOpen)
-  const scrollToSlide = (id, length, i) => {
+  const setMenuLinkPosition = useScrollStore(state => state.setMenuLinkPosition)
+
+  const scrollToSlide = id => {
     if (isMenuOpen) {
       toggleMenu()
     }
+    const top = availableHeight * (id - 1)
+    console.debug('[Navigation] scrollToSlide', id, top)
     window.scrollTo({
       top: availableHeight * (id - 1),
       behavior: 'smooth' // Optional: for smooth scrolling§
     })
-    console.log('ID', id, length, i)
+    setMenuLinkPosition(top)
   }
   // Update active slide ID based on scroll position
   useLayoutEffect(() => {

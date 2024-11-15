@@ -16,9 +16,11 @@ import Transition from '../Ui/Transition'
 
 const RobeFrancaise = ({ pathname }) => {
   const ratioRef = useRef(useScrollStore.getState().scrollRatio)
+  const menuLinkRef = useRef(useScrollStore.getState().menuLinkPosition)
   const isBigScreen = useMediaQuery({ query: '(min-width: 640px)' })
   const sheet = useCurrentSheet()
   const sequenceLength = val(sheet.sequence.pointer.length)
+
   const [, apiTheatre] = useSpring(() => ({
     position: 0,
     config: config.molasses,
@@ -28,9 +30,19 @@ const RobeFrancaise = ({ pathname }) => {
   }))
 
   useEffect(() => {
-    console.debug('[World] useEffect', sheet.address.sheetId, sheet)
     return useScrollStore.subscribe(state => {
       ratioRef.current = state.scrollRatio
+      let ratioMenuLinkPosition = window.scrollY / state.menuLinkPosition
+      console.log(
+        '[RobeFrancaise] @useEffect @useScrollStore.subscribe',
+        state.menuLinkPosition,
+        window.scrollY,
+        state.scrollRatio,
+        ratioMenuLinkPosition
+      )
+      if (menuLinkRef.current !== state.menuLinkPosition) {
+        menuLinkRef.current = state.menuLinkPosition
+      }
       apiTheatre.start({
         position: ratioRef.current * sequenceLength
       })
