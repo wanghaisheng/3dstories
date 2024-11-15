@@ -8,6 +8,7 @@ const Transition = OgComponent => {
       <OgComponent />
 
       <motion.div
+        key="1"
         className="slide-in"
         initial={{ opacity: 0 }}
         animate={{ opacity: 0 }}
@@ -17,6 +18,7 @@ const Transition = OgComponent => {
         <Logo3dStories pointerEvent={false} width={140} />
       </motion.div>
       <motion.div
+        key="2"
         className="slide-out"
         initial={{ opacity: 1 }}
         animate={{ opacity: 0 }}

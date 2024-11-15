@@ -58,17 +58,17 @@ function App() {
       <Preloader pathname={pathname} />
       <FullscreenModelPage pathname={pathname} />
       <AnimatePresence mode="wait">
-        <Routes location={location} key="routes">
-          <Route key="routes-index" path="/" element={<IntroPage pathname={pathname} />}></Route>
-          <Route key="routes-eee" path="/robe" element={<RobeFrancaisePage pathname={pathname} />}></Route>
-          <Route key="routes-r" path="/armor" element={<ArmorPage pathname={pathname} />}></Route>
-          <Route key="routes-e" path="/doublet" element={<DoubletPage pathname={pathname} />}></Route>
-          <Route key="routes-z" path="/greek_style_dress" element={<GreekStyleDressPage pathname={pathname} />}></Route>
+        <Routes location={location} key={pathname} pathname={pathname}>
+          <Route path="/" element={<IntroPage pathname={pathname} />}></Route>
+          <Route path="/robe" element={<RobeFrancaisePage pathname={pathname} />}></Route>
+          <Route path="/armor" element={<ArmorPage pathname={pathname} />}></Route>
+          <Route path="/doublet" element={<DoubletPage pathname={pathname} />}></Route>
+          <Route path="/greek_style_dress" element={<GreekStyleDressPage pathname={pathname} />}></Route>
         </Routes>
         {pathname === '/' ? null : (
           <ContentManager openModal={openModal} isModalVisible={isModalVisible} key="sss-robe" />
         )}
-        <ViewportManager key="aaaa" />
+        <ViewportManager />
       </AnimatePresence>
       <Footer scrollToTop={scrollToTop} pathname={pathname} />
       <Background pathname={pathname} showFullscreenMode={true} />
