@@ -68,7 +68,7 @@ const ContentManager = ({ openModal, scrollToTop }) => {
 
   useEffect(() => {
     console.info('[ContentManager] @useEffect pathname', pathname)
-    totalPagesRef.current = contents.sections.length
+    totalPagesRef.current = contents?.sections?.length
   }, [pathname])
 
   useEffect(() => {
@@ -102,7 +102,7 @@ const ContentManager = ({ openModal, scrollToTop }) => {
         <div className="absolute w-screen h-screen flex items-end pointer-events-none">
           <ScrollDownIndicator className={'mb-10'}></ScrollDownIndicator>
         </div>
-        {contents.sections.map((d, i, arr) => (
+        {contents?.sections.map((d, i, arr) => (
           <div
             id={`slide-${d.id}`}
             style={{ height: availableHeight }}
@@ -129,7 +129,7 @@ const ContentManager = ({ openModal, scrollToTop }) => {
         </div>
       </a.div>
 
-      <ScrollManager pages={contents.sections} pathname={pathname} />
+      <ScrollManager pages={contents?.sections} pathname={pathname} />
     </>
   )
 }
