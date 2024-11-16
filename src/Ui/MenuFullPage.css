@@ -46,6 +46,10 @@
   width: 100%;
 }
 
+.MenuFullPage.black {
+  background-color: rgba(var(--dark-rgb), 1);
+}
+
 @media (max-width: 640px) {
   .MenuFullPage {
     font-size: 1.4rem;

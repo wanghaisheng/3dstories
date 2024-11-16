@@ -19,7 +19,11 @@ const useStore = create(set => ({
   isMenuOpen: false,
   toggleMenu: () => set(state => ({ isMenuOpen: !state.isMenuOpen })),
   showFullscreenMode: false,
-  toggleShowFullscreenMode: () => set(state => ({ showFullscreenMode: !state.showFullscreenMode }))
+  toggleShowFullscreenMode: () => set(state => ({ showFullscreenMode: !state.showFullscreenMode })),
+  clickedSlideId: false,
+  setClickedSlideId: clickedSlideId => set({ clickedSlideId }),
+  scrollToTopEf: false,
+  setScrollToTopEf: scrollToTopEf => set({ scrollToTopEf })
 }))
 
 export default useStore

@@ -21,11 +21,19 @@ const Navigation = ({ data }) => {
   const isMenuOpen = useStore(state => state.isMenuOpen)
   const setMenuLinkPosition = useScrollStore(state => state.setMenuLinkPosition)
   const toggleMenuTimerRef = useRef(null)
+  const setClickedSlideId = useStore(state => state.setClickedSlideId)
+  // const setClickedSlideId = useStore(state => state.setClickedSlideId)
+  // const [clickedSlideId, setClickedSlideId] = useState(null)
+
   const scrollToSlide = id => {
+    // const isBigScreen = useMediaQuery({ query: '(min-width: 640px)' })
+
     if (isMenuOpen) {
+      setClickedSlideId(true)
       clearTimeout(toggleMenuTimerRef.current)
       toggleMenuTimerRef.current = setTimeout(() => {
         toggleMenu()
+        setClickedSlideId(false)
       }, 750)
     }
     const top = availableHeight * (id - 1)
@@ -94,6 +102,7 @@ const MenuFullPage = () => {
   const pathnameUpdatedTimerRef = useRef(null)
   const isMenuOpen = useStore(state => state.isMenuOpen)
   const isBigScreen = useMediaQuery({ query: '(min-width: 1024px)' })
+  const clickedSlideId = useStore(state => state.clickedSlideId)
 
   const duration = { duration: 200 } // Set the duration to 500ms or any desired value
   const [styles, api] = useSpring(() => ({
@@ -125,7 +134,7 @@ const MenuFullPage = () => {
   return (
     <a.section
       style={styles}
-      className={`MenuFullPage z-100 ${isMenuOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}
+      className={`MenuFullPage ${clickedSlideId === true ? 'black' : ''} z-100 ${isMenuOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}
     >
       <menu className=" flex">
         <ul className="flex flex-col items-center">
