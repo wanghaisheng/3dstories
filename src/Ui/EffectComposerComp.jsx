@@ -3,7 +3,6 @@ import useStore from '../GlobalState'
 
 const EffectComposerComp = () => {
   const scrollToTopEf = useStore(state => state.scrollToTopEf)
-  console.log('[RobeFrancaisePage] scrollToTopEf', scrollToTopEf)
   return (
     <EffectComposer>
       {scrollToTopEf === true && (
