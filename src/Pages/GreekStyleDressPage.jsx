@@ -14,6 +14,7 @@ import { editable as e } from '@theatre/r3f'
 import SpencerJacketModel from '../modelComps/SpencerJacketModel'
 import * as THREE from 'three'
 import Transition from '../Ui/Transition'
+import EffectComposerComp from '../Ui/EffectComposerComp'
 
 const GreekStyleDress = ({ pathname }) => {
   const robeRef = useRef(null)
@@ -73,6 +74,7 @@ const GreekStyleDressPage = ({ pathname }) => {
           toneMapping: THREE.LinearToneMapping
         }}
       >
+        <EffectComposerComp />
         <SheetProvider sheet={sheet}>
           <GreekStyleDress pathname={pathname} />
           <SpencerJacketModel pathname={pathname} />

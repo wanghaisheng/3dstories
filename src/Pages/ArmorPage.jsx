@@ -13,6 +13,7 @@ import ArmorModel from '../modelComps/ArmorModel'
 import { editable as e } from '@theatre/r3f'
 import * as THREE from 'three'
 import Transition from '../Ui/Transition'
+import EffectComposerComp from '../Ui/EffectComposerComp'
 
 const Armor = ({ pathname }) => {
   const ArmorRef = useRef(null)
@@ -68,6 +69,7 @@ const ArmorPage = ({ pathname }) => {
           toneMapping: THREE.LinearToneMapping
         }}
       >
+        <EffectComposerComp />
         <SheetProvider sheet={sheet}>
           <Armor pathname={pathname} />
         </SheetProvider>

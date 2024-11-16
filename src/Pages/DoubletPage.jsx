@@ -14,6 +14,7 @@ import * as THREE from 'three'
 import InnerDoubletModel from '../modelComps/InnerDoubletModel'
 import OuterDoubletModel from '../modelComps/OuterDoubletModel'
 import Transition from '../Ui/Transition'
+import EffectComposerComp from '../Ui/EffectComposerComp'
 
 const InnerDoublet = ({ pathname }) => {
   const robeRef = useRef(null)
@@ -73,6 +74,7 @@ const DoubletPage = ({ pathname }) => {
           toneMapping: THREE.LinearToneMapping
         }}
       >
+        <EffectComposerComp />
         <SheetProvider sheet={sheet}>
           <InnerDoublet pathname={pathname} />
         </SheetProvider>

@@ -18,19 +18,28 @@ import { AnimatePresence } from 'framer-motion'
 import ArmorPage from './Pages/ArmorPage'
 import IntroPage from './Pages/IntroPage'
 import Preloader from './Ui/Preloader'
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
+import useStore from './GlobalState'
 
 function App() {
   const location = useLocation()
   const pathname = location.pathname
   const [isModalVisible, setModalVisible] = useAtom(modalVisible)
   const [isModalImage, setModalImage] = useAtom(modalImage) // Use an empty object as the key
+  const scrollToTopRef = useRef(null)
+  const scrollToTopEf = useStore(state => state.scrollToTopEf)
+  const setScrollToTopEf = useStore(state => state.setScrollToTopEf)
 
   const scrollToTop = () => {
     window.scrollTo({
       top: window.top,
-      behavior: 'smooth' // Optional: for smooth scrolling§
+      behavior: 'instant' // Optional: for smooth scrolling§
     })
+    setScrollToTopEf(true)
+    console.debug('scrollToTopEf', scrollToTopEf)
+    scrollToTopRef.current = setTimeout(() => {
+      setScrollToTopEf(false)
+    }, 2000)
   }
 
   const openModal = imageId => {
@@ -39,7 +48,6 @@ function App() {
   }
 
   const closeModal = () => {
-    // setModalVisible(prev => !prev) // Toggle the boolean value
     setModalVisible(false)
     setTimeout(() => {
       setModalImage(null)
@@ -60,7 +68,7 @@ function App() {
       <AnimatePresence mode="wait">
         <Routes location={location} key={pathname} pathname={pathname}>
           <Route path="/" element={<IntroPage pathname={pathname} />}></Route>
-          <Route path="/robe" element={<RobeFrancaisePage pathname={pathname} />}></Route>
+          <Route path="/robe" element={<RobeFrancaisePage pathname={pathname} scrollToTopEf={scrollToTopEf} />}></Route>
           <Route path="/armor" element={<ArmorPage pathname={pathname} />}></Route>
           <Route path="/doublet" element={<DoubletPage pathname={pathname} />}></Route>
           <Route path="/greek_style_dress" element={<GreekStyleDressPage pathname={pathname} />}></Route>

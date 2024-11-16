@@ -13,8 +13,9 @@ import RobeFrancaiseModel from '../modelComps/RobeFrancaiseModel'
 import { editable as e } from '@theatre/r3f'
 import * as THREE from 'three'
 import Transition from '../Ui/Transition'
+import EffectComposerComp from '../Ui/EffectComposerComp'
 
-const RobeFrancaise = ({ pathname }) => {
+const RobeFrancaise = () => {
   const ratioRef = useRef(useScrollStore.getState().scrollRatio)
   const menuLinkRef = useRef(useScrollStore.getState().menuLinkPosition)
   const isBigScreen = useMediaQuery({ query: '(min-width: 640px)' })
@@ -80,6 +81,7 @@ const RobeFrancaisePage = ({ pathname }) => {
           toneMapping: THREE.LinearToneMapping
         }}
       >
+        <EffectComposerComp />
         <SheetProvider sheet={sheet}>
           <RobeFrancaise pathname={pathname} />
         </SheetProvider>
