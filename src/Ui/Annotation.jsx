@@ -10,6 +10,7 @@ const Annotation = ({ id, ...props }) => {
   const availableHeight = useViewportStore(state => state.availableHeight)
   const ratioRef = useRef(useScrollStore.getState().scrollRatio)
   const pageRef = useRef(useScrollStore.getState().page)
+  const delayFullscreenTimerRef = useRef(null)
   const totalPagesRef = useRef(0)
   const scrollToSlide = () => {
     const startOffset = availableHeight * (id - 1)
@@ -41,7 +42,10 @@ const Annotation = ({ id, ...props }) => {
       if (pageRef.current !== state.page) {
         pageRef.current = state.page
         setActiveSection(pageRef.current)
-        useStore.setState({ showFullscreenMode: false })
+        clearTimeout(delayFullscreenTimerRef.current)
+        delayFullscreenTimerRef.current = setTimeout(() => {
+          useStore.setState({ showFullscreenMode: false })
+        }, 500)
         console.info('[POINT OF INTEREST]', pageRef.current, id)
       }
     })
