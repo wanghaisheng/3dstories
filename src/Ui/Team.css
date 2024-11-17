@@ -9,11 +9,11 @@
   padding: 0.7rem;
   max-width: 280px;
   min-width: 240px;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.2);
   margin: 0.5rem;
   border-radius: 1.4rem;
   transition: all 0.3s;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 40px rgba(143, 143, 143, 0.2);
 }
 
 .Team:hover {
