@@ -66,7 +66,7 @@ const ViewportManager = () => {
       console.info('[ViewportManager] @useEffect cleanup')
       window.removeEventListener('resize', resize)
     }
-  }, [])
+  }, [window.innerHeight])
 }
 
 export default ViewportManager

@@ -35,7 +35,6 @@ const ScrollManager = ({ pages = [], pathname = '/' }) => {
   useEffect(() => {
     window.scrollTo(0, 0)
     const scrollme = () => {
-      window.innerHeight = windowHeight
       const ratio = window.scrollY / (windowHeight * (pages.length - 1))
       const currentPage = Math.round(window.scrollY / windowHeight)
       setScrollOffset(ratio)
@@ -44,7 +43,6 @@ const ScrollManager = ({ pages = [], pathname = '/' }) => {
       setPage(currentPage)
       console.debug('[ScrollManager] @useEffect', ratio)
     }
-
     window.addEventListener('scroll', scrollme)
     return () => {
       setScrollOffset(0)
@@ -61,7 +59,7 @@ const ScrollManager = ({ pages = [], pathname = '/' }) => {
         left: 0,
         top: 0,
         width: '100%',
-        height: pages.length * window.innerHeight
+        height: pages.length * windowHeight
       }}
     >
       {pages.map((d, i, arr) => (
@@ -69,10 +67,7 @@ const ScrollManager = ({ pages = [], pathname = '/' }) => {
           className="page-content"
           key={'i' + i}
           style={{
-            height:
-              i === arr.length - 1
-                ? window.innerHeight + window.innerHeight / (isBigScreen ? 4 : 2.3)
-                : window.innerHeight
+            height: i === arr.length - 1 ? windowHeight + windowHeight / (isBigScreen ? 4 : 2.3) : windowHeight
             // border: '1px solid blue'
           }}
         ></div>
