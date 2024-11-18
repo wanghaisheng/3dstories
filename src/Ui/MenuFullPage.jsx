@@ -142,7 +142,7 @@ const MenuFullPage = () => {
             <NavLink to="/">Introduction</NavLink>
           </li>
           <li>
-            {pathnameUpdated !== '/robe' ? <NavLink to="/robe">A luxurious Robe à la francaise</NavLink> : null}
+            {pathnameUpdated !== '/robe' ? <NavLink to="/robe">Textile opulence</NavLink> : null}
             {pathnameUpdated === '/robe' ? <Navigation data={RobeFrancaiseContent} /> : null}
           </li>
           <li>
