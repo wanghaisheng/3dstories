@@ -1,7 +1,10 @@
 {
   "links": [
-    { "externalUrl": "https://uclab.fh-potsdam.de/refa-catalog/s/c/item/19901", "linkValue": "Dress in greek style" },
-    { "externalUrlTwo": "https://uclab.fh-potsdam.de/refa-catalog/s/c/item/18742", "linkValue": "Spencer Jacket" }
+    {
+      "externalUrl": "https://uclab.fh-potsdam.de/refa-catalog/s/c/item/19901",
+      "linkValue": "Data: Dress in greek style"
+    },
+    { "externalUrlTwo": "https://uclab.fh-potsdam.de/refa-catalog/s/c/item/18742", "linkValue": "Data: Spencer Jacket" }
   ],
   "sections": [
     {

@@ -2,9 +2,12 @@
   "links": [
     {
       "externalUrl": "https://uclab.fh-potsdam.de/refa-catalog/s/c/item/56167",
-      "linkValue": "Data: Doublet with slit pattern"
+      "linkValue": "Data: Green Doublet"
     },
-    { "externalUrlTwo": "https://uclab.fh-potsdam.de/refa-catalog/s/c/item/19905", "linkValueTwo": "Data" }
+    {
+      "externalUrlTwo": "https://uclab.fh-potsdam.de/refa-catalog/s/c/item/19905",
+      "linkValue": "Data: Embroidered Doublet"
+    }
   ],
 
   "sections": [
@@ -43,7 +46,7 @@
     {
       "id": 7,
       "title": "'Doublet with embroidered decorative stripes'",
-      "description": "This Doublet, dating from 1630 to 1640, is characterized by a heavily textured surface, distinctive sleeves, a pleated lap at the back and a flowing silhouette. It is presented here with raised arms in order to make the open sleeves visible. A further scan with the </br><span class='module-content' data-href='6'>arms in the natural position</span> can be explored <a href='https://kompakkt.de/entity/6530ef20b785da468542de26?locale=en' target='_blanc'>“here”</a>."
+      "description": "This Doublet, dating from 1630 to 1640, is characterized by a heavily textured surface, distinctive sleeves, a pleated lap at the back and a flowing silhouette. It is presented here with raised arms in order to make the open sleeves visible. A further scan with the </br><span class='module-content' data-href='6'>arms in the natural position</span> can be explored <a href='https://kompakkt.de/entity/6530ef20b785da468542de26?locale=en' target='_blanc'>here</a>."
     },
     {
       "id": 8,
@@ -63,7 +66,7 @@
     {
       "id": 11,
       "title": "More details & findings",
-      "description": "Jutta Zander-Seidel described the green silk doublet with a slit pattern in the exhibition catalogue <a href='https://books.ub.uni-heidelberg.de//arthistoricum/catalog/book/396' target='_blanc'>“In Mode: Kleider und Bilder aus Renaissance und Frühbarock”</a> (Nuremberg 2015, p.85). The Doublet with embroidered decorative stripes can be found ibid. on p. 101 ff.",
+      "description": "Jutta Zander-Seidel described the green silk doublet with a slit pattern in the exhibition catalogue <a href='https://books.ub.uni-heidelberg.de//arthistoricum/catalog/book/396' target='_blanc'>In Mode: Kleider und Bilder aus Renaissance und Frühbarock</a> (Nuremberg 2015, p.85). The Doublet with embroidered decorative stripes can be found ibid. on p. 101 ff.",
       "background": "left"
     }
   ]
