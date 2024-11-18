@@ -1,6 +1,6 @@
 # 3D Stories
 
-3D Stories is a powerful tool designed to present 3D models of historic garments from the textile collection at the Germanisches Nationalmuseum Nuremberg. Developed in collaboration with the Urban Complexity Lab of Potsdam, this tool provides an interactive and immersive experience for exploring historic textiles.
+3D Stories is a powerful tool designed to present 3D Models of historic garments from the textile collection at the Germanisches Nationalmuseum Nuremberg. Developed in collaboration with the Urban Complexity Lab of Potsdam, this tool provides an interactive and immersive experience for exploring historic textiles.
 
 ![Untitled](https://github.com/user-attachments/assets/e8b3b9da-e043-4c9e-be12-39fd98b82b02)
 
@@ -10,7 +10,7 @@
 - [Usage](#usage)
 - [Features](#features)
 - [Applications Used](#applications-used)
-- [How to Create Your 3D Story (Step-by-Step User Guide)](https://github.com/uclab-potsdam/3dstories/wiki/How-to-Create-Your-3D-Story-(Step%E2%80%90by%E2%80%90Step-User-Guide))
+- [How to Create Your 3D Story (Step-by-Step User Guide)](<https://github.com/uclab-potsdam/3dstories/wiki/How-to-Create-Your-3D-Story-(Step%E2%80%90by%E2%80%90Step-User-Guide)>)
 - [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
@@ -20,7 +20,6 @@
 ### Prerequisites
 
 Ensure you have the following installed:
-
 
 - [Node.js](https://nodejs.org/) (version 22.9.0 or higher)
 - [npm](https://www.npmjs.com/) (version 10.8.3 or higher)
@@ -57,7 +56,7 @@ This will launch the development server and open the application in your default
   - Scrolling
   - Points of interest (the model exploration mode).
   - Fullscreen menu navigation
-- **Orbit Tool**: Use the orbit tool to explore the 3D model from different angles (Rotate, Zoom Out/In (Scale), Move).
+- **Orbit Tool**: Use the orbit tool to explore the 3D Model from different angles (Rotate, Zoom Out/In (Scale), Move).
 - **Multiple Objects**: Animate and explore multiple objects within a single story.
 - **Modal Windows**: Modal windows provide additional images and information related to the text.
 - **Responsive Design**: Optimized for both desktop and mobile devices.
@@ -67,9 +66,9 @@ This will launch the development server and open the application in your default
 - **React Vite**: For building a fast and modern web application.
 - **React Three Fiber**: For rendering 3D graphics using Three.js in React.
 - **Theatre JS**: For animation and interactive experiences.
-- **Blender**: For converting 3D models to glb/gltf format.
+- **Blender**: For converting 3D Models to glb/gltf format.
 
-## [How to Create Your 3D Story (Step-by-Step User Guide)](https://github.com/uclab-potsdam/3dstories/wiki/How-to-Create-Your-3D-Story-(Step%E2%80%90by%E2%80%90Step-User-Guide))
+## [How to Create Your 3D Story (Step-by-Step User Guide)](<https://github.com/uclab-potsdam/3dstories/wiki/How-to-Create-Your-3D-Story-(Step%E2%80%90by%E2%80%90Step-User-Guide)>)
 
 ### Preview glTF Models
 
