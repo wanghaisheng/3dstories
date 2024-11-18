@@ -7,7 +7,6 @@ import ScrollManager, { useScrollStore } from './ScrollManager'
 import Feature from '../Ui/Feature'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { useSpring, a, config } from '@react-spring/web'
-import { useMediaQuery } from 'react-responsive'
 import { useViewportStore } from './ViewportManager'
 import ScrollDownIndicator from '../Ui/ScrollDownIndicator'
 // import { modalVisible } from '../GlobalState'
@@ -26,7 +25,6 @@ const AvailableContents = {
 }
 const ContentManager = ({ openModal, scrollToTop }) => {
   const bottomRef = useRef(null)
-  const isBigScreen = useMediaQuery({ query: '(min-width: 440px)' })
   const availableHeight = useViewportStore(state => state.availableHeight)
   const setBottomVisible = useViewportStore(state => state.setBottomVisible)
   // Fetch initial state
