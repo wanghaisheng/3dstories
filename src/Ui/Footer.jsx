@@ -48,7 +48,7 @@ const Footer = ({ scrollToTop, pathname }) => {
     <a.footer
       style={stylesScrollUp}
       className={`footer max-w-full md:w-screen ${
-        isVisibleFooter === false ? 'pointer-events-none' : 'pointer-events-auto'
+        pathname !== '/' && isVisibleFooter === false ? 'pointer-events-none' : 'pointer-events-auto'
       } ${pathname === '/' ? 'relative' : 'fixed'} w-screen bottom-0 left-0 flex flex-wrap p-5 sm:p-10 items-center justify-center`}
     >
       {pathname !== '/' ? (
