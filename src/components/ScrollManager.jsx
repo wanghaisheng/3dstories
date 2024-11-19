@@ -4,6 +4,7 @@ import { useSetAtom } from 'jotai'
 import { create } from 'zustand'
 import { useMediaQuery } from 'react-responsive'
 import { useViewportStore } from './ViewportManager'
+import { UAParser } from 'ua-parser-js'
 
 export const useScrollStore = create(set => ({
   scrollRatio: 0,
@@ -23,17 +24,23 @@ export const useScrollStore = create(set => ({
 
 const ScrollManager = ({ pages = [], pathname = '/' }) => {
   const isBigScreen = useMediaQuery({ query: '(min-width: 440px)' })
-  const windowHeight = useViewportStore(state => state.availableHeight)
+  let windowHeight = useViewportStore(state => state.availableHeight)
 
   const setScrollOffset = useSetAtom(scrollOffset)
   const setCurrentPage = useSetAtom(currentPage)
   const setScrollRatio = useScrollStore(state => state.setScrollRatio)
   const setPage = useScrollStore(state => state.setPage)
 
+  const parser = new UAParser()
+  const device = parser.getDevice()
+
   console.info('[ScrollManager] rendered', pages)
 
   useEffect(() => {
     window.scrollTo(0, 0)
+    if (device.type !== 'mobile') {
+      windowHeight = window.innerHeight
+    }
     const scrollme = () => {
       const ratio = window.scrollY / (windowHeight * (pages.length - 1))
       const currentPage = Math.round(window.scrollY / windowHeight)

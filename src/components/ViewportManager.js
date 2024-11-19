@@ -48,23 +48,22 @@ const ViewportManager = () => {
         if (!isPortrait.current && window.innerHeight > window.innerWidth) {
           console.log('[ViewportManager] @useEffect MOBILE resize dimensions...')
           isPortrait.current = true
-          // updateAvailableDimensions()
+          updateAvailableDimensions()
           updateOrientation()
         } else if (isPortrait.current && window.innerHeight < window.innerWidth) {
           console.info('[ViewportManager] @useEffect MOBILE resize dimensions...')
           isPortrait.current = false
           updateOrientation()
-          // updateAvailableDimensions()
+          updateAvailableDimensions()
         }
       } else {
         console.info('[ViewportManager] @useEffect resize dimensions...')
         updateAvailableDimensions()
       }
     }
-    if (device.type !== 'mobile') {
-      window.addEventListener('resize', resize)
-      console.log('YYY')
-    }
+
+    window.addEventListener('resize', resize)
+
     return () => {
       console.info('[ViewportManager] @useEffect cleanup')
       window.removeEventListener('resize', resize)
