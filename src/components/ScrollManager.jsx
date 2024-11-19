@@ -40,6 +40,7 @@ const ScrollManager = ({ pages = [], pathname = '/' }) => {
     window.scrollTo(0, 0)
 
     const scrollme = () => {
+      if (device.type === 'mobile') window.innerHeight = windowHeight
       const ratio = window.scrollY / (windowHeight * (pages.length - 1))
       const currentPage = Math.round(window.scrollY / windowHeight)
       setScrollOffset(ratio)
@@ -64,7 +65,7 @@ const ScrollManager = ({ pages = [], pathname = '/' }) => {
         left: 0,
         top: 0,
         width: '100%',
-        height: pages.length * (device.type === 'mobile' ? windowHeight : window.innerHeight)
+        height: pages.length * window.innerHeight
       }}
     >
       {pages.map((d, i, arr) => (
