@@ -1,7 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { UAParser } from 'ua-parser-js'
 import { create } from 'zustand'
-import { useMediaQuery } from 'react-responsive'
 
 export const useViewportStore = create(set => ({
   availableHeight: window.innerHeight,
@@ -30,7 +29,6 @@ export const useViewportStore = create(set => ({
 }))
 
 const ViewportManager = () => {
-  const isBigScreen = useMediaQuery({ query: '(min-width: 440px)' })
   const parser = new UAParser()
   const device = parser.getDevice()
 
@@ -48,24 +46,24 @@ const ViewportManager = () => {
       if (device.type === 'mobile') {
         // detect if the device CHANGED from portrait to landscape mode
         if (!isPortrait.current && window.innerHeight > window.innerWidth) {
-          console.info('[ViewportManager] @useEffect MOBILE resize dimensions...')
+          console.log('[ViewportManager] @useEffect MOBILE resize dimensions...')
           isPortrait.current = true
-          updateAvailableDimensions()
+          // updateAvailableDimensions()
           updateOrientation()
         } else if (isPortrait.current && window.innerHeight < window.innerWidth) {
           console.info('[ViewportManager] @useEffect MOBILE resize dimensions...')
           isPortrait.current = false
           updateOrientation()
-          updateAvailableDimensions()
+          // updateAvailableDimensions()
         }
       } else {
         console.info('[ViewportManager] @useEffect resize dimensions...')
         updateAvailableDimensions()
       }
     }
-    if (isBigScreen < 440) {
+    if (device.type !== 'mobile') {
       window.addEventListener('resize', resize)
-      console.log('XXX', isBigScreen)
+      console.log('YYY')
     }
     return () => {
       console.info('[ViewportManager] @useEffect cleanup')
