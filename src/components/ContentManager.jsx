@@ -53,7 +53,7 @@ const ContentManager = ({ openModal, scrollToTop }) => {
           console.debug('[ContentManager] Bottom is not visible')
         }
       },
-      { threshold: 0.1 }
+      { threshold: 1 }
     )
     if (bottomRef.current) {
       observer.observe(bottomRef.current)
@@ -122,7 +122,7 @@ const ContentManager = ({ openModal, scrollToTop }) => {
             />
           </div>
         ))}
-        <div style={{ height: '300px' }} className="opacity-0" ref={bottomRef}>
+        <div className="opacity-0" ref={bottomRef}>
           Footer Trigger
         </div>
       </a.div>
