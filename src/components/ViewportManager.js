@@ -61,9 +61,12 @@ const ViewportManager = () => {
         updateAvailableDimensions()
       }
     }
-    window.addEventListener('resize', resize)
+    if (device.type !== 'mobile') {
+      window.addEventListener('resize', resize)
+    }
     return () => {
       console.info('[ViewportManager] @useEffect cleanup')
+
       window.removeEventListener('resize', resize)
     }
   }, [window.innerHeight])
