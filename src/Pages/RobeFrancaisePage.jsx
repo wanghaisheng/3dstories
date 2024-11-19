@@ -75,8 +75,8 @@ const RobeFrancaisePage = ({ pathname }) => {
   return (
     <div className="Scene fixed h-screen w-full top-0">
       <Helmet>
-        <title>A luxurious Robe à la francaise</title>
-        <meta name="description" content="" data-rh="true" />
+        <title>3D Stories · A luxurious Robe à la francaise</title>
+        <meta name="description" content="Telling stories about historical dress." data-rh="true" />
         <meta name="keywords" content="Robe, UCLAB, C²DH" />
       </Helmet>
       <Canvas

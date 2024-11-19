@@ -67,8 +67,8 @@ const GreekStyleDressPage = ({ pathname }) => {
   return (
     <div className="Scene fixed h-screen w-full top-0">
       <Helmet>
-        <title>A dress in "greek style"</title>
-        <meta name="description" content="" data-rh="true" />
+        <title>3D Stories · A dress in "greek style"</title>
+        <meta name="description" content="Telling stories about historical dress." data-rh="true" />
         <meta name="keywords" content="Robe, UCLAB, C²DH" />
       </Helmet>
       <Canvas

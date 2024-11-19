@@ -63,8 +63,8 @@ const ArmorPage = ({ pathname }) => {
   return (
     <div className="Scene fixed h-screen w-full top-0">
       <Helmet>
-        <title>A plate armor for Elector Christian I. of Saxony</title>
-        <meta name="description" content="" data-rh="true" />
+        <title>3D Stories · A plate armor for Elector Christian I. of Saxony</title>
+        <meta name="description" content="Telling stories about historical dress." data-rh="true" />
         <meta name="keywords" content="Robe, UCLAB, C²DH" />
       </Helmet>
       <Canvas
