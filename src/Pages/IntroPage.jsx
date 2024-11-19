@@ -86,7 +86,7 @@ const IntroPage = () => {
                   <Team
                     key={member.name}
                     name={member.name}
-                    // img={member.img}
+                    img={member.img}
                     role={member.role}
                     uni={member.uni}
                     link={member.link}

@@ -30,14 +30,14 @@
 }
 
 .Team img {
-  filter: saturate(0.25);
-  /* border-radius: 0.8rem; */
+  /* filter: saturate(0.25); */
+  border-radius: 0.8rem;
 }
 
 .Team span {
   position: absolute;
   top: 1.5rem;
-  right: 1.5rem;
+  left: 1.5rem;
   background-color: rgba(var(--white-rgb), 0.3);
   padding: 0.3rem 0.5rem;
   font-size: 0.7rem;
