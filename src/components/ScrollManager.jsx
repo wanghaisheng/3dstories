@@ -40,6 +40,7 @@ const ScrollManager = ({ pages = [], pathname = '/' }) => {
     window.scrollTo(0, 0)
     if (device.type !== 'mobile') {
       windowHeight = window.innerHeight
+      return windowHeight
     }
     const scrollme = () => {
       const ratio = window.scrollY / (windowHeight * (pages.length - 1))
