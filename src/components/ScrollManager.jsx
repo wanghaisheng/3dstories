@@ -24,7 +24,7 @@ export const useScrollStore = create(set => ({
 
 const ScrollManager = ({ pages = [], pathname = '/' }) => {
   const isBigScreen = useMediaQuery({ query: '(min-width: 440px)' })
-  let windowHeight = useViewportStore(state => state.availableHeight)
+  const windowHeight = useViewportStore(state => state.availableHeight)
 
   const setScrollOffset = useSetAtom(scrollOffset)
   const setCurrentPage = useSetAtom(currentPage)
@@ -38,10 +38,7 @@ const ScrollManager = ({ pages = [], pathname = '/' }) => {
 
   useEffect(() => {
     window.scrollTo(0, 0)
-    if (device.type !== 'mobile') {
-      windowHeight = window.innerHeight
-      return windowHeight
-    }
+
     const scrollme = () => {
       const ratio = window.scrollY / (windowHeight * (pages.length - 1))
       const currentPage = Math.round(window.scrollY / windowHeight)
@@ -67,7 +64,7 @@ const ScrollManager = ({ pages = [], pathname = '/' }) => {
         left: 0,
         top: 0,
         width: '100%',
-        height: pages.length * windowHeight
+        height: pages.length * (device.type === 'mobile' ? windowHeight : window.innerHeight)
       }}
     >
       {pages.map((d, i, arr) => (
