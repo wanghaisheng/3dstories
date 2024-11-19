@@ -1,9 +1,10 @@
-import { useEffect, useRef } from 'react'
+import { useEffect } from 'react'
 import { currentPage, scrollOffset } from '../GlobalState'
 import { useSetAtom } from 'jotai'
 import { create } from 'zustand'
 import { useMediaQuery } from 'react-responsive'
 import { useViewportStore } from './ViewportManager'
+import { UAParser } from 'ua-parser-js'
 
 export const useScrollStore = create(set => ({
   scrollRatio: 0,
@@ -22,6 +23,8 @@ export const useScrollStore = create(set => ({
 }))
 
 const ScrollManager = ({ pages = [], pathname = '/' }) => {
+  const parser = new UAParser()
+  const device = parser.getDevice()
   const isBigScreen = useMediaQuery({ query: '(min-width: 440px)' })
   const windowHeight = useViewportStore(state => state.availableHeight)
 
@@ -33,6 +36,9 @@ const ScrollManager = ({ pages = [], pathname = '/' }) => {
   console.info('[ScrollManager] rendered', pages)
 
   useEffect(() => {
+    if (device.type === 'mobile') {
+      windowHeight === window.innerHeight
+    }
     window.scrollTo(0, 0)
     const scrollme = () => {
       const ratio = window.scrollY / (windowHeight * (pages.length - 1))
