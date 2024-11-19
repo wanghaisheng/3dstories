@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { UAParser } from 'ua-parser-js'
 import { create } from 'zustand'
+import { useMediaQuery } from 'react-responsive'
 
 export const useViewportStore = create(set => ({
   availableHeight: window.innerHeight,
@@ -29,6 +30,7 @@ export const useViewportStore = create(set => ({
 }))
 
 const ViewportManager = () => {
+  const isBigScreen = useMediaQuery({ query: '(min-width: 440px)' })
   const parser = new UAParser()
   const device = parser.getDevice()
 
@@ -61,7 +63,10 @@ const ViewportManager = () => {
         updateAvailableDimensions()
       }
     }
-    window.addEventListener('resize', resize)
+    if (isBigScreen < 440) {
+      window.addEventListener('resize', resize)
+      console.log('XXX', isBigScreen)
+    }
     return () => {
       console.info('[ViewportManager] @useEffect cleanup')
       window.removeEventListener('resize', resize)
