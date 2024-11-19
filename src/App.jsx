@@ -33,7 +33,7 @@ function App() {
   const scrollToTop = () => {
     window.scrollTo({
       top: window.top,
-      behavior: 'instant' // Optional: for smooth scrolling§
+      behavior: 'smooth' // Optional: for smooth scrolling§
     })
     setScrollToTopEf(true)
     console.debug('scrollToTopEf', scrollToTopEf)
