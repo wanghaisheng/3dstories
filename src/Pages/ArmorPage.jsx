@@ -14,6 +14,7 @@ import { editable as e } from '@theatre/r3f'
 import * as THREE from 'three'
 import Transition from '../Ui/Transition'
 import EffectComposerComp from '../Ui/EffectComposerComp'
+import { Helmet } from 'react-helmet'
 
 const Armor = ({ pathname }) => {
   const ArmorRef = useRef(null)
@@ -61,6 +62,11 @@ const ArmorPage = ({ pathname }) => {
 
   return (
     <div className="Scene fixed h-screen w-full top-0">
+      <Helmet>
+        <title>A plate armor for Elector Christian I. of Saxony</title>
+        <meta name="description" content="" data-rh="true" />
+        <meta name="keywords" content="Robe, UCLAB, C²DH" />
+      </Helmet>
       <Canvas
         gl={{
           physicallyCorrectLights: true,
