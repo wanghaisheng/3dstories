@@ -6,6 +6,7 @@ import Button from '../Ui/Button'
 import { Link } from 'react-router-dom'
 import ScrollDownIndicator from '../Ui/ScrollDownIndicator'
 import Team from '../Ui/Team'
+import { Helmet } from 'react-helmet'
 
 const IntroPage = () => {
   const setBackgroundVideoReady = useViewportStore(state => state.setBackgroundVideoReady)
@@ -45,6 +46,11 @@ const IntroPage = () => {
       </div>
 
       <main className="flex w-full overflow-hidden flex-col justify-center items-center p-4">
+        <Helmet>
+          <title>3D Stories</title>
+          <meta name="description" content="" data-rh="true" />
+          <meta name="keywords" content="UCLAB, C²DH" />
+        </Helmet>
         <div className="h-screen flex items-center sm:translate-x-[0rem] xl:translate-x-[-12rem]">
           {IntroContent?.sections?.map((d, i) =>
             i === 0 ? (
