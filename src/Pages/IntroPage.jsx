@@ -1,6 +1,4 @@
 import Transition from '../Ui/Transition'
-import { useViewportStore } from '../components/ViewportManager'
-import Vimeo from '@u-wave/react-vimeo'
 import IntroContent from '../Data/introduction.json'
 import Button from '../Ui/Button'
 import { Link } from 'react-router-dom'
@@ -9,40 +7,10 @@ import Team from '../Ui/Team'
 import { Helmet, HelmetProvider } from 'react-helmet-async'
 
 const IntroPage = () => {
-  const setBackgroundVideoReady = useViewportStore(state => state.setBackgroundVideoReady)
   return (
     <div className="IntroPage">
       <div className="overflow-hidden absolute w-full h-screen flex items-end pointer-events-none">
         <ScrollDownIndicator className={'mb-10 absolute'}></ScrollDownIndicator>
-
-        <div className="background-video">
-          <Vimeo
-            video="https://vimeo.com/1021606397/0c67cd3435"
-            // autoplay={false}
-            loop
-            muted
-            showByline={false}
-            showTitle={false}
-            showPortrait={true}
-            controls={false} // Hide controls
-            // background
-            onReady={e => {
-              console.debug('[Preloader] onPlay', e)
-              e.play().then(() => {
-                console.debug('Video is playing')
-                setBackgroundVideoReady(true)
-              })
-              // debugger
-              //
-            }}
-            onPlaying={e => {
-              console.debug('[Preloader] onPlaying', e)
-            }}
-            onProgress={e => {
-              console.debug('[Preloader] onProgress', e)
-            }}
-          />
-        </div>
       </div>
 
       <main className="flex w-full overflow-hidden flex-col justify-center items-center p-4">

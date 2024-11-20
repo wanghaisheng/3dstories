@@ -20,6 +20,7 @@ import IntroPage from './Pages/IntroPage'
 import Preloader from './Ui/Preloader'
 import { useEffect, useRef } from 'react'
 import useStore from './GlobalState'
+import VideoBackground from './Ui/VideoBackground'
 
 function App() {
   const location = useLocation()
@@ -79,6 +80,7 @@ function App() {
         <ViewportManager />
       </AnimatePresence>
       <Footer scrollToTop={scrollToTop} pathname={pathname} />
+      <VideoBackground pathname={pathname} />
       <Background pathname={pathname} showFullscreenMode={true} />
     </>
   )
