@@ -2,6 +2,9 @@ import { useGLTF } from '@react-three/drei'
 import { watchLoadedAtom } from '../GlobalState'
 import { useAtom } from 'jotai'
 import { forwardRef, useEffect } from 'react'
+import { getSafeBasePathUrl } from '../utils'
+
+const modelUrl = getSafeBasePathUrl('/robeFrancaise.glb')
 
 const RobeFrancaiseModel = forwardRef(({ position, rotation, ...props }, ref) => {
   const [, setWatchLoadedAtom] = useAtom(watchLoadedAtom)
@@ -13,7 +16,7 @@ const RobeFrancaiseModel = forwardRef(({ position, rotation, ...props }, ref) =>
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
-  const { nodes, materials } = useGLTF(import.meta.env.BASE_URL + '/robeFrancaise.glb')
+  const { nodes, materials } = useGLTF(modelUrl)
   materials.material_0.depthWrite = true
   materials.material_0.metalness = 0
   materials.material_0.transparent = true
@@ -33,6 +36,6 @@ const RobeFrancaiseModel = forwardRef(({ position, rotation, ...props }, ref) =>
   )
 })
 
-useGLTF.preload(import.meta.env.BASE_URL + '/robeFrancaise.glb')
+useGLTF.preload(modelUrl)
 
 export default RobeFrancaiseModel

@@ -2,6 +2,9 @@ import { useGLTF } from '@react-three/drei'
 import { watchLoadedAtom } from '../GlobalState'
 import { useAtom } from 'jotai'
 import { forwardRef, useEffect } from 'react'
+import { getSafeBasePathUrl } from '../utils'
+
+const modelUrl = getSafeBasePathUrl('/spencer_jacket.glb')
 
 const SpencerJacketModel = forwardRef(({ position, rotation, ...props }, ref) => {
   const [, setWatchLoadedAtom] = useAtom(watchLoadedAtom)
@@ -13,7 +16,7 @@ const SpencerJacketModel = forwardRef(({ position, rotation, ...props }, ref) =>
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
-  const { nodes, materials } = useGLTF(import.meta.env.BASE_URL + '/spencer_jacket.glb')
+  const { nodes, materials } = useGLTF(modelUrl)
   materials.material_0.depthWrite = true
   materials.material_0.metalness = 0
   materials.material_0.roughness = 1
@@ -36,6 +39,6 @@ const SpencerJacketModel = forwardRef(({ position, rotation, ...props }, ref) =>
   )
 })
 
-useGLTF.preload(import.meta.env.BASE_URL + '/spencer_jacket.glb')
+useGLTF.preload(modelUrl)
 
 export default SpencerJacketModel

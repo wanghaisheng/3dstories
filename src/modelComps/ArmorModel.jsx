@@ -2,6 +2,9 @@ import { useGLTF } from '@react-three/drei'
 import { watchLoadedAtom } from '../GlobalState'
 import { useAtom } from 'jotai'
 import { forwardRef, useEffect } from 'react'
+import { getSafeBasePathUrl } from '../utils'
+
+const modelUrl = getSafeBasePathUrl('/armor.glb')
 
 const ArmorModel = forwardRef(({ position, rotation, scale, ...props }, ref) => {
   const [, setWatchLoadedAtom] = useAtom(watchLoadedAtom)
@@ -13,7 +16,7 @@ const ArmorModel = forwardRef(({ position, rotation, scale, ...props }, ref) => 
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
-  const { nodes, materials } = useGLTF(import.meta.env.BASE_URL + '/armor.glb')
+  const { nodes, materials } = useGLTF(modelUrl)
   materials.material_0.depthWrite = true
   // materials.material_0.metalness = 0
   materials.material_0.transparent = true
@@ -25,6 +28,6 @@ const ArmorModel = forwardRef(({ position, rotation, scale, ...props }, ref) => 
   )
 })
 
-useGLTF.preload(import.meta.env.BASE_URL + '/armor.glb')
+useGLTF.preload(modelUrl)
 
 export default ArmorModel
