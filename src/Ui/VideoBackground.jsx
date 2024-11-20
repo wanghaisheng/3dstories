@@ -26,7 +26,7 @@ const VideoBackground = ({ pathname }) => {
       style={{ opacity: pauseVideo === false ? 1 : 0 }}
     >
       <video
-        src="3dstories/intro.mp4"
+        src="intro.mp4"
         autoPlay
         loop
         muted
