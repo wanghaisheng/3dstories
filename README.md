@@ -13,7 +13,6 @@
 - [How to Create Your 3D Story (Step-by-Step User Guide)](<https://github.com/uclab-potsdam/3dstories/wiki/How-to-Create-Your-3D-Story-(Step%E2%80%90by%E2%80%90Step-User-Guide)>)
 - [Contributing](#contributing)
 - [License](#license)
-- [Contact](#contact)
 
 ## Installation
 
@@ -107,6 +106,3 @@ We welcome contributions! If you would like to contribute to this project, pleas
 
 This project is licensed under the GNU Affero General Public License. See the [AGPL-3.0 License](https://www.gnu.org/licenses/agpl-3.0.en.html) for details.
 
-## Contact
-
-If you have any questions or suggestions, please feel free to contact us at your-email@example.com.
