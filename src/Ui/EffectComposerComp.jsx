@@ -1,4 +1,4 @@
-import { EffectComposer, Bloom, Sepia } from '@react-three/postprocessing'
+import { EffectComposer, Scanline, Sepia } from '@react-three/postprocessing'
 import useStore from '../GlobalState'
 import { useState } from 'react'
 import { useSpring } from '@react-spring/three'
@@ -21,7 +21,7 @@ const EffectComposerComp = () => {
       {scrollToTopEf === true && (
         <>
           <Sepia intensity={intensity} />
-          <Bloom luminanceThreshold={1} luminanceSmoothing={3} height={300} opacity={intensity} />
+          <Scanline density={0.6} opacity={intensity} />
         </>
       )}
     </EffectComposer>
