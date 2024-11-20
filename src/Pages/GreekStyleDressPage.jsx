@@ -15,7 +15,7 @@ import SpencerJacketModel from '../modelComps/SpencerJacketModel'
 import * as THREE from 'three'
 import Transition from '../Ui/Transition'
 import EffectComposerComp from '../Ui/EffectComposerComp'
-import { Helmet } from 'react-helmet'
+import { Helmet, HelmetProvider } from 'react-helmet-async'
 
 const GreekStyleDress = ({ pathname }) => {
   const robeRef = useRef(null)
@@ -66,11 +66,13 @@ const GreekStyleDressPage = ({ pathname }) => {
 
   return (
     <div className="Scene fixed h-screen w-full top-0">
-      <Helmet>
-        <title>3D Stories · A dress in "greek style"</title>
-        <meta name="description" content="Telling stories about historical dress." data-rh="true" />
-        <meta name="keywords" content="Robe, UCLAB, C²DH" />
-      </Helmet>
+      <HelmetProvider>
+        <Helmet>
+          <title>3D Stories · A dress in "greek style"</title>
+          <meta name="description" content="Telling stories about historical dress." data-rh="true" />
+          <meta name="keywords" content="Robe, UCLAB, C²DH" />
+        </Helmet>
+      </HelmetProvider>
       <Canvas
         shadows
         gl={{

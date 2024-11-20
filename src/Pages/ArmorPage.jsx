@@ -14,10 +14,9 @@ import { editable as e } from '@theatre/r3f'
 import * as THREE from 'three'
 import Transition from '../Ui/Transition'
 import EffectComposerComp from '../Ui/EffectComposerComp'
-import { Helmet } from 'react-helmet'
+import { Helmet, HelmetProvider } from 'react-helmet-async'
 
 const Armor = ({ pathname }) => {
-  const ArmorRef = useRef(null)
   const ratioRef = useRef(useScrollStore.getState().scrollRatio)
   const isBigScreen = useMediaQuery({ query: '(min-width: 640px)' })
   const sheet = useCurrentSheet()
@@ -47,7 +46,7 @@ const Armor = ({ pathname }) => {
       <PerspectiveCamera theatreKey="Camera" makeDefault position={[0, 0.2, 8]} fov={45} near={0.1} far={70} />
       <group position={isBigScreen ? [0, 0, 0] : [-1, 0, 0]} scale={isBigScreen ? 1 : 1}>
         <e.group theatreKey="Armor">
-          <ArmorModel ref={ArmorRef} position={[0, 0.4, 0]} rotation={0} scale={4} />
+          <ArmorModel position={[0, 0.4, 0]} rotation={0} scale={4} />
         </e.group>
       </group>
     </>
@@ -62,11 +61,13 @@ const ArmorPage = ({ pathname }) => {
 
   return (
     <div className="Scene fixed h-screen w-full top-0">
-      <Helmet>
-        <title>3D Stories · A plate armor for Elector Christian I. of Saxony</title>
-        <meta name="description" content="Telling stories about historical dress." data-rh="true" />
-        <meta name="keywords" content="Robe, UCLAB, C²DH" />
-      </Helmet>
+      <HelmetProvider>
+        <Helmet>
+          <title>3D Stories · A plate armor for Elector Christian I. of Saxony</title>
+          <meta name="description" content="Telling stories about historical dress." data-rh="true" />
+          <meta name="keywords" content="Robe, UCLAB, C²DH" />
+        </Helmet>
+      </HelmetProvider>
       <Canvas
         gl={{
           physicallyCorrectLights: true,
