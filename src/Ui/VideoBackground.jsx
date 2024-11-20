@@ -1,54 +1,44 @@
-import Vimeo from '@u-wave/react-vimeo'
-import { useViewportStore } from '../components/ViewportManager'
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
+import { useViewportStore } from '../components/ViewportManager';
 
 const VideoBackground = ({ pathname }) => {
-  const [pauseVideo, setPauseVideo] = useState(false)
+  const [pauseVideo, setPauseVideo] = useState(false);
 
   useEffect(() => {
     if (pathname === '/') {
-      setPauseVideo(false)
-      console.log('Play video', pauseVideo)
+      setPauseVideo(false);
+      console.log('Play video', pauseVideo);
     } else {
-      setPauseVideo(true)
-      console.log('Pause video', pauseVideo)
+      setPauseVideo(true);
+      console.log('Pause video', pauseVideo);
     }
-  }, [pathname])
+  }, [pathname]);
 
-  const setBackgroundVideoReady = useViewportStore(state => state.setBackgroundVideoReady)
+  const setBackgroundVideoReady = useViewportStore(
+    (state) => state.setBackgroundVideoReady
+  );
+
   return (
     <div
-      className={`background-video ${pauseVideo === false ? 'pointer-events-auto' : 'pointer-events-none'}`}
+      className={`background-video ${
+        pauseVideo === false ? 'pointer-events-auto' : 'pointer-events-none'
+      }`}
       style={{ opacity: pauseVideo === false ? 1 : 0 }}
     >
-      <Vimeo
-        video="https://vimeo.com/1021606397/0c67cd3435"
-        paused={pauseVideo}
+      <video
+        src="3dstories/intro.mp4"
+        autoPlay
         loop
         muted
-        showByline={false}
-        showTitle={false}
-        showPortrait={true}
-        controls={false} // Hide controls
-        // background
-        onReady={e => {
-          console.debug('[Preloader] onPlay', e)
-          e.play().then(() => {
-            console.debug('Video is playing')
-            setBackgroundVideoReady(true)
-          })
-          // debugger
-          //
+        playsInline
+        onCanPlay={() => {
+          console.debug('[Preloader] Video ready');
+          setBackgroundVideoReady(true);
         }}
-        onPlaying={e => {
-          console.debug('[Preloader] onPlaying', e)
-        }}
-        onProgress={e => {
-          console.debug('[Preloader] onProgress', e)
-        }}
-      />
+        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+      ></video>
     </div>
-  )
-}
+  );
+};
 
-export default VideoBackground
+export default VideoBackground;
