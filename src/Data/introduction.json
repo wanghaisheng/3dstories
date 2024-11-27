@@ -39,7 +39,7 @@
           "id": 1,
           "uni": "UCLAB",
           "role": "Fashion History",
-          "img": "img/sabine_de_gunther.jpg",
+          "img": "img/team/sabine_de_gunther.jpg",
           "name": "Sabine de Günther",
           "link": "https://uclab.fh-potsdam.de/people/sabine-de-guenther/"
         },
@@ -48,7 +48,7 @@
           "id": 2,
           "uni": "C²DH",
           "role": "UI/UX Design/Development",
-          "img": "img/kirill_mitsurov.jpg",
+          "img": "img/team/kirill_mitsurov.jpg",
           "name": "Kirill Mitsurov",
           "link": "https://www.c2dh.uni.lu/people/kirill-mitsurov"
         },
@@ -56,7 +56,7 @@
           "id": 3,
           "uni": "UCLAB",
           "role": "Research Supervision",
-          "img": "img/marian_dork.jpg",
+          "img": "img/team/marian_dork.jpg",
           "name": "Marian Dörk",
           "link": "https://uclab.fh-potsdam.de/people/marian-doerk/"
         },
@@ -64,7 +64,7 @@
           "id": 4,
           "uni": "C²DH",
           "role": "Development",
-          "img": "img/daniele_guido.jpg",
+          "img": "img/team/daniele_guido.jpg",
           "name": "Daniele Guido",
           "link": "https://www.c2dh.uni.lu/people/daniele-guido"
         }
