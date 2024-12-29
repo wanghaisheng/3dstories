@@ -1,3 +1,5 @@
+2024-1229
+
 # 3D Stories
 
 3D Stories is a powerful tool designed to present 3D Models of historic garments from the textile collection at the Germanisches Nationalmuseum Nuremberg. Developed in collaboration with the Urban Complexity Lab of Potsdam, this tool provides an interactive and immersive experience for exploring historic textiles.
